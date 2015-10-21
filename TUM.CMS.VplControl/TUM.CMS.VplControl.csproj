@@ -135,7 +135,8 @@
     <Compile Include="Core\SearchTextBox.cs" />
     <Compile Include="Nodes\CommentNode.cs" />
     <Compile Include="Nodes\FilePathNode.cs" />
-    <Compile Include="Nodes\ViewNode.cs" />
+    <Compile Include="Nodes\BooleanNode.cs" />
+    <Compile Include="Nodes\IntegerNode.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Themes\Theme.cs" />
     <Compile Include="Core\VplElement.cs" />
@@ -213,7 +214,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Themes\Generic.xaml.orig" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

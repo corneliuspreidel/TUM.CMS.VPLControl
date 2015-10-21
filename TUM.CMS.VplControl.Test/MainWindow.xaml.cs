@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
-using System.Windows;
 using System.Windows.Input;
 using TUM.CMS.VplControl.Utilities;
-using Xceed.Wpf.Toolkit.Zoombox;
 using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Watch3D.Nodes;
 using TUM.CMS.VPL.Scripting.Nodes;
