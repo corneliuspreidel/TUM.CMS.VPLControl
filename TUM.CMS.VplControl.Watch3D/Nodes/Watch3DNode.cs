@@ -18,13 +18,13 @@ namespace TUM.CMS.VplControl.Watch3D.Nodes
     {
         // Standard Selection Material
         private readonly Material _selectionMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Crimson));
-        // Currently Selected Models
-        public IList<GeometryModel3D> SelectedModels;
         // Control Members
         // Must be public since other objects access these control objects
         public Watch3DControl Control;
         public ProgressBar ProgressBar;
         public Label ProgressLabel;
+        // Currently Selected Models
+        public IList<GeometryModel3D> SelectedModels;
 
         /// <summary>
         ///     Constructor
@@ -59,7 +59,7 @@ namespace TUM.CMS.VplControl.Watch3D.Nodes
             // HelixViewport3D.Camera = new OrthographicCamera();
             // HelixViewport3D.Camera.NearPlaneDistance = 100;
             // HelixViewport3D.Camera.FarPlaneDistance = 0.00000001;
-            
+
             // Refresh the selected Models
             SelectedModels = new List<GeometryModel3D>();
 
@@ -192,7 +192,7 @@ namespace TUM.CMS.VplControl.Watch3D.Nodes
 
             // Get sender
             var element = sender as ModelUIElement3D;
-            
+
             // Check Type
             if (element != null)
             {
@@ -248,10 +248,9 @@ namespace TUM.CMS.VplControl.Watch3D.Nodes
             ExportCurrentModelAsStereoView();
         }
 
-
         public void ExportCurrentModel()
         {
-            var dia = new SaveFileDialog()
+            var dia = new SaveFileDialog
             {
                 Filter = "STL files (*.stl)|*.stl",
                 InitialDirectory = @"C:\",
@@ -267,7 +266,9 @@ namespace TUM.CMS.VplControl.Watch3D.Nodes
         public void ExportCurrentModelAsStereoView()
         {
             var stereoControl = new Stereo3DViewControl();
-            foreach (var elem in Control.ViewPort3D.Children.OfType<ContainerUIElement3D>().SelectMany(child => (child).Children))
+            foreach (
+                var elem in
+                    Control.ViewPort3D.Children.OfType<ContainerUIElement3D>().SelectMany(child => (child).Children))
             {
                 if ((elem as ModelUIElement3D).Model.GetType() == typeof (GeometryModel3D))
                 {

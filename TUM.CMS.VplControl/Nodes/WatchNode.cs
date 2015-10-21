@@ -12,9 +12,11 @@ namespace TUM.CMS.VplControl.Nodes
         {
             AddInputPortToNode("Object", typeof (object),true);
 
+            IsResizeable = true;
+
             var textBlock = new TextBlock
             {
-                TextWrapping = TextWrapping.Wrap,
+                TextWrapping = TextWrapping.WrapWithOverflow,
                 FontSize = 14,
                 Padding = new Thickness(5),
                 IsHitTestVisible = false
@@ -26,10 +28,8 @@ namespace TUM.CMS.VplControl.Nodes
                 VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
                 MinWidth = 120,
                 MinHeight = 20,
-                MaxWidth = 200,
-                MaxHeight = 400,
                 CanContentScroll = true,
-                Content = textBlock
+                Content = textBlock,
                 //IsHitTestVisible = false
             };
 

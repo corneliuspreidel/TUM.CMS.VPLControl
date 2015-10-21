@@ -1,5 +1,7 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -13,7 +15,7 @@ namespace TUM.CMS.VPL.Scripting.Nodes
 {
     public class ScriptingNode : Node
     {
-        private readonly ScriptingControl scriptingControl;
+        private ScriptingControl scriptingControl;
         private Lazy<CSharpScriptCompiler> mScriptCompiler;
         private string scriptContent;
 
@@ -22,20 +24,20 @@ namespace TUM.CMS.VPL.Scripting.Nodes
         {
             scriptingControl = new ScriptingControl();
 
-
             scriptingControl.HighlightingComboBox.SelectionChanged += HighlightingComboBoxOnSelectionChanged;
 
+            // Tighten Button
+            var tightenButton = new Button();
+            tightenButton.Click += TightenButtonOnClick;
+            tightenButton.Content = "x";
+            tightenButton.HorizontalAlignment = HorizontalAlignment.Right;
+            tightenButton.VerticalAlignment = VerticalAlignment.Top;
+            // AddControlToNode(tightenButton);
 
             // Create new script File
             scriptingControl.CurrentFile = new CSharpScriptFile2();
 
-
-            //scriptingControl.Height = 400;
-            //scriptingControl.Width = 700;
-            //scriptingControl.DockPanel.Height = 400;
             IsResizeable = true;
-
-            //scriptingControl.StartCompilingEventHandler += StartCompilingEventHandler;
 
             scriptingControl.StartCSharpCompilingEventHandler += StartCSharpCompilation;
             scriptingControl.StartPythonCompilingEventHandler += StartPythonCompilation;
@@ -47,9 +49,24 @@ namespace TUM.CMS.VPL.Scripting.Nodes
             AddOutputPortToNode("Output", typeof (object));
         }
 
+        private void TightenButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            switch (scriptingControl.Visibility)
+            {
+                case Visibility.Visible:
+                    scriptingControl.Visibility = Visibility.Collapsed;
+                    break;
+                case Visibility.Collapsed:
+                    scriptingControl.Visibility = Visibility.Visible;
+                    break;
+            }
+        }
+
         private void HighlightingComboBoxOnSelectionChanged(object sender,
             SelectionChangedEventArgs selectionChangedEventArgs)
         {
+            if (scriptingControl.HighlightingComboBox.SelectedItem == null)
+                return;
             switch (scriptingControl.HighlightingComboBox.SelectedItem.ToString())
             {
                 case "C#":
@@ -144,11 +161,16 @@ namespace TUM.CMS.VPL.Scripting.Nodes
             }
             catch (Exception e)
             {
-                TopComment.Text = e.ToString();
+                TopComment.Text = e.ToString() ;
                 TopComment.Visibility = Visibility.Visible;
                 TopComment.HostNode_PropertyChanged(null, null);
 
                 scriptingControl.TextBlockError.Text = e.Message;
+                if (e.InnerException != null)
+                {
+                    scriptingControl.TextBlockError.Text = scriptingControl.TextBlockError.Text
+                                                           + "\n InnerException: \n" + e.InnerException.ToString();
+                }
                 scriptingControl.TextBlockError.Visibility = Visibility.Visible;
 
                 Console.WriteLine(e.Message);
@@ -209,6 +231,10 @@ namespace TUM.CMS.VPL.Scripting.Nodes
             xmlWriter.WriteValue(scriptContent);
             xmlWriter.WriteEndAttribute();
 
+            xmlWriter.WriteStartAttribute("_referencedAssemblies");
+            xmlWriter.WriteValue(scriptingControl.CurrentFile.ReferencedAssemblies);
+            xmlWriter.WriteEndAttribute();
+
             xmlWriter.WriteStartAttribute("language");
             xmlWriter.WriteValue(scriptingControl.HighlightingComboBox.SelectedItem.ToString());
             xmlWriter.WriteEndAttribute();
@@ -216,12 +242,23 @@ namespace TUM.CMS.VPL.Scripting.Nodes
 
         public override void DeserializeNetwork(XmlReader xmlReader)
         {
+            var language = xmlReader.GetAttribute("language");
+            scriptingControl.HighlightingComboBox.SelectedItem = language;
+
             base.DeserializeNetwork(xmlReader);
             scriptingControl.TextEditor.Text = xmlReader.GetAttribute("_mSkriptContent");
 
-            var language = xmlReader.GetAttribute("language");
+            var list = xmlReader.GetAttribute("_referencedAssemblies");
 
-            scriptingControl.HighlightingComboBox.SelectedItem = language;
+            if (list != null)
+            {
+                var result = list.Split(' ').ToList();
+                foreach (var item in result)
+                {
+                    if(scriptingControl.CurrentFile.ReferencedAssemblies.Contains(item) != true)
+                        scriptingControl.CurrentFile.ReferencedAssemblies.Add(item);
+                }
+            }
 
             if (language == "C#")
                 StartCSharpCompilation(null, null);

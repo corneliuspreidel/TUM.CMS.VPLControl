@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using HelixToolkit.Wpf.SharpDX;
 
 namespace TUM.CMS.VplControl.Watch3D.Controls
@@ -10,7 +8,6 @@ namespace TUM.CMS.VplControl.Watch3D.Controls
     /// </summary>
     public partial class Watch3DxControl
     {
-
         public Watch3DxControl()
         {
             InitializeComponent();

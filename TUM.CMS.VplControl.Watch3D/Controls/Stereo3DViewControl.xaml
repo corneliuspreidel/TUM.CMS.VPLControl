@@ -4,15 +4,15 @@
         xmlns:helixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
         MinHeight="350" MinWidth="525" Loaded="Stereo3DViewControl_OnLoaded">
     <Grid>
-        <StackPanel Margin="4" Width="350" Background="Transparent" HorizontalAlignment="Left" ZIndex="1"> 
+        <StackPanel Margin="4" Width="350" Background="Transparent" HorizontalAlignment="Left" ZIndex="1">
             <GroupBox Header="Stereo base" Margin="4" Padding="4">
-                <Slider Name="stereoBase" Minimum="0" Maximum="1000" Value="0.01"/>
+                <Slider Name="stereoBase" Minimum="0" Maximum="1000" Value="0.01" />
                 <!-- <TextBlock Text="{Binding LeftCamera.Position, ElementName=stereoView1}"/> -->
                 <!-- <TextBlock Text="{Binding RightCamera.Position, ElementName=stereoView1}"/> -->
             </GroupBox>
-            <GroupBox Header="Properties" Margin="4" Padding="4" >
+            <GroupBox Header="Properties" Margin="4" Padding="4">
                 <StackPanel>
-                    <CheckBox Name="dirVector" Content="Parallel direction vectors"/>
+                    <CheckBox Name="dirVector" Content="Parallel direction vectors" />
                 </StackPanel>
             </GroupBox>
             <!--
@@ -22,8 +22,9 @@
             -->
         </StackPanel>
 
-        <helixToolkit:StereoView3D Name="StereoView3D" 
-                                StereoBase="{Binding Value, ElementName=stereoBase}"
-                                CopyDirectionVector="{Binding IsChecked, ElementName=dirVector}" CameraRotationMode="Turntable"/>
-    </Grid> 
+        <helixToolkit:StereoView3D Name="StereoView3D"
+                                   StereoBase="{Binding Value, ElementName=stereoBase}"
+                                   CopyDirectionVector="{Binding IsChecked, ElementName=dirVector}"
+                                   CameraRotationMode="Turntable" />
+    </Grid>
 </Window>

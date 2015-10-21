@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using HelixToolkit.Wpf;
 
 namespace TUM.CMS.VplControl.Watch3D.Controls
 {

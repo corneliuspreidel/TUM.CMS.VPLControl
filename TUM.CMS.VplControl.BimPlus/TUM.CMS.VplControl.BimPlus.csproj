@@ -156,6 +156,7 @@
     <Compile Include="Nodes\BimPlusWatch3DNode.cs" />
     <Compile Include="Nodes\GeometryViewerNode.cs" />
     <Compile Include="Nodes\IssueContainerNode.cs" />
+    <Compile Include="Nodes\IntegrationBaseNode.cs" />
     <Compile Include="Nodes\IssueNode.cs" />
     <Compile Include="Nodes\ModelNode.cs" />
     <Compile Include="Nodes\StructureFilterNode.cs" />

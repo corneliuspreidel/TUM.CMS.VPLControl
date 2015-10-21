@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -50,7 +51,15 @@ namespace TUM.CMS.VPL.Scripting
             {
                 IHighlightingDefinition customHighlighting;
 
-                using (XmlReader reader = new XmlTextReader(AppDomain.CurrentDomain.BaseDirectory + "ICSharpCode.PythonBinding.Resources.Python.xshd"))
+                // Copy Resource to Directory
+                /*
+                var assembly = Assembly.GetExecutingAssembly();
+                var stream = assembly.GetManifestResourceStream("ICSharpCode.PythonBinding.Resources.Python.xshd");
+                if(stream != null)
+                    File.Copy(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), Convert.ToString(stream));
+                */
+
+                using (XmlReader reader = new XmlTextReader(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\ICSharpCode.PythonBinding.Resources.Python.xshd"))
                 {
                     try
                     {
@@ -128,12 +137,10 @@ namespace TUM.CMS.VPL.Scripting
             // provide AvalonEdit with the data:
             var data = completionWindow.CompletionList.CompletionData;
 
-
             data.Add(new MyCompletionData("Item1"));
             data.Add(new MyCompletionData("Item2"));
             data.Add(new MyCompletionData("Item3"));
             data.Add(new MyCompletionData("Another item"));
-
 
             completionWindow.Show();
             completionWindow.Closed += delegate
@@ -226,9 +233,13 @@ namespace TUM.CMS.VPL.Scripting
         {
             if (StartCompilingEventHandler != null)
                 StartCompilingEventHandler(this, new EventArgs());
-
+            if (HighlightingComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a Language!");
+                return;
+            }
             // In case we have a C# snippet
-            if (HighlightingComboBox.SelectedItem.ToString() == "C#")
+                if (HighlightingComboBox.SelectedItem.ToString() == "C#")
             {
                 if (StartCSharpCompilingEventHandler != null)
                     StartCSharpCompilingEventHandler(this, new EventArgs());

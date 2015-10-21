@@ -574,8 +574,14 @@ namespace TUM.CMS.VplControl.Core
             {
                 case Key.Delete:
 
+                    // Do not Delete if there is an ScriptingNode in the selection -> Delete Key is used several times inside ... 
                     foreach (var node in SelectedNodes)
+                    {
+                        if (node.GetType().ToString() == "TUM.CMS.VPL.Scripting.Nodes.ScriptingNode")
+                            return;
                         node.Delete();
+                    }
+                        
 
                     SelectedNodes.Clear();
                     break;
@@ -595,6 +601,12 @@ namespace TUM.CMS.VplControl.Core
                 {
                     if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
                     {
+                        // Do not copy if there is an ScriptingNode in the selection
+                        if (SelectedNodes.Any(node => node.GetType().ToString() == "TUM.CMS.VPL.Scripting.Nodes.ScriptingNode"))
+                        {
+                            return;
+                        }
+
                         if (tempCollection == null) return;
                         if (tempCollection.Count == 0) return;
 
@@ -757,6 +769,7 @@ namespace TUM.CMS.VplControl.Core
 
             switch (e.Key)
             {
+                /*
                 case Key.Left:
                 {
                     vector = new Vector(1, 0);
@@ -777,6 +790,7 @@ namespace TUM.CMS.VplControl.Core
                     vector = new Vector(0, -1);
                 }
                     break;
+                */
             }
 
 
@@ -853,7 +867,6 @@ namespace TUM.CMS.VplControl.Core
                     ImportFlowDirection =
                         (GraphFlowDirections) Enum.Parse(typeof (GraphFlowDirections), enumString, true);
                 }
-
 
                 reader.ReadToDescendant("Nodes");
 

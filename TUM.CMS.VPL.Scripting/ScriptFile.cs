@@ -19,7 +19,7 @@ namespace TUM.CMS.VPL.Scripting
         /// <value>
         ///     The referenced assemblies.
         /// </value>
-        public ObservableCollection<string> ReferencedAssemblies { get; private set; }
+        public ObservableCollection<string> ReferencedAssemblies { get; set; }
 
         /// <summary>
         ///     Gets or sets the content of the script.
