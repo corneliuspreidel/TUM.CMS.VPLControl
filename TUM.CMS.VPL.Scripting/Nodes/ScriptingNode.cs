@@ -1,7 +1,6 @@
 ﻿using System;
 using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -10,12 +9,13 @@ using System.Xml;
 using TUM.CMS.VplControl.Nodes;
 using TUM.CMS.VPL.Scripting.CSharp;
 using TUM.CMS.VPL.Scripting.Python;
+using System.Text.RegularExpressions;
 
 namespace TUM.CMS.VPL.Scripting.Nodes
 {
     public class ScriptingNode : Node
     {
-        private ScriptingControl scriptingControl;
+        public ScriptingControl scriptingControl;
         private Lazy<CSharpScriptCompiler> mScriptCompiler;
         private string scriptContent;
 
@@ -26,18 +26,10 @@ namespace TUM.CMS.VPL.Scripting.Nodes
 
             scriptingControl.HighlightingComboBox.SelectionChanged += HighlightingComboBoxOnSelectionChanged;
 
-            // Tighten Button
-            var tightenButton = new Button();
-            tightenButton.Click += TightenButtonOnClick;
-            tightenButton.Content = "x";
-            tightenButton.HorizontalAlignment = HorizontalAlignment.Right;
-            tightenButton.VerticalAlignment = VerticalAlignment.Top;
-            // AddControlToNode(tightenButton);
-
             // Create new script File
             scriptingControl.CurrentFile = new CSharpScriptFile2();
 
-            IsResizeable = true;
+            // IsResizeable = true;
 
             scriptingControl.StartCSharpCompilingEventHandler += StartCSharpCompilation;
             scriptingControl.StartPythonCompilingEventHandler += StartPythonCompilation;
@@ -45,21 +37,7 @@ namespace TUM.CMS.VPL.Scripting.Nodes
             AddControlToNode(scriptingControl);
 
             AddInputPortToNode("Input", typeof (object));
-
             AddOutputPortToNode("Output", typeof (object));
-        }
-
-        private void TightenButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
-        {
-            switch (scriptingControl.Visibility)
-            {
-                case Visibility.Visible:
-                    scriptingControl.Visibility = Visibility.Collapsed;
-                    break;
-                case Visibility.Collapsed:
-                    scriptingControl.Visibility = Visibility.Visible;
-                    break;
-            }
         }
 
         private void HighlightingComboBoxOnSelectionChanged(object sender,
@@ -93,7 +71,6 @@ namespace TUM.CMS.VPL.Scripting.Nodes
             try
             {
                 mScriptCompiler = new Lazy<CSharpScriptCompiler>();
-
 
                 //Compile and execute current script
                 var result = mScriptCompiler.Value.Compile(scriptingControl.CurrentFile as CSharpScriptFile);
@@ -252,11 +229,36 @@ namespace TUM.CMS.VPL.Scripting.Nodes
 
             if (list != null)
             {
-                var result = list.Split(' ').ToList();
+                var result = Regex.Split(list, @" ").ToList();
+                // var result = list.Split(Convert.ToChar(" ")).ToList();
+                // var result = list.Split(Convert.ToChar(@"C:\\")).ToList();
+
+                var tempstring = "";
+
                 foreach (var item in result)
                 {
-                    if(scriptingControl.CurrentFile.ReferencedAssemblies.Contains(item) != true)
-                        scriptingControl.CurrentFile.ReferencedAssemblies.Add(item);
+                    if (File.Exists(item) == false)
+                    {
+                        tempstring += item;
+                    }
+                    else
+                    {
+                        if (File.Exists(tempstring))
+                        {
+                            if (scriptingControl.CurrentFile.ReferencedAssemblies.Contains(tempstring) != true)
+                            {
+                                scriptingControl.CurrentFile.ReferencedAssemblies.Add(tempstring);
+                            }
+                            tempstring = "";
+                        }
+                        else
+                        {
+                            if (scriptingControl.CurrentFile.ReferencedAssemblies.Contains(item) != true)
+                            {
+                                scriptingControl.CurrentFile.ReferencedAssemblies.Add(item);
+                            }
+                        }
+                    }
                 }
             }
 

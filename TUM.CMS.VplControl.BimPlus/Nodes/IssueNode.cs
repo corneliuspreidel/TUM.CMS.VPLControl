@@ -65,7 +65,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             if (project != null)
             {
                 issue.ProjectId = project.Id;
-                _controller.IntBase.APICore.CreateIssue(issue, issue.Id, project.Id);
+                _controller.IntBase.APICore.CreateIssue(issue, project.Id);
             }
                
             Issue createdIssue = null;

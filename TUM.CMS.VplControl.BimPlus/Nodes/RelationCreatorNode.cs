@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Windows.Controls;
 using BimPlus.IntegrationFramework.Contract.Model;
-using Nemetschek.NUtilLibrary;
 using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
     public class RelationCreatorNode : Node
     {
-        // private ObservableCollection<Tuple<object, object>> _relationElements;
-
-        private DataController _controller;
+        private DataController _controller { get; set; }
+        private ComboBox combo { get; set; }
 
         public RelationCreatorNode(Core.VplControl hostCanvas)
             : base(hostCanvas)
@@ -22,11 +18,11 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             DataContext = this;
 
-            var combo = new ComboBox();
+            combo = new ComboBox();
 
             combo.Items.Add(new ComboBoxItem { Content = "touches"});
             combo.Items.Add(new ComboBoxItem { Content = "overlaps" });
-            combo.Items.Add(new ComboBoxItem { Content = "is inside" });;
+            combo.Items.Add(new ComboBoxItem { Content = "is inside" });
             combo.Items.Add(new ComboBoxItem { Content = "usw." });
     
             combo.SelectedIndex = 0;
@@ -43,6 +39,24 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             if (InputPorts[0].Data == null || InputPorts[1].Data == null) return;
 
             var res = new List<int>();
+
+            // Get the different mechanisms 
+            if (combo.SelectedItem.ToString() == "touches")
+            {
+                var inputElements_1 = InputPorts[0].Data as List<GenericElement>;
+                var inputElements_2 = InputPorts[0].Data as List<GenericElement>;
+
+                foreach (var item_1 in inputElements_1)
+                {
+                    foreach (var item_2 in inputElements_2)
+                    {
+                        // BBox check 
+
+                        // if BBox check == true -> Triangle check ...
+                    
+                    }
+                }
+            }
 
             /*
             foreach (var item1 in InputPorts[0].Data as List<GenericElement>)

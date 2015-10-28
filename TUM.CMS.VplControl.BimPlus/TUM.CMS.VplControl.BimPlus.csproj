@@ -138,6 +138,9 @@
     <Compile Include="Controls\ElementContainerNodeControl.xaml.cs">
       <DependentUpon>ElementContainerNodeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PropertyNodeControl.xaml.cs">
+      <DependentUpon>PropertyNodeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RelationNodeControl.xaml.cs">
       <DependentUpon>RelationNodeControl.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,8 @@
     <Compile Include="Nodes\IntegrationBaseNode.cs" />
     <Compile Include="Nodes\IssueNode.cs" />
     <Compile Include="Nodes\ModelNode.cs" />
+    <Compile Include="Nodes\PropertyNode.cs" />
+    <Compile Include="Nodes\RelationOperatorNode.cs" />
     <Compile Include="Nodes\StructureFilterNode.cs" />
     <Compile Include="Nodes\WebProjectSelectionNode.cs" />
     <Compile Include="OperatorNode.cs" />
@@ -201,6 +206,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TUM.CMS.VPL.Scripting\TUM.CMS.VPL.Scripting.csproj">
+      <Project>{A8B4A5F8-87BB-489D-A107-F58E818AB82D}</Project>
+      <Name>TUM.CMS.VPL.Scripting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TUM.CMS.VplControl.Watch3D\TUM.CMS.VplControl.Watch3D.csproj">
       <Project>{39C73FB5-D284-409D-835A-803090E867C9}</Project>
       <Name>TUM.CMS.VplControl.Watch3D</Name>
@@ -220,6 +229,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\ElementContainerNodeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PropertyNodeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
