@@ -40,8 +40,8 @@ namespace TUM.CMS.VPL.Scripting.CSharp
             var compilerParameters = new CompilerParameters
             {
                 GenerateExecutable = false,
-                GenerateInMemory = true,
-                OutputAssembly = AppDomain.CurrentDomain.BaseDirectory + "ScriptedAssembly.dll"
+                GenerateInMemory = true
+                // OutputAssembly = AppDomain.CurrentDomain.BaseDirectory + "ScriptedAssembly.dll"
             };
 
             compilerParameters.ReferencedAssemblies.AddRange(

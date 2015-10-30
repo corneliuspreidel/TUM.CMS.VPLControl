@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows;
-using BimPlus.IntegrationFramework;
 using BimPlus.IntegrationFramework.Contract.Model;
 using BimPlus.Sdk.Data.Geometry;
 using BimPlus.Sdk.Data.TenantDto;
