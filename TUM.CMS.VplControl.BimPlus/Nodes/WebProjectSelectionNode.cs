@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using BimPlus.IntegrationFramework.Core.EventArgs;
 using BimPlus.IntegrationFramework.WebControls.Views;
+using BimPlus.IntegrationFramework.WebControls.Views.WPF;
 using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
@@ -29,8 +30,8 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                 Visibility = Visibility.Visible;
             };
 
-            webControl.ProjectChangedEventHandler += ProjectSelectionViewModelOnProjectChangedEventHandler;
-            webControl.TeamChangedEventHandler += ProjectSelectionViewModelOnTeamChangedEventHandler;
+            // webControl.ProjectChangedEventHandler += ProjectSelectionViewModelOnProjectChangedEventHandler;
+            // webControl.TeamChangedEventHandler += ProjectSelectionViewModelOnTeamChangedEventHandler;
 
             var pr = new ContentPresenter
             {

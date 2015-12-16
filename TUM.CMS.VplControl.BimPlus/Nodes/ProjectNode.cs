@@ -25,7 +25,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             {
                 _projectComboBox = new ComboBox
                 {
-                    ItemsSource = _controller.IntBase.APICore.GetProjects(),
+                    ItemsSource = _controller.IntBase.APICore.GetProjects(_controller.IntBase.APICore.CurrentTeam.Slug),
                     Width = 100,
                     SelectedItem = _selectedProject,
                     DisplayMemberPath = "Name",

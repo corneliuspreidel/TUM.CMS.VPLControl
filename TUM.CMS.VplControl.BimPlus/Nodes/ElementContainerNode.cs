@@ -88,7 +88,8 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             {
                 var project = InputPorts[0].Data as Project;
                 if (project != null)
-                    _elements = _controller.IntBase.APICore.GetElementsFromTopologyId(project.Id);
+                    _elements = _controller.IntBase.APICore.GetGeometryObjectsByTopologyId(project.Id, true);
+                // _elements = _controller.IntBase.APICore.GetElementsFromTopologyId(project.Id);
                 // OutputPorts[0].Data = _elements;
             }
 
@@ -96,7 +97,8 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             {
                 var dtoDivision = InputPorts[0].Data as DtoDivision;
                 if (dtoDivision?.TopologyDivisionId != null)
-                    _elements = _controller.IntBase.APICore.GetElementsFromTopologyId((Guid)dtoDivision.TopologyDivisionId);
+                    _elements = _controller.IntBase.APICore.GetGeometryObjectsByTopologyId((Guid)dtoDivision.TopologyDivisionId, true);
+                // _elements = _controller.IntBase.APICore.GetElementsFromTopologyId((Guid)dtoDivision.TopologyDivisionId);
             }
 
             doWorkEventArgs.Result = _elements;

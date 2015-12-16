@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUM.CMS.VplControl.Test", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUM.CMS.VplControl.Watch3D", "TUM.CMS.VplControl.Watch3D\TUM.CMS.VplControl.Watch3D.csproj", "{39C73FB5-D284-409D-835A-803090E867C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUM.CMS.VplControl.Rules", "TUM.CMS.VplControl.Rules\TUM.CMS.VplControl.Rules.csproj", "{345721E4-F125-4E00-A8CC-C2C31CF59424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{39C73FB5-D284-409D-835A-803090E867C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{39C73FB5-D284-409D-835A-803090E867C9}.Release|x64.ActiveCfg = Release|x64
 		{39C73FB5-D284-409D-835A-803090E867C9}.Release|x64.Build.0 = Release|x64
+		{345721E4-F125-4E00-A8CC-C2C31CF59424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{345721E4-F125-4E00-A8CC-C2C31CF59424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{345721E4-F125-4E00-A8CC-C2C31CF59424}.Debug|x64.ActiveCfg = Debug|x64
+		{345721E4-F125-4E00-A8CC-C2C31CF59424}.Debug|x64.Build.0 = Debug|x64
+		{345721E4-F125-4E00-A8CC-C2C31CF59424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{345721E4-F125-4E00-A8CC-C2C31CF59424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{345721E4-F125-4E00-A8CC-C2C31CF59424}.Release|x64.ActiveCfg = Release|x64
+		{345721E4-F125-4E00-A8CC-C2C31CF59424}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

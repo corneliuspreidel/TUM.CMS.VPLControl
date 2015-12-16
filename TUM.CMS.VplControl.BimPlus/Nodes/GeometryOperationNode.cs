@@ -53,7 +53,10 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                 geomlist_2.AddRange(_controller.IntBase.APICore.GetElementGeometryAsDbGeometry(elem.Id));
             }
 
-            var res = GeometryKernel.ElementsTouch(geomlist_1, geomlist_2);
+            // var res = GeometryKernel.ElementsTouch(geomlist_1, geomlist_2);
+
+            // Start with multiThreading
+            var res = GeometryKernel.ElementsTouch(geomlist_1, geomlist_2, true);
 
             OutputPorts[0].Data = res;
         }

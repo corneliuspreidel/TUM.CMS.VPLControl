@@ -9,7 +9,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <TextBox Name="AssemblyTextBox" Width="350" Grid.Row="0" HorizontalAlignment="Left" Margin="5" />
+        <TextBox Name="AssemblyTextBox" Width="350" Grid.Row="0" HorizontalAlignment="Left" Margin="10,5,0,5" />
         <Button Name="AssemblyTextBoxAddButton" Click="AssemblyTextBoxAddButton_OnClick" Content="Add" Grid.Row="0" HorizontalAlignment="Right" Width="50" Margin="5" />
         
             <ListBox Name="ReferencedAssembliedListBox"
@@ -20,7 +20,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
             <Button Content="Load Assembly" Click="ButtonBase_OnClick" Margin="5" />
             <Button Content="Delete Assembly" Click="ButtonDelete_OnClick" Margin="5" />
-            <Button Content="Load all Assemblies from Folder" Click="LoadAllAssembliesFromFolder_OnClick" Margin="5" />
+            <Button Content="Load whole Folder" Click="LoadAllAssembliesFromFolder_OnClick" Margin="5" />
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="OK" Width="40" Click="OnCmdOkClick" Margin="5" />

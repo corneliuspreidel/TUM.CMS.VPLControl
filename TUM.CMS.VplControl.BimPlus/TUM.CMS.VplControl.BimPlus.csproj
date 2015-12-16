@@ -62,6 +62,9 @@
     <Reference Include="BimPlus.IntegrationFramework.Data">
       <HintPath>..\..\BIF\src\bin\Debug\BimPlus.IntegrationFramework.Data.dll</HintPath>
     </Reference>
+    <Reference Include="BimPlus.IntegrationFramework.GeometryHelper">
+      <HintPath>..\..\BIF\src\bin\Debug\BimPlus.IntegrationFramework.GeometryHelper.dll</HintPath>
+    </Reference>
     <Reference Include="BimPlus.IntegrationFramework.WebControls">
       <HintPath>..\..\BIF\src\bin\Debug\BimPlus.IntegrationFramework.WebControls.dll</HintPath>
     </Reference>
@@ -153,6 +156,8 @@
     <Compile Include="DataController.cs" />
     <Compile Include="Nodes\BimPlusWatch3DDxNode.cs" />
     <Compile Include="Nodes\ElementContainerNode.cs" />
+    <Compile Include="Nodes\GetGeometryFromGenericElementNode.cs" />
+    <Compile Include="Nodes\GeometryOperationNode.cs" />
     <Compile Include="Nodes\ElementFilterNode.cs" />
     <Compile Include="Nodes\ElementMergeNode.cs" />
     <Compile Include="Nodes\ElementTypeNode.cs" />

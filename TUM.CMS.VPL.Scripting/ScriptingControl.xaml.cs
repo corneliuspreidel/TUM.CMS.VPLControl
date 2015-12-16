@@ -18,7 +18,7 @@ using Microsoft.Win32;
 namespace TUM.CMS.VPL.Scripting
 {
     /// <summary>
-    ///     Interaction logic for Window1.xaml
+    ///     Interaction logic for ScriptingControl
     /// </summary>
     public partial class ScriptingControl
     {
@@ -38,27 +38,16 @@ namespace TUM.CMS.VPL.Scripting
         public ScriptingControl()
         {
             InitializeComponent();
-#if DOTNET4
-			this.SetValue(TextOptions.TextFormattingModeProperty, TextFormattingMode.Display);
-			#endif
 
             TextEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
             TextEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
 
             ShowAssemblyManagerEventHandler += ShowAssemblyManager;
 
+            IHighlightingDefinition customHighlighting;
+
             if (HighlightingManager.Instance.GetDefinition("Python") == null)
             {
-                IHighlightingDefinition customHighlighting;
-
-                // Copy Resource to Directory
-                /*
-                var assembly = Assembly.GetExecutingAssembly();
-                var stream = assembly.GetManifestResourceStream("ICSharpCode.PythonBinding.Resources.Python.xshd");
-                if(stream != null)
-                    File.Copy(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), Convert.ToString(stream));
-                */
-
                 using (XmlReader reader = new XmlTextReader(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\ICSharpCode.PythonBinding.Resources.Python.xshd"))
                 {
                     try
@@ -67,6 +56,23 @@ namespace TUM.CMS.VPL.Scripting
                             HighlightingManager.Instance);
                         // and register it in the HighlightingManager
                         HighlightingManager.Instance.RegisterHighlighting("Python", new[] { ".py" }, customHighlighting);
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            }
+            else if(HighlightingManager.Instance.GetDefinition("NRules") == null)
+            {
+                using (XmlReader reader = new XmlTextReader(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\ICSharpCode.NRules.xshd"))
+                {
+                    try
+                    {
+                        customHighlighting = ICSharpCode.AvalonEdit.Highlighting.Xshd.HighlightingLoader.Load(reader,
+                            HighlightingManager.Instance);
+                        // and register it in the HighlightingManager
+                        HighlightingManager.Instance.RegisterHighlighting("NRules", new[] { ".cs" }, customHighlighting);
                     }
                     catch (Exception)
                     {

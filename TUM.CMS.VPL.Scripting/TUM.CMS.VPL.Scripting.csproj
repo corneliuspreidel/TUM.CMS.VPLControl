@@ -115,6 +115,10 @@
     <Reference Include="Mono.Cecil.Rocks">
       <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
+    <Reference Include="NRules, Version=0.4.3.0, Culture=neutral, PublicKeyToken=8ad544355a4a2176, processorArchitecture=MSIL">
+      <HintPath>..\packages\NRules.0.4.3\lib\net40\NRules.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -143,6 +147,8 @@
     <Compile Include="ImageElementGenerator.cs" />
     <Compile Include="MyCompletionData.cs" />
     <Compile Include="NonFilterStrategy.cs" />
+    <Compile Include="NRules\NRulesCompiler.cs" />
+    <Compile Include="NRules\NRuleFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\WPFAssemblyInfo.cs" />
     <Compile Include="Python\PythonScriptCompiler.cs" />
@@ -160,6 +166,9 @@
     <None Include="app.config" />
     <None Include="app.net35.config" />
     <None Include="CustomHighlighting.xshd" />
+    <Resource Include="Resources\ICSharpCode.NRules.xshd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\ICSharpCode.PythonBinding.Resources.Python.xshd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -198,6 +207,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

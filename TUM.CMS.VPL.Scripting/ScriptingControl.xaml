@@ -6,83 +6,85 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     x:Class="TUM.CMS.VPL.Scripting.ScriptingControl">
-    <DockPanel x:Name="DockPanel">
-        <ToolBar DockPanel.Dock="Top" Background="White" Loaded="FrameworkElement_OnLoaded">
-            <ToolBar.Resources>
-                <Style TargetType="{x:Type Image}">
-                    <Style.Triggers>
-                        <DataTrigger
-                            Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type ButtonBase}}}"
-                            Value="False">
-                            <Setter Property="Opacity" Value="0.30" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ToolBar.Resources>
-            <Button Click="OpenFileClick">
-                <Image Source="Images/Open.png" Height="16" />
-            </Button>
-            <Button Click="SaveFileClick">
-                <Image Source="Images/Save.png" Height="16" />
-            </Button>
-            <Separator />
-            <Button Command="Cut">
-                <Image Source="Images/Cut.png" Height="16" />
-            </Button>
-            <Button Command="Copy">
-                <Image Source="Images/Copy.png" Height="16" />
-            </Button>
-            <Button Command="Paste">
-                <Image Source="Images/Paste.png" Height="16" />
-            </Button>
-            <Button Command="Delete">
-                <Image Source="Images/Delete.png" Height="16" />
-            </Button>
-            <Separator />
-            <Button Command="Undo">
-                <Image Source="Images/Undo.png" Height="16" />
-            </Button>
-            <Button Command="Redo">
-                <Image Source="Images/Redo.png" Height="16" />
-            </Button>
-            <Separator />
-            <CheckBox IsChecked="{Binding WordWrap, ElementName=TextEditor}">
-                <Image Source="Images/WordWrap.png" Height="16" />
-            </CheckBox>
-            <CheckBox IsChecked="{Binding ShowLineNumbers, ElementName=TextEditor}">
-                <TextBlock Width="16" TextAlignment="Center">
-                    <Run Text="#" />
-                </TextBlock>
-            </CheckBox>
-            <CheckBox IsChecked="{Binding Options.ShowEndOfLine, ElementName=TextEditor}">
-                <TextBlock Width="16" TextAlignment="Center">
-                    <Run Text="¶" />
-                </TextBlock>
-            </CheckBox>
-            <ComboBox x:Name="HighlightingComboBox"
-                      SelectedItem="{Binding SyntaxHighlighting, ElementName=TextEditor}"
-                      ItemsSource="{Binding HighlightingDefinitions, Source={x:Static avalonEdit:HighlightingManager.Instance}}"
-                      SelectionChanged="HighlightingComboBox_SelectionChanged" />
-            <Separator />
-            <Button x:Name="ShowAssemblyManagerButton" Content="AssemblyManager"
-                    Click="ShowAssemblyManagerButton_OnClick" />
-            <Separator />
-            <Button x:Name="CompileButton" Click="CompileButton_OnClick" ToolTip="Start Compilation">
-                <Image Source="Images/Play.png" Height="16" />
-            </Button>
-        </ToolBar>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="50"/>
-            </Grid.RowDefinitions>
-            <avalonEdit:TextEditor
-                x:Name="TextEditor"
-                FontFamily="Consolas"
-                FontSize="10pt"
-                SyntaxHighlighting="C#"
-                Text="Scripting Editor" />
-            <TextBlock Grid.Row="1" Background="Red" FontFamily="Consolas" Name="TextBlockError" Grid.ColumnSpan="2" Visibility="Collapsed" ></TextBlock>
-        </Grid>
-    </DockPanel>
+    <Expander Header="Scripting Node" IsExpanded="True">
+        <DockPanel x:Name="DockPanel" Margin="5">
+            <ToolBar DockPanel.Dock="Top" Background="White" Loaded="FrameworkElement_OnLoaded">
+                <ToolBar.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type ButtonBase}}}"
+                                Value="False">
+                                <Setter Property="Opacity" Value="0.30" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToolBar.Resources>
+                <Button Click="OpenFileClick">
+                    <Image Source="Images/Open.png" Height="16" />
+                </Button>
+                <Button Click="SaveFileClick">
+                    <Image Source="Images/Save.png" Height="16" />
+                </Button>
+                <Separator />
+                <Button Command="Cut">
+                    <Image Source="Images/Cut.png" Height="16" />
+                </Button>
+                <Button Command="Copy">
+                    <Image Source="Images/Copy.png" Height="16" />
+                </Button>
+                <Button Command="Paste">
+                    <Image Source="Images/Paste.png" Height="16" />
+                </Button>
+                <Button Command="Delete">
+                    <Image Source="Images/Delete.png" Height="16" />
+                </Button>
+                <Separator />
+                <Button Command="Undo">
+                    <Image Source="Images/Undo.png" Height="16" />
+                </Button>
+                <Button Command="Redo">
+                    <Image Source="Images/Redo.png" Height="16" />
+                </Button>
+                <Separator />
+                <CheckBox IsChecked="{Binding WordWrap, ElementName=TextEditor}">
+                    <Image Source="Images/WordWrap.png" Height="16" />
+                </CheckBox>
+                <CheckBox IsChecked="{Binding ShowLineNumbers, ElementName=TextEditor}">
+                    <TextBlock Width="16" TextAlignment="Center">
+                        <Run Text="#" />
+                    </TextBlock>
+                </CheckBox>
+                <CheckBox IsChecked="{Binding Options.ShowEndOfLine, ElementName=TextEditor}">
+                    <TextBlock Width="16" TextAlignment="Center">
+                        <Run Text="¶" />
+                    </TextBlock>
+                </CheckBox>
+                <ComboBox x:Name="HighlightingComboBox"
+                          SelectedItem="{Binding SyntaxHighlighting, ElementName=TextEditor}"
+                          ItemsSource="{Binding HighlightingDefinitions, Source={x:Static avalonEdit:HighlightingManager.Instance}}"
+                          SelectionChanged="HighlightingComboBox_SelectionChanged" />
+                <Separator />
+                <Button x:Name="ShowAssemblyManagerButton" Content="AssemblyManager"
+                        Click="ShowAssemblyManagerButton_OnClick" />
+                <Separator />
+                <Button x:Name="CompileButton" Click="CompileButton_OnClick" ToolTip="Start Compilation">
+                    <Image Source="Images/Play.png" Height="16" />
+                </Button>
+            </ToolBar>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <avalonEdit:TextEditor
+                    x:Name="TextEditor"
+                    FontFamily="Consolas"
+                    FontSize="10pt"
+                    SyntaxHighlighting="C#"
+                    Text="Scripting Editor" />
+                <TextBlock Grid.Row="1" Background="Red" FontFamily="Consolas" Name="TextBlockError" Grid.ColumnSpan="2" Visibility="Collapsed" TextWrapping="Wrap" MaxWidth="500" ></TextBlock>
+            </Grid>
+        </DockPanel>
+    </Expander>
 </UserControl>
