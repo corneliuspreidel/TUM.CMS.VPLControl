@@ -73,6 +73,7 @@ namespace TUM.CMS.VplControl.Core
             MouseEnter += SelectionNode_MouseEnter;
         }
 
+
         private void listBox_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             CreateNode();

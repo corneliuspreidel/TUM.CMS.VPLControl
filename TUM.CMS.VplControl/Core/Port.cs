@@ -118,8 +118,13 @@ namespace TUM.CMS.VplControl.Core
                         {
                             if (ParentNode.HostCanvas.TempStartPort.ConnectedConnectors.Count > 0)
                             {
-                                foreach (var tempConnector in ParentNode.HostCanvas.TempStartPort.ConnectedConnectors)
-                                    tempConnector.RemoveFromCanvas();
+                                if (!ParentNode.HostCanvas.TempStartPort.MultipleConnectionsAllowed)
+                                {
+                                    foreach (var tempConnector in ParentNode.HostCanvas.TempStartPort.ConnectedConnectors)
+                                        tempConnector.RemoveFromCanvas();
+
+                                    ParentNode.HostCanvas.TempStartPort.ConnectedConnectors.Clear();
+                                }
                             }
 
                             connector = new Connector(ParentNode.HostCanvas, this, ParentNode.HostCanvas.TempStartPort);
@@ -129,8 +134,13 @@ namespace TUM.CMS.VplControl.Core
                             if (ConnectedConnectors.Count > 0)
                             {
                                 if (!MultipleConnectionsAllowed)
+                                {
                                     foreach (var tempConnector in ConnectedConnectors)
-                                        tempConnector.RemoveFromCanvas();              
+                                        tempConnector.RemoveFromCanvas();      
+
+                                    ConnectedConnectors.Clear();
+                                }
+        
                             }
 
                             connector = new Connector(ParentNode.HostCanvas, ParentNode.HostCanvas.TempStartPort, this);
@@ -172,7 +182,7 @@ namespace TUM.CMS.VplControl.Core
 
                     foreach (var conn in ConnectedConnectors)
                     {
-                        list.Add(conn.StartPort.Data);
+                         list.Add(conn.StartPort.Data);
                     }
 
                     data = list;

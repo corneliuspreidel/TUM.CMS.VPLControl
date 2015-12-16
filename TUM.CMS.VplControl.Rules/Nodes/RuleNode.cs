@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using TUM.CMS.VplControl.Nodes;
+using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.Rules.Nodes
 {

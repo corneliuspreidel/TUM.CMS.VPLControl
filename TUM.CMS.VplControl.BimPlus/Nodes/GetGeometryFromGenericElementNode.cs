@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Controls;
 using BimPlus.IntegrationFramework.Contract.Model;
 using BimPlus.Sdk.Data.Geometry;
-using TUM.CMS.VplControl.Nodes;
+using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {

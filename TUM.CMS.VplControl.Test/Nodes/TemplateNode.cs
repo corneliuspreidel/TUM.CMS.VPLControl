@@ -1,6 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 using System.Xml;
-using TUM.CMS.VplControl.Nodes;
+using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.Test.Nodes
 {

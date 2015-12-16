@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media;
+using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Controls;
 using BimPlus.IntegrationFramework.Contract.Model;
 using TUM.CMS.VplControl.BimPlus.Controls;
+using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes

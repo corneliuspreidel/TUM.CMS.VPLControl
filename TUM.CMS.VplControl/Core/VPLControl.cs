@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 using System.Xml;
 using Microsoft.Win32;
 using TUM.CMS.VplControl.ContentMenu;
-using TUM.CMS.VplControl.Nodes;
 using TUM.CMS.VplControl.Utilities;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace TUM.CMS.VplControl.Core
 {
@@ -242,7 +240,6 @@ namespace TUM.CMS.VplControl.Core
 
         [Category("All VPL settings")]
         [DisplayName(@"Graph flow firection")]
-        [ExpandableObject]
         public Theme Theme { get; set; }
 
         private async void HandleMouseDown(object sender, MouseButtonEventArgs e)

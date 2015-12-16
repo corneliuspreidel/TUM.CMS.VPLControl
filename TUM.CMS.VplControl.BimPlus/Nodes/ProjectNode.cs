@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using BimPlus.IntegrationFramework.Contract.Model;
+using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes

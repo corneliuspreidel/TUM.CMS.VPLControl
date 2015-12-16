@@ -7,7 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using BimPlus.IntegrationFramework.Contract.Model;
 using TUM.CMS.VplControl.BimPlus.Controls;
-using TUM.CMS.VplControl.Nodes;
+using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {

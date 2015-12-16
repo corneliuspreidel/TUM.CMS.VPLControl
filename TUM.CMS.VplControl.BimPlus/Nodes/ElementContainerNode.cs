@@ -10,7 +10,7 @@ using BimPlus.Sdk.Data.Geometry;
 using BimPlus.Sdk.Data.TenantDto;
 using Nemetschek.NUtilLibrary;
 using TUM.CMS.VplControl.BimPlus.Controls;
-using TUM.CMS.VplControl.Nodes;
+using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {

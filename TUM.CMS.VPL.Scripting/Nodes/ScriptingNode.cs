@@ -1,21 +1,19 @@
 ﻿using System;
 using System.CodeDom.Compiler;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
-using TUM.CMS.VplControl.Nodes;
+using TUM.CMS.VplControl.Core;
 using TUM.CMS.VPL.Scripting.CSharp;
 using TUM.CMS.VPL.Scripting.Python;
-using System.Text.RegularExpressions;
 
 namespace TUM.CMS.VPL.Scripting.Nodes
 {
     public class ScriptingNode : Node
     {
-        public ScriptingControl scriptingControl;
+        private readonly ScriptingControl scriptingControl;
         private Lazy<CSharpScriptCompiler> mScriptCompiler;
         private string scriptContent;
 
@@ -24,12 +22,20 @@ namespace TUM.CMS.VPL.Scripting.Nodes
         {
             scriptingControl = new ScriptingControl();
 
+
             scriptingControl.HighlightingComboBox.SelectionChanged += HighlightingComboBoxOnSelectionChanged;
+
 
             // Create new script File
             scriptingControl.CurrentFile = new CSharpScriptFile2();
 
-            // IsResizeable = true;
+
+            //scriptingControl.Height = 400;
+            //scriptingControl.Width = 700;
+            //scriptingControl.DockPanel.Height = 400;
+            IsResizeable = true;
+
+            //scriptingControl.StartCompilingEventHandler += StartCompilingEventHandler;
 
             scriptingControl.StartCSharpCompilingEventHandler += StartCSharpCompilation;
             scriptingControl.StartPythonCompilingEventHandler += StartPythonCompilation;
@@ -37,14 +43,13 @@ namespace TUM.CMS.VPL.Scripting.Nodes
             AddControlToNode(scriptingControl);
 
             AddInputPortToNode("Input", typeof (object));
+
             AddOutputPortToNode("Output", typeof (object));
         }
 
         private void HighlightingComboBoxOnSelectionChanged(object sender,
             SelectionChangedEventArgs selectionChangedEventArgs)
         {
-            if (scriptingControl.HighlightingComboBox.SelectedItem == null)
-                return;
             switch (scriptingControl.HighlightingComboBox.SelectedItem.ToString())
             {
                 case "C#":
@@ -71,6 +76,7 @@ namespace TUM.CMS.VPL.Scripting.Nodes
             try
             {
                 mScriptCompiler = new Lazy<CSharpScriptCompiler>();
+
 
                 //Compile and execute current script
                 var result = mScriptCompiler.Value.Compile(scriptingControl.CurrentFile as CSharpScriptFile);
@@ -133,22 +139,14 @@ namespace TUM.CMS.VPL.Scripting.Nodes
 
                 Calculate();
 
-                scriptingControl.TextBlockError.Text = "";
-                scriptingControl.TextBlockError.Visibility = Visibility.Collapsed;
+                TopComment.Text = "";
+                TopComment.Visibility = Visibility.Collapsed;
             }
             catch (Exception e)
             {
-                TopComment.Text = e.ToString() ;
+                TopComment.Text = e.ToString();
                 TopComment.Visibility = Visibility.Visible;
                 TopComment.HostNode_PropertyChanged(null, null);
-
-                scriptingControl.TextBlockError.Text = e.Message;
-                if (e.InnerException != null)
-                {
-                    scriptingControl.TextBlockError.Text = scriptingControl.TextBlockError.Text
-                                                           + "\n InnerException: \n" + e.InnerException.ToString();
-                }
-                scriptingControl.TextBlockError.Visibility = Visibility.Visible;
 
                 Console.WriteLine(e.Message);
             }
@@ -208,10 +206,6 @@ namespace TUM.CMS.VPL.Scripting.Nodes
             xmlWriter.WriteValue(scriptContent);
             xmlWriter.WriteEndAttribute();
 
-            xmlWriter.WriteStartAttribute("_referencedAssemblies");
-            xmlWriter.WriteValue(scriptingControl.CurrentFile.ReferencedAssemblies);
-            xmlWriter.WriteEndAttribute();
-
             xmlWriter.WriteStartAttribute("language");
             xmlWriter.WriteValue(scriptingControl.HighlightingComboBox.SelectedItem.ToString());
             xmlWriter.WriteEndAttribute();
@@ -219,48 +213,12 @@ namespace TUM.CMS.VPL.Scripting.Nodes
 
         public override void DeserializeNetwork(XmlReader xmlReader)
         {
-            var language = xmlReader.GetAttribute("language");
-            scriptingControl.HighlightingComboBox.SelectedItem = language;
-
             base.DeserializeNetwork(xmlReader);
             scriptingControl.TextEditor.Text = xmlReader.GetAttribute("_mSkriptContent");
 
-            var list = xmlReader.GetAttribute("_referencedAssemblies");
+            var language = xmlReader.GetAttribute("language");
 
-            if (list != null)
-            {
-                var result = Regex.Split(list, @" ").ToList();
-                // var result = list.Split(Convert.ToChar(" ")).ToList();
-                // var result = list.Split(Convert.ToChar(@"C:\\")).ToList();
-
-                var tempstring = "";
-
-                foreach (var item in result)
-                {
-                    if (File.Exists(item) == false)
-                    {
-                        tempstring += item;
-                    }
-                    else
-                    {
-                        if (File.Exists(tempstring))
-                        {
-                            if (scriptingControl.CurrentFile.ReferencedAssemblies.Contains(tempstring) != true)
-                            {
-                                scriptingControl.CurrentFile.ReferencedAssemblies.Add(tempstring);
-                            }
-                            tempstring = "";
-                        }
-                        else
-                        {
-                            if (scriptingControl.CurrentFile.ReferencedAssemblies.Contains(item) != true)
-                            {
-                                scriptingControl.CurrentFile.ReferencedAssemblies.Add(item);
-                            }
-                        }
-                    }
-                }
-            }
+            scriptingControl.HighlightingComboBox.SelectedItem = language;
 
             if (language == "C#")
                 StartCSharpCompilation(null, null);

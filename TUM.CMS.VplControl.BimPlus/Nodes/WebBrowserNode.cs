@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using TUM.CMS.VplControl.BimPlus.Controls;
+using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes

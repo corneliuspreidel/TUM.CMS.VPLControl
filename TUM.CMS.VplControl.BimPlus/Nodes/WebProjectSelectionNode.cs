@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using BimPlus.IntegrationFramework.Core.EventArgs;
 using BimPlus.IntegrationFramework.WebControls.Views.WPF;
+using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
