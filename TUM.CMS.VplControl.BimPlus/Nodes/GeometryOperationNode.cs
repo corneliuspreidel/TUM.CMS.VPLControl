@@ -56,7 +56,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             // var res = GeometryKernel.ElementsTouch(geomlist_1, geomlist_2);
 
             // Start with multiThreading
-            var res = GeometryKernel.ElementsTouch(geomlist_1, geomlist_2, true);
+            var res = GeometryKernel.ElementsTouch(geomlist_1, geomlist_2);
 
             OutputPorts[0].Data = res;
         }
