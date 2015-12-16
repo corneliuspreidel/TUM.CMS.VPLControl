@@ -3,7 +3,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using BimPlus.IntegrationFramework.Core.EventArgs;
-using BimPlus.IntegrationFramework.WebControls.Views;
 using BimPlus.IntegrationFramework.WebControls.Views.WPF;
 using TUM.CMS.VplControl.Nodes;
 
