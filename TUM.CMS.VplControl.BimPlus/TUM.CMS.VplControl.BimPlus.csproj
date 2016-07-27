@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TUM.CMS.VplControl.BimPlus</RootNamespace>
     <AssemblyName>TUM.CMS.VplControl.BimPlus</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -53,20 +53,17 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BimPlus.IntegrationFramework.Contract">
-      <HintPath>..\..\BIF\src\bin\Debug\BimPlus.IntegrationFramework.Contract.dll</HintPath>
+    <Reference Include="BimPlus.Client">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Client.dll</HintPath>
     </Reference>
-    <Reference Include="BimPlus.IntegrationFramework.Core">
-      <HintPath>..\..\BIF\src\bin\Debug\BimPlus.IntegrationFramework.Core.dll</HintPath>
+    <Reference Include="BimPlus.Client.Api">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Client.Api.dll</HintPath>
     </Reference>
-    <Reference Include="BimPlus.IntegrationFramework.Data">
-      <HintPath>..\..\BIF\src\bin\Debug\BimPlus.IntegrationFramework.Data.dll</HintPath>
+    <Reference Include="BimPlus.Client.Integration">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Integration\bin\x64\Debug\BimPlus.Client.Integration.dll</HintPath>
     </Reference>
-    <Reference Include="BimPlus.IntegrationFramework.GeometryHelper">
-      <HintPath>..\..\BIF\src\bin\Debug\BimPlus.IntegrationFramework.GeometryHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="BimPlus.IntegrationFramework.WebControls">
-      <HintPath>..\..\BIF\src\bin\Debug\BimPlus.IntegrationFramework.WebControls.dll</HintPath>
+    <Reference Include="BimPlus.Client.WebControls">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.WebControls\bin\x64\Debug\BimPlus.Client.WebControls.dll</HintPath>
     </Reference>
     <Reference Include="BimPlus.LightCaseClient">
       <HintPath>..\..\BIF\src\bin\Debug\BimPlus.LightCaseClient.dll</HintPath>
@@ -76,18 +73,45 @@
       <HintPath>..\..\BIF\src\bin\Debug\BimPlus.Sdk.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HelixToolkit, Version=2015.1.558.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
-      <HintPath>..\packages\HelixToolkit.2015.1.558\lib\portable-net4+sl4+wp71+win8\HelixToolkit.dll</HintPath>
+    <Reference Include="BimPlus.Sdk.Integration">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.Sdk.Integration\bin\x64\Debug\BimPlus.Sdk.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="BimPlus.Sdk.Utilities">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Sdk.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Cyotek.Drawing.BitmapFont, Version=1.0.2.0, Culture=neutral, PublicKeyToken=58daa28b0b2de221, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cyotek.Drawing.BitmapFont.1.0.2.0\lib\net20\Cyotek.Drawing.BitmapFont.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HelixToolkit.Wpf, Version=2015.1.558.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
-      <HintPath>..\packages\HelixToolkit.Wpf.2015.1.558\lib\net45\HelixToolkit.Wpf.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExternalLibraries\HelixToolkit.Wpf\HelixToolkit.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="HelixToolkit.Wpf.SharpDX, Version=2014.2.1.1, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExternalLibraries\HelixToolKit.Wpf.SharpDx\HelixToolkit.Wpf.SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.11.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.11.1\lib\net40\MathNet.Numerics.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\QL4BIM\Ql4BIMSeeBridge\bin\Debug\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TUM.CMS.VplControl.BimPlusTest\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PPAttribPictureType3, Version=2011.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\BIF\src\bin\Debug\PPAttribPictureType3.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="QL4BIMspatial">
+      <HintPath>..\..\QL4BIM\Ql4BIMSeeBridge\bin\Debug\QL4BIMspatial.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>..\ExternalLibraries\HelixToolKit.Wpf.SharpDx\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -101,6 +125,7 @@
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms">
       <Private>True</Private>
     </Reference>
@@ -129,8 +154,34 @@
     <Reference Include="PresentationFramework">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseNodes\UtilityNode.cs" />
+    <Compile Include="BaseNodes\DataObjectNode.cs" />
     <Compile Include="ContractNames.cs" />
     <Compile Include="Controls\GeometryViewerControl.xaml.cs">
       <DependentUpon>GeometryViewerControl.xaml</DependentUpon>
@@ -144,44 +195,35 @@
     <Compile Include="Controls\PropertyNodeControl.xaml.cs">
       <DependentUpon>PropertyNodeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\RelationNodeControl.xaml.cs">
-      <DependentUpon>RelationNodeControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\StructureFilterNodeControl.xaml.cs">
       <DependentUpon>StructureFilterNodeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\WebBrowserControl.xaml.cs">
       <DependentUpon>WebBrowserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataController.cs" />
-    <Compile Include="Nodes\BimPlusWatch3DDxNode.cs" />
-    <Compile Include="Nodes\ElementContainerNode.cs" />
-    <Compile Include="Nodes\GetGeometryFromGenericElementNode.cs" />
+    <Compile Include="Nodes\BimPlusWatch3DxNode.cs" />
+    <Compile Include="Nodes\BimPlusWatchNode.cs" />
     <Compile Include="Nodes\GeometryOperationNode.cs" />
+    <Compile Include="Utilities\DataController.cs" />
+    <Compile Include="Nodes\ElementContainerNode.cs" />
     <Compile Include="Nodes\ElementFilterNode.cs" />
     <Compile Include="Nodes\ElementMergeNode.cs" />
     <Compile Include="Nodes\ElementTypeNode.cs" />
     <Compile Include="Nodes\BimPlusWatch3DNode.cs" />
-    <Compile Include="Nodes\GeometryViewerNode.cs" />
     <Compile Include="Nodes\IssueContainerNode.cs" />
     <Compile Include="Nodes\IntegrationBaseNode.cs" />
     <Compile Include="Nodes\IssueNode.cs" />
     <Compile Include="Nodes\ModelNode.cs" />
     <Compile Include="Nodes\PropertyNode.cs" />
-    <Compile Include="Nodes\RelationOperatorNode.cs" />
     <Compile Include="Nodes\StructureFilterNode.cs" />
     <Compile Include="Nodes\WebProjectSelectionNode.cs" />
-    <Compile Include="OperatorNode.cs" />
-    <Compile Include="Nodes\OperatorTestNode.cs" />
+    <Compile Include="BaseNodes\OperatorObjectNode.cs" />
     <Compile Include="Nodes\ProjectNode.cs" />
-    <Compile Include="Nodes\RelationCreatorNode.cs" />
-    <Compile Include="Nodes\RelationNode.cs" />
     <Compile Include="Nodes\WebBrowserNode.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="RepresentationModifier.cs" />
-    <Compile Include="SelectionList.cs" />
-    <Compile Include="SelectionManager.cs" />
     <Compile Include="Utilities\MeshIdandGeometry.cs" />
+    <Compile Include="Utilities\ModelInfo.cs" />
+    <Compile Include="Utilities\GeometryWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -215,6 +257,14 @@
       <Project>{A8B4A5F8-87BB-489D-A107-F58E818AB82D}</Project>
       <Name>TUM.CMS.VPL.Scripting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TUM.CMS.VplControl.Relations\TUM.CMS.VplControl.Relations.csproj">
+      <Project>{7998936E-8D8F-42D7-A7CB-5CBFDE36CEC2}</Project>
+      <Name>TUM.CMS.VplControl.Relations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUM.CMS.VplControl.Watch3Dx\TUM.CMS.VplControl.Watch3Dx.csproj">
+      <Project>{BEBDB071-0B4A-459E-81CE-49A12391D1D5}</Project>
+      <Name>TUM.CMS.VplControl.Watch3Dx</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TUM.CMS.VplControl.Watch3D\TUM.CMS.VplControl.Watch3D.csproj">
       <Project>{39C73FB5-D284-409D-835A-803090E867C9}</Project>
       <Name>TUM.CMS.VplControl.Watch3D</Name>
@@ -238,10 +288,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\PropertyNodeControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\RelationNodeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

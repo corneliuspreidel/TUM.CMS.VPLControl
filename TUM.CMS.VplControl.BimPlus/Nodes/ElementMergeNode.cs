@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using BimPlus.IntegrationFramework.Contract.Model;
+using BimPlus.Sdk.Data.DbCore;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
@@ -32,13 +33,13 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             if (InputPorts[0].Data == null || InputPorts[1].Data == null)
                 return;
 
-            var mergedGenericElements = new List<GenericElement>();
+            var mergedGenericElements = new List<DtObject>();
 
-            if (InputPorts[0].Data.GetType() == typeof (List<GenericElement>) &&
-                InputPorts[1].Data.GetType() == typeof (List<GenericElement>))
+            if (InputPorts[0].Data.GetType() == typeof (List<DtObject>) &&
+                InputPorts[1].Data.GetType() == typeof (List<DtObject>))
             {
-                mergedGenericElements.AddRange(InputPorts[0].Data as List<GenericElement>);
-                mergedGenericElements.AddRange(InputPorts[1].Data as List<GenericElement>);
+                mergedGenericElements.AddRange(InputPorts[0].Data as List<DtObject>);
+                mergedGenericElements.AddRange(InputPorts[1].Data as List<DtObject>);
             }
 
             OutputPorts[0].Data = mergedGenericElements;

@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using BimPlus.IntegrationFramework.Contract.Model;
-using TUM.CMS.VplControl.BimPlus.Controls;
+﻿using TUM.CMS.VplControl.BimPlus.Controls;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-
     internal class StructureFilterNode : Node
     {
         private readonly DataController _controller;
@@ -33,16 +31,16 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             if (InputPorts[0].Data == null || InputPorts[1].Data == null)
                 return;
 
-            var filters = _controller.IntBase.APICore.GetFilters();
+            // var filters = _controller.IntBase.APICore.GetFilters();
 
-            if (_control.FilterStringTextBox.Text != "")
-            {
-                // _controller.IntBase.SetFilter("NewFilter", "control.FilterStringTextBox.Text", );
-            }
+            // if (_control.FilterStringTextBox.Text != "")
+            // {
+            //     // _controller.IntBase.SetFilter("NewFilter", "control.FilterStringTextBox.Text", );
+            // }
+            // 
+            // var filteredElements = new List<DtObject>();
 
-            var filteredElements = new List<GenericElement>();
-
-            OutputPorts[0].Data = filteredElements;
+            // OutputPorts[0].Data = filteredElements;
         }
 
         public override Node Clone()

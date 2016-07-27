@@ -1,13 +1,16 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using BimPlus.IntegrationFramework.Contract.Model;
+using BimPlus.Client;
+using BimPlus.Sdk.Data.DbCore.Structure;
+using TUM.CMS.VplControl.BimPlus.BaseNodes;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
-using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-    public class ProjectNode : Node
+    public class ProjectNode : DataObjectNode
     {
         // DataController
         private readonly DataController _controller;
@@ -22,11 +25,13 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             // Call the Singleton Class to get the actual loaded elements -> Connection to the DataModel
             _controller = DataController.Instance;
 
+            _controller.IntBase.EventHandlerCore.TeamChanged += EventHandlerCoreOnTeamChanged;
+
             if (_controller.IntBase != null)
             {
                 _projectComboBox = new ComboBox
                 {
-                    ItemsSource = _controller.IntBase.APICore.GetProjects(_controller.IntBase.APICore.CurrentTeam.Slug),
+                    ItemsSource = _controller.IntBase.APICore.Projects.GetShortProjects(),
                     Width = 100,
                     SelectedItem = _selectedProject,
                     DisplayMemberPath = "Name",
@@ -43,6 +48,11 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             }
 
             AddOutputPortToNode("Project", typeof (object));
+        }
+
+        private void EventHandlerCoreOnTeamChanged(object sender, BimPlusEventArgs bimPlusEventArgs)
+        {
+            _projectComboBox.ItemsSource = _controller.IntBase.APICore.Projects.GetShortProjects();
         }
 
         public override void Calculate()

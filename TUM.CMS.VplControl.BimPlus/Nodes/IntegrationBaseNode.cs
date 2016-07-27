@@ -1,9 +1,10 @@
-﻿using TUM.CMS.VplControl.BimPlus.Controls;
+﻿using TUM.CMS.VplControl.BimPlus.BaseNodes;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-    public class IntegrationBaseNode : Node
+    public class IntegrationBaseNode : UtilityNode
     {
         private DataController _controller;
 

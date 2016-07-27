@@ -32,8 +32,10 @@ namespace TUM.CMS.VplControl.Core
             };
 
             Panel.SetZIndex(Path, 2);
-            Panel.SetZIndex(srtEllipse, startPort.ParentNode.Id + 1);
-            Panel.SetZIndex(endEllipse, endPort.ParentNode.Id + 1);
+            if(startPort.ParentNode != null)
+                Panel.SetZIndex(srtEllipse, startPort.ParentNode.Id + 1);
+            if (endPort.ParentNode != null)
+                Panel.SetZIndex(endEllipse, endPort.ParentNode.Id + 1);
 
             Path.Style = HostCanvas.FindResource("VplConnectorStyle") as Style;
 
@@ -54,11 +56,15 @@ namespace TUM.CMS.VplControl.Core
             StartPort.Origin.PropertyChanged += Origin_PropertyChanged;
             EndPort.Origin.PropertyChanged += Origin_PropertyChanged;
 
-            StartPort.ParentNode.PropertyChanged += Origin_PropertyChanged;
-            EndPort.ParentNode.PropertyChanged += Origin_PropertyChanged;
+            if (StartPort.ParentNode != null)
+                StartPort.ParentNode.PropertyChanged += Origin_PropertyChanged;
+            if (EndPort.ParentNode != null)
+                EndPort.ParentNode.PropertyChanged += Origin_PropertyChanged;
 
-            ObserveNode(StartPort.ParentNode);
-            ObserveNode(EndPort.ParentNode);
+            if (StartPort.ParentNode != null)
+                ObserveNode(StartPort.ParentNode);
+            if (EndPort.ParentNode != null)
+                ObserveNode(EndPort.ParentNode);
 
             startPort.ConnectedConnectors.Add(this);
             endPort.ConnectedConnectors.Add(this);

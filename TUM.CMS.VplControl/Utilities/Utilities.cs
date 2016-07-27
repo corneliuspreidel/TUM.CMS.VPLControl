@@ -72,7 +72,11 @@ namespace TUM.CMS.VplControl.Utilities
     {
         public static Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
         {
-            return assembly.GetTypes().Where(type => type.Namespace != null && type.Namespace.Contains("Nodes")).Where(type => type.FullName != "Node").ToArray();
+            return
+                assembly?.GetTypes()
+                    .Where(type => type.Namespace != null && type.Namespace.Contains("Nodes"))
+                    .Where(type => type.FullName != "Node")
+                    .ToArray();
         }
     }
 

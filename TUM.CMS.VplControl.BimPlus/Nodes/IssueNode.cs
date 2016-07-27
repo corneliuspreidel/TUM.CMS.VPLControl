@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using BimPlus.IntegrationFramework.Contract.Model;
+using BimPlus.Sdk.Data.Authentication;
+using BimPlus.Sdk.Data.DbCore.Issue;
+using BimPlus.Sdk.Data.DbCore.Structure;
+using BimPlus.Sdk.Data.TenantDto;
+using TUM.CMS.VplControl.BimPlus.BaseNodes;
 using TUM.CMS.VplControl.BimPlus.Controls;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-    public class IssueNode : Node
+    public class IssueNode : DataObjectNode
     {
         private readonly DataController _controller;
         private readonly IssueNodeControl _issueControl;
@@ -32,7 +36,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             // Is this correct? There can be different members in different projects ...
             // _controller.IntBase.APICore.GetTea
-            _issueControl.ResponsibleUserComboBox.ItemsSource = _controller.IntBase.APICore.GetTeamMembers();
+            _issueControl.ResponsibleUserComboBox.ItemsSource = _controller.IntBase.APICore.Projects.GetMembers(_controller.IntBase.CurrentProject.Id);
             _issueControl.ResponsibleUserComboBox.DisplayMemberPath = "User";
 
             AddControlToNode(_issueControl);
@@ -45,19 +49,19 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
         private void IssueControlOnBaseButtonClicked(object sender, EventArgs eventArgs)
         {
-            var issue = new Issue();
+            var issue = new DtoShortIssue();
 
             if (InputPorts[0].Data == null || InputPorts[1].Data == null || InputPorts[2].Data == null) return;
             // Common Information
             issue.CreatedAt = DateTime.Now;
-            issue.Author = _controller.IntBase.APICore.UserName;
+            // issue.Author = _controller.IntBase.UserName;
             issue.Id = Guid.NewGuid();
 
             // User Control Stuff
             issue.Description = _issueControl.DescriptionTextBox.Text;
-            var teamMember = _issueControl.ResponsibleUserComboBox.SelectedItem as TeamMember;
+            var teamMember = _issueControl.ResponsibleUserComboBox.SelectedItem as DtoShortUser;
             if (teamMember != null)
-                issue.Responsible = teamMember.User;
+                issue.Responsible = teamMember;
 
             var project = InputPorts[0].Data as Project;
             
@@ -65,63 +69,63 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             if (project != null)
             {
                 issue.ProjectId = project.Id;
-                _controller.IntBase.APICore.CreateIssue(issue, project.Id);
+                _controller.IntBase.APICore.Issues.PutIssue(issue);
             }
                
-            Issue createdIssue = null;
+            DtoShortIssue createdIssue = null;
 
             // Download the Issue
             if (project == null) return;
 
-            foreach (var item in _controller.IntBase.APICore.GetIssues(project.Id).Where(item => item.Id == issue.Id))
-            {
-                createdIssue = item;
-            }
+            // foreach (var item in _controller.IntBase.APICore.GetIssues(project.Id).Where(item => item.Id == issue.Id))
+            // {
+            //     createdIssue = item;
+            // }
+            // 
+            // // Screenshot Stuff
+            // var image = RenderFrameworkElement(InputPorts[2].ConnectedConnectors[0].StartPort.ParentNode);
+            // 
+            // var encoder = new JpegBitmapEncoder();
+            // var photolocation = _controller.IntBase.UserDirectory + Guid.NewGuid() + ".jpg"; //file name 
 
-            // Screenshot Stuff
-            var image = RenderFrameworkElement(InputPorts[2].ConnectedConnectors[0].StartPort.ParentNode);
+            // encoder.Frames.Add(BitmapFrame.Create(image));
+            // 
+            // using (var filestream = new FileStream(photolocation, FileMode.Create))
+            //     encoder.Save(filestream);
+            // 
+            // var fs = File.OpenRead(photolocation);
+            // var bytes = new byte[fs.Length];
+            // fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
 
-            var encoder = new JpegBitmapEncoder();
-            var photolocation = _controller.IntBase.UserDirectory + Guid.NewGuid() + ".jpg"; //file name 
-
-            encoder.Frames.Add(BitmapFrame.Create(image));
-
-            using (var filestream = new FileStream(photolocation, FileMode.Create))
-                encoder.Save(filestream);
-
-            var fs = File.OpenRead(photolocation);
-            var bytes = new byte[fs.Length];
-            fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
-
-            try
-            {
-                if (createdIssue != null)
-                    createdIssue.AddAttachment(photolocation, bytes);
-            }
-            catch (Exception)
-            {
-                // ignored
-            }
-
+            // try
+            // {
+            //     if (createdIssue != null)
+            //         createdIssue.AddAttachment(photolocation, bytes);
+            // }
+            // catch (Exception)
+            // {
+            //     // ignored
+            // }
+            // 
             // Pin Stuff
-            if (InputPorts[1].Data.GetType() != typeof (List<GenericElement>)) return;
-            var genericElements = InputPorts[1].Data as List<GenericElement>;
-            if (genericElements == null) return;
-            foreach (var item in genericElements)
-            {
-                var pin = new Pin
-                {
-                    ObjectId = item.Id
-                };
-                try
-                {
-                    issue.AddPin(pin);
-                }
-                catch (Exception)
-                {
-                    // ignored
-                }
-            }
+            // if (InputPorts[1].Data.GetType() != typeof (List<GenericElement>)) return;
+            // var genericElements = InputPorts[1].Data as List<GenericElement>;
+            // if (genericElements == null) return;
+            // foreach (var item in genericElements)
+            // {
+            //     var pin = new Pin
+            //     {
+            //         ObjectId = item.Id
+            //     };
+            //     try
+            //     {
+            //         issue.AddPin(pin);
+            //     }
+            //     catch (Exception)
+            //     {
+            //         // ignored
+            //     }
+            // }
         }
 
         public override Node Clone()

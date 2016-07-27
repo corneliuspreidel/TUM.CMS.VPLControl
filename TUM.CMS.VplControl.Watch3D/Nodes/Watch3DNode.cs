@@ -18,7 +18,7 @@ namespace TUM.CMS.VplControl.Watch3D.Nodes
     public class Watch3DNode : Node
     {
         // Standard Selection Material
-        private readonly Material _selectionMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Crimson));
+        protected readonly Material _selectionMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Crimson));
         // Control Members
         // Must be public since other objects access these control objects
         public Watch3DControl Control;
@@ -182,7 +182,7 @@ namespace TUM.CMS.VplControl.Watch3D.Nodes
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <param name="watch3DNode"></param>
-        protected void OnElementMouseDown(object sender, MouseButtonEventArgs e, Watch3DNode watch3DNode)
+        private void OnElementMouseDown(object sender, MouseButtonEventArgs e, Watch3DNode watch3DNode)
         {
             // Check null expression
             // if (e == null) throw new ArgumentNullException(nameof(e));

@@ -1,12 +1,14 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
-using BimPlus.IntegrationFramework.Contract.Model;
+using BimPlus.Sdk.Data.TenantDto;
+using TUM.CMS.VplControl.BimPlus.BaseNodes;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-    public class ElementTypeNode : Node
+    public class ElementTypeNode : DataObjectNode
     {
         // DataController
         private readonly DataController _controller;
@@ -32,7 +34,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             if (_controller.IntBase.APICore != null)
             {
-                _typeComboBox.ItemsSource = _controller.IntBase.APICore.GetElementTypes();
+                _typeComboBox.ItemsSource = _controller.IntBase.APICore.DtObjects.GetElementTypes();
             }
             AddControlToNode(_typeComboBox);
 
@@ -46,7 +48,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
         public override void Calculate()
         {
             // Output Part
-            if (_typeComboBox != null) OutputPorts[0].Data = _typeComboBox.SelectedItem as ElementTypeInfo;
+            if (_typeComboBox != null) OutputPorts[0].Data = _typeComboBox.SelectedItem as DtoElementType;
         }
 
         public override Node Clone()

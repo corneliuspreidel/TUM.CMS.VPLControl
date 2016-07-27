@@ -1,16 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using System.Xml;
-using BimPlus.IntegrationFramework.Contract.Model;
+using BimPlus.Sdk.Data.DbCore;
+using TUM.CMS.VplControl.BimPlus.BaseNodes;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-    public class ElementFilterNode : Node
+    public class ElementFilterNode : OperatorObjectNode
     {
         private readonly DataController _controller;
         private readonly ListBox _filterListBox;
+
+        private ModelInfo _modelInfo;
+        private List<DtObject> _elements;
 
         public ElementFilterNode(Core.VplControl hostCanvas)
             : base(hostCanvas)
@@ -29,8 +35,8 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             _filterListBox.SelectionChanged += FilterListBoxOnSelectionChanged;
             AddControlToNode(_filterListBox);
 
-            AddInputPortToNode("Input", typeof (object));
-            AddOutputPortToNode("FilteredElements", typeof(object));
+            AddInputPortToNode("Input", typeof (ModelInfo));
+            AddOutputPortToNode("FilteredElements", typeof(ModelInfo));
 
             DataContext = this;
         }
@@ -39,36 +45,43 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
         {
             // Check values ... 
             if (InputPorts[0].Data == null) return;
-            if (InputPorts[0].Data.GetType() != typeof(List<GenericElement>)) return;
 
-            // Init the ComboBox 
-            _filterListBox.Items.Clear();
-
+            // ModelInfo
+            if (InputPorts[0].Data.GetType() != typeof(ModelInfo)) return;
             // Loop through all the elements
-            var genericElements = InputPorts[0].Data as List<GenericElement>;
-            if (genericElements == null) return;
-            foreach (var elem in genericElements.Where(elem => _filterListBox.Items.Contains(elem.TypeName) == false))
+            _modelInfo = InputPorts[0].Data as ModelInfo;
+            if (_modelInfo == null) return;
+
+            _elements = new List<DtObject>();
+
+            if (_modelInfo.ModelType == ModelType.BimPlusModel)
             {
-                _filterListBox.Items.Add(elem.TypeName);
+                // Get the corresponding model
+                var model = _controller.BimPlusModels[Guid.Parse(_modelInfo.ModelId)];
+                if (model == null) return;
+                _elements = model.Objects as List<DtObject>;
+            }
+            
+            if (_elements == null) return;
+            foreach (var elem in _elements.Where(elem => _filterListBox.Items.Contains(elem.Type) == false))
+            {
+                _filterListBox.Items.Add(elem.Type);
             }
         }
 
         private void FilterListBoxOnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
         {
-            // Check Input
-            if (InputPorts[0].Data.GetType() != typeof(List<GenericElement>)) return;
-            if (_filterListBox.SelectedItem == null) return;
-
             // Filter for types
-            var filteredElements = new List<GenericElement>();
+            var filteredElements = new List<DtObject>();
             foreach (var type in _filterListBox.SelectedItems)
             {
-                var genericElements = InputPorts[0].Data as List<GenericElement>;
-                if (genericElements == null) continue;
-                filteredElements.AddRange(genericElements.Where(elem => elem != null && elem.TypeName == type.ToString()));
+                if (_elements == null) continue;
+                filteredElements.AddRange(_elements.Where(elem => elem != null && elem.Type == type.ToString()));
             }
 
-            OutputPorts[0].Data = filteredElements;
+            // Set the ModelInfo Output
+            var output = new ModelInfo(_modelInfo.ProjectId, _modelInfo.ModelId, filteredElements.Select(item => item.Id).ToList(), ModelType.BimPlusModel);
+            OutputPorts[0].Data = output;
         }
 
         public override Node Clone()
@@ -100,13 +113,13 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             var selectedItems = xmlReader.GetAttribute("SelectedItems");
 
-            if (selectedItems != null)
-                foreach (var item in selectedItems)
-                {
-                    if (_filterListBox.Items.Contains(item))
-                        _filterListBox.SelectedItems.Add(item);
-                }
-            
+            if (selectedItems == null) return;
+
+            foreach (var item in selectedItems)
+            {
+                if (_filterListBox.Items.Contains(item))
+                    _filterListBox.SelectedItems.Add(item);
+            }
         }
     }
 }

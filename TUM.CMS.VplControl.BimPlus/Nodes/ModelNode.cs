@@ -2,21 +2,22 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using BimPlus.IntegrationFramework.Contract.Model;
 using BimPlus.Sdk.Data.TenantDto;
+using TUM.CMS.VplControl.BimPlus.BaseNodes;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-    public class ModelNode : Node
+    public class ModelNode : DataObjectNode
     {
         // DataController
         private readonly DataController _controller;
 
         private readonly ComboBox _modelComboBox;
 
-        private Division _selectedModel;
-        private List<Division> _models;
+        private DtoDivision _selectedModel;
+        private List<DtoDivision> _models;
 
         public ModelNode(Core.VplControl hostCanvas)
             : base(hostCanvas)
@@ -47,13 +48,13 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
         public override void Calculate()
         {
             // Input Part
-            if (InputPorts[0].Data.GetType() != typeof (Project)) return;
+            if (InputPorts[0].Data.GetType() != typeof (DtoShortProject)) return;
             // _modelComboBox.ItemsSource = null;
 
-            var project = InputPorts[0].Data as Project;
+            var project = InputPorts[0].Data as DtoShortProject;
             if (project == null) return;
             if (_modelComboBox == null) return;
-            _modelComboBox.ItemsSource = _controller.IntBase.APICore.GetDivisions(project.Id);
+            _modelComboBox.ItemsSource = _controller.IntBase.APICore.Divisions.GetProjectDivisions(project.Id);
             _modelComboBox.DisplayMemberPath = "Name";
 
             // Output Part
@@ -76,7 +77,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
         }
 
         #region PropertyChangedHandlers
-        public Division SelectedModel
+        public DtoDivision SelectedModel
         {
             get { return _selectedModel; }
             set
@@ -86,7 +87,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             }
         }
 
-        public List<Division> Models
+        public List<DtoDivision> Models
         {
             get { return _models; }
             set

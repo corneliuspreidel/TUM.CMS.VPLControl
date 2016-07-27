@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Controls;
-using BimPlus.IntegrationFramework.Contract.Model;
+using BimPlus.Sdk.Data.DbCore;
+using TUM.CMS.VplControl.BimPlus.BaseNodes;
 using TUM.CMS.VplControl.BimPlus.Controls;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
-using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-    public class PropertyNode: Node, INotifyPropertyChanged
+    public class PropertyNode: OperatorObjectNode, INotifyPropertyChanged
     {
         // DataController
         private readonly DataController _controller;
         private readonly PropertyNodeControl _control;
 
-        private List<GenericElement> _filteredElements;
+        private List<DtObject> _filteredElements;
 
         private List<string> _attributeGroups;
         private List<string> _attributes;
@@ -50,16 +51,16 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
         private void ElementTypeListBoxOnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
         {
-            _filteredElements = new List<GenericElement>();
+            _filteredElements = new List<DtObject>();
 
             if (_control.ElementTypeListBox.SelectedItem != null)
             {
                 var selectedElementTypes = (_control.ElementTypeListBox.SelectedItems);
                 // var selectedElementTypes = (_control.ElementTypeListBox.SelectedItems as List<string>).Select(elementType => elementType.Name).ToList();
 
-                foreach (var elem in InputPorts[0].Data as List<GenericElement>)
+                foreach (var elem in InputPorts[0].Data as List<DtObject>)
                 {
-                    if (elem != null && selectedElementTypes.Contains(elem.TypeName))
+                    if (elem != null && selectedElementTypes.Contains(elem.Type))
                     {
                         _filteredElements.Add(elem);
                     }
@@ -82,7 +83,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             if (_control.AttributeGroupListBox.SelectedItem != null)
             {
                 _control.AttributesListBox.ItemsSource =
-                    _filteredElements[0].AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()].Attributes.Keys;
+                    _filteredElements[0].AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()].Keys;
             }
         }
 
@@ -90,15 +91,15 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
         {
             if (_control.AttributesListBox.SelectedItem != null)
             {
-                var type = _filteredElements[0].AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()].Attributes[_control.AttributesListBox.SelectedItem.ToString()].GetType();
+                var type = _filteredElements[0].AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()][_control.AttributesListBox.SelectedItem.ToString()].GetType();
                 _control.CurrentDataTypeLabel.Content = type.ToString();
 
                 // Get the suggested Data of all the model ...
                 var data = new List<object>();
                 foreach (var item in _filteredElements)
                 {
-                    if(data.Contains(item.AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()].Attributes[_control.AttributesListBox.SelectedItem.ToString()]) != true)
-                        data.Add(item.AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()].Attributes[_control.AttributesListBox.SelectedItem.ToString()]);
+                    if(data.Contains(item.AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()][_control.AttributesListBox.SelectedItem.ToString()]) != true)
+                        data.Add(item.AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()][_control.AttributesListBox.SelectedItem.ToString()]);
                 }
 
                 // Set the autocomplete data
@@ -118,11 +119,11 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             // FilterTextBox
             try
             {
-                var resultingElements = new List<GenericElement>();
+                var resultingElements = new List<DtObject>();
 
                 foreach (var elem in _filteredElements)
                 {
-                    var attribute = elem.AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()].Attributes[_control.AttributesListBox.SelectedItem.ToString()];
+                    var attribute = elem.AttributeGroups[_control.AttributeGroupListBox.SelectedItem.ToString()][_control.AttributesListBox.SelectedItem.ToString()];
                     if(attribute == _control.FilterTextBox.SelectedItem)
                         resultingElements.Add(elem);
                     /*
@@ -152,16 +153,16 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             // Check values ... 
             if (InputPorts[0].Data == null) return;
-            if (InputPorts[0].Data.GetType() != typeof(List<GenericElement>)) return;
+            if (InputPorts[0].Data.GetType() != typeof(List<DtObject>)) return;
 
             // Init the ComboBox 
             _control.ElementTypeListBox.Items.Clear();
 
             // Loop through all the elements
-            foreach (var elem in InputPorts[0].Data as List<GenericElement>)
+            foreach (var elem in InputPorts[0].Data as List<DtObject>)
             {
-                if (_control.ElementTypeListBox.Items.Contains(elem.TypeName) == false)
-                    _control.ElementTypeListBox.Items.Add(elem.TypeName);
+                if (_control.ElementTypeListBox.Items.Contains(elem.Type) == false)
+                    _control.ElementTypeListBox.Items.Add(elem.Type);
             }
         }
 
@@ -176,7 +177,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
         #region PropertyChangedHandlers
 
-        public List<GenericElement> FilteredElements
+        public List<DtObject> FilteredElements
         {
             get { return _filteredElements; }
             set

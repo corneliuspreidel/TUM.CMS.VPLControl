@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
 
-namespace TUM.CMS.VplControl.Watch3D
+namespace TUM.CMS.VplControl.BimPlus.Utilities
 {
     /// <summary>
     /// 

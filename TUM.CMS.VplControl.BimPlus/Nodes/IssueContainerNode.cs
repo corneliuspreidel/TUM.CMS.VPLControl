@@ -1,14 +1,17 @@
 ﻿using System.Collections.ObjectModel;
-using BimPlus.IntegrationFramework.Contract.Model;
+using BimPlus.Sdk.Data.DbCore.Structure;
+using BimPlus.Sdk.Data.TenantDto;
+using TUM.CMS.VplControl.BimPlus.BaseNodes;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
+
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-
-    public class IssueContainerNode : Node
+    public class IssueContainerNode : UtilityNode
     {
         private readonly DataController _controller;
+        private ObservableCollection<DtoShortIssue> _issues;  
 
-        private ObservableCollection<Issue> _issues;  
         public IssueContainerNode(Core.VplControl hostCanvas)
             : base(hostCanvas)
         {
@@ -29,7 +32,11 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             var project = InputPorts[0].Data as Project;
             if (project == null) return;
 
-            _issues = _controller.IntBase.APICore.GetIssues(project.Id);
+            foreach (var item in _controller.IntBase.APICore.Issues.GetShortIssues(project.Id))
+            {
+                _issues.Add(item);
+            }
+            
             OutputPorts[0].Data = _issues;
         }
 

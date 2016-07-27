@@ -2,14 +2,15 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using BimPlus.IntegrationFramework.Core.EventArgs;
-using BimPlus.IntegrationFramework.WebControls.Views.WPF;
+using BimPlus.Client;
+using BimPlus.Client.WebControls.WPF;
+using TUM.CMS.VplControl.BimPlus.BaseNodes;
+using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
-using TUM.CMS.VplControl.Nodes;
 
 namespace TUM.CMS.VplControl.BimPlus.Nodes
 {
-    public class WebProjectSelectionNode : Node
+    public class WebProjectSelectionNode : UtilityNode
     {
         // DataController
         private readonly DataController _controller;
@@ -25,7 +26,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             IsResizeable = true;
 
-            var webControl = new WebProjectSelection(_controller.IntBase);
+            var webControl = new ProjectSelection(_controller.IntBase);
             {
                 Visibility = Visibility.Visible;
             };
@@ -50,7 +51,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
         private void ProjectSelectionViewModelOnProjectChangedEventHandler(object sender, EventArgs eventArgs)
         {
-            foreach (var proj in _controller.IntBase.APICore.GetProjects().Where(proj => proj.Id == (eventArgs as BimPlusEventArgs).Id))
+            foreach (var proj in _controller.IntBase.APICore.Projects.GetShortProjects().Where(proj => proj.Id == (eventArgs as BimPlusEventArgs).Id))
             {
                 OutputPorts[0].Data = proj;
             }

@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Xml;
 using Microsoft.Win32;
+using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.IFC.Utilities;
 using TUM.CMS.VplControl.Nodes;
 

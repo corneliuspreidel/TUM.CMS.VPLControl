@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="TUM.CMS.VplControl.BimPlus.Controls.RelationCreatorNodeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Width="Auto">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Name="LeftListBox" ItemsSource="{Binding leftItems}" Grid.Column="0"></ListBox>
+        <ListBox Name="RightListBox"  ItemsSource="{Binding rightItems}" Grid.Column="1"></ListBox>
+    </Grid>
+</UserControl>
