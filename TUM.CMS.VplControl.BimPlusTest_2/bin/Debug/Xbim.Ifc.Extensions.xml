@@ -1,0 +1,1362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xbim.Ifc.Extensions</name>
+    </assembly>
+    <members>
+        <member name="M:Xbim.Ifc2x3.Extensions.Axis2Placement3DExtensions.ToMatrix3D(Xbim.Ifc2x3.GeometryResource.IfcAxis2Placement3D,System.Collections.Concurrent.ConcurrentDictionary{System.Int32,System.Object})">
+            <summary>
+              Converts an Axis2Placement3D to a windows XbimMatrix3D
+            </summary>
+            <param name = "axis3"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.Axis2Placement3DExtensions.SetNewDirectionOf_XZ(Xbim.Ifc2x3.GeometryResource.IfcAxis2Placement3D,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+              Sets new directions of the axes. Direction vectors are automaticaly normalized.
+            </summary>
+            <param name = "axis3"></param>
+            <param name = "xAxisDirectionX"></param>
+            <param name = "xAxisDirectionY"></param>
+            <param name = "xAxisDirectionZ"></param>
+            <param name = "zAxisDirectionX"></param>
+            <param name = "zAxisDirectionY"></param>
+            <param name = "zAxisDirectionZ"></param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.BuildingExtensions.GetSite(Xbim.Ifc2x3.ProductExtension.IfcBuilding)">
+            <summary>
+            Returns the site (if any) that contains this building, null if the building is not decomposing a site
+            </summary>
+            <param name="building"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.BuildingExtensions.GetBuildings(Xbim.Ifc2x3.ProductExtension.IfcBuilding)">
+            <summary>
+            Returns the buidlings that decompose this building
+            </summary>
+            <param name="building"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.BuildingExtensions.GetSpaces(Xbim.Ifc2x3.ProductExtension.IfcBuilding)">
+            <summary>
+            Returns all spaces that are sub-spaces of this building
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.BuildingExtensions.GetGrossFloorArea(Xbim.Ifc2x3.ProductExtension.IfcBuilding)">
+            <summary>
+            Gets the Gross Floor Area, if the element base quantity GrossFloorArea is defined this has precedence
+            If no property is defined the GFA is returned as the sume of the building storeys GFA
+            </summary>
+            <param name="building"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.BuildingExtensions.GetBuildingStoreys(Xbim.Ifc2x3.ProductExtension.IfcBuilding,System.Boolean)">
+            <summary>
+            Returns the building storeys for this floor  
+            </summary>
+            <param name="building"></param>
+            <param name="sortByElevation">If true and the building storey Elevation property has been set will sort by this value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.BuildingStoreyExtensions.GetGrossFloorArea(Xbim.Ifc2x3.ProductExtension.IfcBuildingStorey)">
+            <summary>
+            Returns the Gross Floor Area, if the element base quantity GrossFloorArea is defined
+            </summary>
+            <param name="buildingStorey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.BuildingStoreyExtensions.GetSpaces(Xbim.Ifc2x3.ProductExtension.IfcBuildingStorey)">
+            <summary>
+            Returns all spaces that are sub-spaces of this storey
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.CalendarDateExtensions.MakeNow(Xbim.Ifc2x3.DateTimeResource.IfcCalendarDate)">
+            <summary>
+              Initilialises date to the current date on this computer expressed in local time
+            </summary>
+            <param name = "cd"></param>
+        </member>
+        <member name="T:Xbim.Ifc2x3.Extensions.XbimCartesianPointComparer">
+            <summary>
+            Used to compare cartesian points for equality within  a specfied tolerance
+            </summary>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.XbimCartesianPointComparer.#ctor(System.Double)">
+            <summary>
+            Creates a comarer
+            </summary>
+            <param name="tolerance">The distance within which the points are defined to be the same point</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.CartesianTransformationOperatorExtensions.ToMatrix3D(Xbim.Ifc2x3.GeometryResource.IfcCartesianTransformationOperator3D,System.Collections.Concurrent.ConcurrentDictionary{System.Int32,System.Object})">
+            <summary>
+              Builds a windows XbimMatrix3D from a CartesianTransformationOperator3D
+            </summary>
+            <param name = "ct3D"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.CartesianTransformationOperatorExtensions.ToMatrix3D(Xbim.Ifc2x3.GeometryResource.IfcCartesianTransformationOperator3DnonUniform,System.Collections.Concurrent.ConcurrentDictionary{System.Int32,System.Object})">
+            <summary>
+              Builds a windows XbimMatrix3D from a CartesianTransformationOperator3DnonUniform
+            </summary>
+            <param name = "ct3D"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.DateTimeSelectExtensions.GetAsString(Xbim.XbimExtensions.SelectTypes.IfcDateTimeSelect)">
+            <summary>
+            Get the string value for the IfcDateTimeSelect
+            </summary>
+            <param name="ifcDateTimeSelect">IfcDateTimeSelect</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.DoorExtensions.GetReference(Xbim.Ifc2x3.SharedBldgElements.IfcDoor)">
+            <summary>
+            Returns the Reference ID for this specified type in this project (e.g. type 'A-1'), if known
+            </summary>
+            <param name="door"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.DoorExtensions.GetIsExternal(Xbim.Ifc2x3.SharedBldgElements.IfcDoor)">
+            <summary>
+            Returns if the door is external, default is false if not specified
+            </summary>
+            <param name="door"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.DoorExtensions.GetFireExit(Xbim.Ifc2x3.SharedBldgElements.IfcDoor)">
+            <summary>
+            Returns whether the door is a Fire Exit or not, null if not known
+            </summary>
+            <param name="door"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.DoorExtensions.GetFireRating(Xbim.Ifc2x3.SharedBldgElements.IfcDoor)">
+            <summary>
+            Returns the fire rating if defined
+            </summary>
+            <param name="door"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.DoorLiningPropertiesExtensions.GetShapeModel(Xbim.Ifc2x3.SharedBldgElements.IfcDoorLiningProperties,System.String)">
+            <summary>
+              If the DoorLiningProperties contain a ShapeAspectStyle, returns the model whose RepresentationIdentifier equals identifier
+            </summary>
+            <param name = "lProps"></param>
+            <param name = "identifier">The RepresentationIdentifier to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.DoorLiningPropertiesExtensions.GetShapeModels(Xbim.Ifc2x3.SharedBldgElements.IfcDoorLiningProperties)">
+            <summary>
+              if the DoorLiningProperties contain a ShapeAspectStyle, returns the the ShapeModelList
+            </summary>
+            <param name = "lProps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ElementExtensions.GetFilledElement(Xbim.Ifc2x3.ProductExtension.IfcElement,Xbim.XbimExtensions.Interfaces.IModel)">
+            <summary>
+              Returns the Element that contains the void that this element fills, null if this is not a void filler
+              i.e. will return the wall that contains this door
+            </summary>
+            <param name = "elem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ElementTypeExtensions.SetMaterial(Xbim.Ifc2x3.ProductExtension.IfcElementType,Xbim.XbimExtensions.SelectTypes.IfcMaterialSelect)">
+            <summary>
+              Returns the Material Select or creates
+            </summary>
+            <param name = "elemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.FeatureElementSubtractionExtensions.GetFeatureElement(Xbim.Ifc2x3.ProductExtension.IfcFeatureElement,Xbim.XbimExtensions.Interfaces.IModel)">
+            <summary>
+              Returns the Element that this opening is formed in, i.e. returns the wall that contains this opening
+            </summary>
+            <param name = "elem"></param>
+            <param name = "model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcArbitraryClosedProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcArbitraryClosedProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcArbitraryClosedProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcArbitraryClosedProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcAxis1PlacementGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcAxis1Placement)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcAxis1PlacementGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcAxis1Placement,Xbim.Ifc2x3.GeometryResource.IfcAxis1Placement)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcAxis2Placement2DGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcAxis2Placement2D)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcAxis2Placement2DGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcAxis2Placement2D,Xbim.Ifc2x3.GeometryResource.IfcAxis2Placement2D)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcAxis2Placement3DGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcAxis2Placement3D)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcAxis2Placement3DGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcAxis2Placement3D,Xbim.Ifc2x3.GeometryResource.IfcAxis2Placement3D)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcBooleanResultGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcBooleanResult)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcBooleanResultGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcBooleanResult,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcBoundingBoxGeometryExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcBoundingBox)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcBoundingBoxGeometryExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcBoundingBox,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCartesianPointGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcCartesianPoint)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCartesianPointGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcCartesianPoint,Xbim.Ifc2x3.GeometryResource.IfcCartesianPoint)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCartesianTransformationOperator2DGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcCartesianTransformationOperator2D)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCartesianTransformationOperator2DGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcCartesianTransformationOperator2D,Xbim.Ifc2x3.GeometryResource.IfcCartesianTransformationOperator2D)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCircleHollowProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcCircleHollowProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCircleHollowProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcCircleHollowProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCircleProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcCircleProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCircleProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcCircleProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcConnectedFaceSetGeometricExtensions.NumberOfPointsMax(Xbim.Ifc2x3.TopologyResource.IfcConnectedFaceSet)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcConnectedFaceSetGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.TopologyResource.IfcConnectedFaceSet)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcConnectedFaceSetGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.TopologyResource.IfcConnectedFaceSet,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCsgSolidGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcCsgSolid)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCsgSolidGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcCsgSolid,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCurveGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcCurve)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcCurveGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcCurve,Xbim.Ifc2x3.GeometryResource.IfcCurve)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcDerivedProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcDerivedProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcDerivedProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcDerivedProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcDirectionGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcDirection)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcDirectionGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcDirection,Xbim.Ifc2x3.GeometryResource.IfcDirection)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcEdgeLoopGeometricExtensions.NumberOfPointsMax(Xbim.Ifc2x3.TopologyResource.IfcEdgeLoop)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcExtrudedAreaSolidGeometryExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcExtrudedAreaSolid)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcExtrudedAreaSolidGeometryExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcExtrudedAreaSolid,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceBasedSurfaceModelGeometricExtensions.NumberOfPointsMax(Xbim.Ifc2x3.GeometricModelResource.IfcFaceBasedSurfaceModel)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceBasedSurfaceModelGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcFaceBasedSurfaceModel)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceBasedSurfaceModelGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcFaceBasedSurfaceModel,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceBoundGeometricExtensions.NumberOfPointsMax(Xbim.Ifc2x3.TopologyResource.IfcFaceBound)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceBoundGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.TopologyResource.IfcFaceBound)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceBoundGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.TopologyResource.IfcFaceBound,Xbim.Ifc2x3.TopologyResource.IfcFaceBound)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceGeometricExtensions.NumberOfPointsMax(Xbim.Ifc2x3.TopologyResource.IfcFace)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.TopologyResource.IfcFace)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcFaceGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.TopologyResource.IfcFace,Xbim.Ifc2x3.TopologyResource.IfcFace)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcIShapeProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcIShapeProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcIShapeProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcIShapeProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcLoopGeometricExtensions.NumberOfPointsMax(Xbim.Ifc2x3.TopologyResource.IfcLoop)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcLoopGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.TopologyResource.IfcLoop)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcLoopGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.TopologyResource.IfcLoop,Xbim.Ifc2x3.TopologyResource.IfcLoop)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcLShapeProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcLShapeProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcLShapeProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcLShapeProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcManifoldSolidBrepGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcManifoldSolidBrep)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcManifoldSolidBrepGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcManifoldSolidBrep,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcPlaneGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcPlane)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcPlaneGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcPlane,Xbim.Ifc2x3.GeometryResource.IfcPlane)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcPolylineGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcPolyline)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcPolylineGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcPolyline,Xbim.Ifc2x3.GeometryResource.IfcPolyline)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcPolyLoopGeometricExtensions.NumberOfPointsMax(Xbim.Ifc2x3.TopologyResource.IfcPolyLoop)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcPolyLoopGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.TopologyResource.IfcPolyLoop)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcPolyLoopGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.TopologyResource.IfcPolyLoop,Xbim.Ifc2x3.TopologyResource.IfcPolyLoop)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcProductGeometryExtensions.Transform(Xbim.Ifc2x3.Kernel.IfcProduct)">
+            <summary>
+            Resolves the objects placement into a global wcs transformation.
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geometric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRectangleProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcRectangleProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRectangleProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcRectangleProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRectangularHollowProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcRectangleHollowProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRectangularHollowProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcRectangleHollowProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRepresentationGeometryExtensions.GetGeometryHashCode(Xbim.Ifc2x3.RepresentationResource.IfcRepresentation)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRepresentationGeometryExtensions.GeometricEquals(Xbim.Ifc2x3.RepresentationResource.IfcRepresentation,Xbim.Ifc2x3.RepresentationResource.IfcRepresentation)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRepresentationItemGeometryExtensions.IsSolidModel(Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Returns true if the object represents a solid model nb FacetedBreps can be both surface and solid
+            </summary>
+            <param name="repItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRepresentationItemGeometryExtensions.IsSurfaceModel(Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Returns true if the object is a surface model, nb FacetedBreps can be both surface and solid
+            </summary>
+            <param name="repItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRepresentationItemGeometryExtensions.IsMappedModel(Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Returns true if the item is a map to another shape
+            </summary>
+            <param name="repItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRepresentationItemGeometryExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Returns a Hash Code for the geometric properties of this object
+            </summary>
+            <param name="repItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRepresentationItemGeometryExtensions.GeometricEquals(Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRevolvedAreaSolidGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcRevolvedAreaSolid)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcRevolvedAreaSolidGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcRevolvedAreaSolid,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcShellBasedSurfaceModelGeometricExtensions.NumberOfPointsMax(Xbim.Ifc2x3.GeometricModelResource.IfcShellBasedSurfaceModel)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcShellBasedSurfaceModelGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcShellBasedSurfaceModel)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcShellBasedSurfaceModelGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcShellBasedSurfaceModel,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcShellGeometricextensions.NumberOfPointsMax(Xbim.XbimExtensions.SelectTypes.IfcShell)">
+            <summary>
+            Calculates the maximum number of points in this object, does not remove geometric duplicates
+            </summary>
+            <param name="sbsm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcShellGeometricextensions.GetGeometryHashCode(Xbim.XbimExtensions.SelectTypes.IfcShell)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcShellGeometricextensions.GeometricEquals(Xbim.XbimExtensions.SelectTypes.IfcShell,Xbim.XbimExtensions.SelectTypes.IfcShell)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcSolidModelGeometryExtensions.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcSolidModel)">
+            <summary>
+            Returns a Hash Code for the geometric properties of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcSolidModelGeometryExtensions.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcSolidModel,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcSurfaceCurveSweptAreaSolidGeometricExtension.GetGeometryHashCode(Xbim.Ifc2x3.GeometricModelResource.IfcSurfaceCurveSweptAreaSolid)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcSurfaceCurveSweptAreaSolidGeometricExtension.GeometricEquals(Xbim.Ifc2x3.GeometricModelResource.IfcSurfaceCurveSweptAreaSolid,Xbim.Ifc2x3.GeometryResource.IfcRepresentationItem)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcUShapeProfileDefGeometricExtensions.GetGeometryHashCode(Xbim.Ifc2x3.ProfileResource.IfcUShapeProfileDef)">
+            <summary>
+            returns a Hash for the geometric behaviour of this object
+            </summary>
+            <param name="solid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.IfcUShapeProfileDefGeometricExtensions.GeometricEquals(Xbim.Ifc2x3.ProfileResource.IfcUShapeProfileDef,Xbim.Ifc2x3.ProfileResource.IfcProfileDef)">
+            <summary>
+            Compares two objects for geomtric equality
+            </summary>
+            <param name="a"></param>
+            <param name="b">object to compare with</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.PhysicalSimpleQuantityExtensions.GetResolvedUnit(Xbim.Ifc2x3.QuantityResource.IfcPhysicalSimpleQuantity)">
+            <summary>
+            Returns the named unit for the specified quantity.
+            
+            EFFICIENCY WARNING: *****************
+            
+            this requires a number of Database calls. In case you have to run queries on multiple IfcPhysicalSimpleQuantity it's far better 
+            to get the instance of IfcUnitAssignment from the model and use its GetUnitFor() method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.PlacementExtensions.ToMatrix3D(Xbim.Ifc2x3.GeometryResource.IfcPlacement)">
+            <summary>
+            Converts a placement to a Matrix3D
+            </summary>
+            <param name="placement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.UnitExtensions.GetName(Xbim.XbimExtensions.SelectTypes.IfcUnit)">
+            <summary>
+            Get the full name of the IfcUnit
+            </summary>
+            <returns>string holding full name</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.UnitExtensions.GetSymbol(Xbim.XbimExtensions.SelectTypes.IfcUnit)">
+            <summary>
+            Get the symbol of the IfcUnit
+            </summary>
+            <returns>string holding symbol</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.UnitExtensions.GetName(Xbim.Ifc2x3.MeasureResource.IfcDerivedUnit)">
+            <summary>
+            Get the full name of the IfcDerivedUnit
+            </summary>
+            <returns>string holding full name</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.LocalTimeExtensions.SetTimeLocal(Xbim.Ifc2x3.DateTimeResource.IfcLocalTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+              Sets the hours minutes and seconds in the local time and sets the time zone and offsets and daylight saving hours to that of this machine now
+            </summary>
+            <param name = "lt"></param>
+            <param name = "hour"></param>
+            <param name = "minute"></param>
+            <param name = "second"></param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.MonetaryUnitExtensions.GetSymbol(Xbim.Ifc2x3.MeasureResource.IfcMonetaryUnit)">
+            <summary>
+            Get Symbol string for money unit
+            </summary>
+            <returns>String holding symbol</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.MonetaryUnitExtensions.GetFullEnglishName(Xbim.Ifc2x3.MeasureResource.IfcMonetaryUnit)">
+             <summary>
+            Get full English name of the currency
+             </summary>
+             <returns>String as full name</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.MonetaryUnitExtensions.GetFullNativeName(Xbim.Ifc2x3.MeasureResource.IfcMonetaryUnit)">
+             <summary>
+            Get full Native name of the currency
+             </summary>
+             <returns>String holding full name</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.NamedUnitExtensions.GetName(Xbim.Ifc2x3.MeasureResource.IfcNamedUnit)">
+            <summary>
+            Get the full name of the IfcNamedUnit
+            </summary>
+            <returns>string holding full name</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.NamedUnitExtensions.GetSymbol(Xbim.Ifc2x3.MeasureResource.IfcNamedUnit)">
+            <summary>
+            Get the symbol of the IfcNamedUnit
+            </summary>
+            <returns>string holding symbol</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.NamedUnitExtensions.GetSymbol(Xbim.Ifc2x3.MeasureResource.IfcConversionBasedUnit)">
+            <summary>
+            Get Symbol string for IfcConversionBasedUnit conversion unit
+            </summary>
+            <returns>String holding symbol</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.NamedUnitExtensions.GetSymbol(Xbim.Ifc2x3.MeasureResource.IfcSIUnit)">
+            <summary>
+            Get Symbol string for SIUnit unit
+            </summary>
+            <returns>String holding symbol</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.NamedUnitExtensions.GetName(Xbim.Ifc2x3.MeasureResource.IfcSIUnit)">
+            <summary>
+            Returns the full name of the unit
+            </summary>
+            <returns>string holding name</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetDefiningType(Xbim.Ifc2x3.Kernel.IfcObject,Xbim.XbimExtensions.Interfaces.IModel)">
+            <summary>
+            Specific type information  that is common to all instances of IfcObject refering to the same type.
+            </summary>
+            <param name="tObj"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.AddPropertySet(Xbim.Ifc2x3.Kernel.IfcObject,Xbim.Ifc2x3.Kernel.IfcPropertySet)">
+            <summary>
+            Adds an existing property set to the objecty, NB no check is done for duplicate psets
+            </summary>
+            <param name="obj"></param>
+            <param name="pSet"></param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetPropertySet(Xbim.Ifc2x3.Kernel.IfcObject,System.String,System.Boolean)">
+            <summary>
+            Returns the propertyset of the specified name, null if it does not exist
+            </summary>
+            <param name="obj"></param>
+            <param name="pSetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetPropertySingleNominalValue(Xbim.Ifc2x3.Kernel.IfcObject,System.String,System.String)">
+            <summary>
+            If the property value exists, returns the Nominal Value of the contents
+            </summary>
+            <param name="obj"></param>
+            <param name="pSetName"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.SetPropertySingleValue(Xbim.Ifc2x3.Kernel.IfcObject,System.String,System.String,System.Type)">
+            <summary>
+            Creates property single value with specified type and default value of this type (0 for numeric types, empty string tor string types and false for bool types)
+            </summary>
+            <param name="pSetName">Property set name</param>
+            <param name="propertyName">Property name</param>
+            <param name="type">Type of the property</param>
+            <returns>Property single value with default value of the specified type</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetExternalElements(Xbim.XbimExtensions.Interfaces.IModel)">
+            <summary>
+            Returns a list of all the elements that bound the external of the building 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetAllElementQuantities(Xbim.Ifc2x3.Kernel.IfcObject)">
+            <summary>
+            Use this method to get all element quantities related to this object
+            </summary>
+            <returns>All related element quantities</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetAllPhysicalSimpleQuantities(Xbim.Ifc2x3.Kernel.IfcObject)">
+            <summary>
+            Use this to get all physical simple quantities (like length, area, volume, count, etc.)
+            </summary>
+            <returns>All physical simple quantities (like length, area, volume, count, etc.)</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetQuantity``1(Xbim.Ifc2x3.Kernel.IfcObject,System.String,System.String)">
+            <summary>
+            Returns the first quantity in the property set pSetName of name qName
+            </summary>
+            <typeparam name="QType"></typeparam>
+            <param name="elem"></param>
+            <param name="pSetName"></param>
+            <param name="qName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetQuantity``1(Xbim.Ifc2x3.Kernel.IfcObject,System.String)">
+            <summary>
+            Returns the first quantity that matches the quantity name
+            </summary>
+            <typeparam name="QType"></typeparam>
+            <param name="elem"></param>
+            <param name="qName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.AddQuantity(Xbim.Ifc2x3.Kernel.IfcObject,System.String,Xbim.Ifc2x3.QuantityResource.IfcPhysicalQuantity,System.String)">
+            <summary>
+            Adds a new IfcPhysicalQuantity to the IfcElementQuantity called propertySetName
+            </summary>
+            <param name="elem"></param>
+            <param name="propertySetName">Name of the IfcElementQuantity property set</param>
+            <param name="quantity">quantity to be added</param>
+            <param name="methodOfMeasurement">Sets the method of measurement, if not null overrides previous value</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.AddQuantity(Xbim.Ifc2x3.Kernel.IfcObject,System.String,Xbim.Ifc2x3.QuantityResource.IfcPhysicalQuantity)">
+            <summary>
+            Adds a new IfcPhysicalQuantity to the IfcElementQuantity called propertySetName
+            </summary>
+            <param name="elem"></param>
+            <param name="propertySetName">Name of the IfcElementQuantity property set</param>
+            <param name="quantity">quantity to be added</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ObjectExtensions.GetElementPhysicalSimpleQuantity(Xbim.Ifc2x3.Kernel.IfcObject,System.String,System.String)">
+            <summary>
+            Returns simple physical quality of the element.
+            </summary>
+            <param name="elem"></param>
+            <param name="pSetName"></param>
+            <param name="qualityName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.PolyLoopExtensions.Area(Xbim.Ifc2x3.TopologyResource.IfcPolyLoop)">
+            <summary>
+            returns the area of the polyloop
+            </summary>
+            <param name="loop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.PolyLoopExtensions.NewellsNormal(Xbim.Ifc2x3.TopologyResource.IfcPolyLoop)">
+            <summary>
+            Calculates the Newell's Normal of the polygon of the loop
+            </summary>
+            <param name="loop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.PresentationStyleAssignmentExtension.GetSurfaceStyle(Xbim.Ifc2x3.PresentationAppearanceResource.IfcPresentationStyleAssignment)">
+            <summary>
+              returns the surfacestyle associated with this PresentationStyleAssignment, null if no sufacestyle is defined
+            </summary>
+            <param name = "style"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProductExtensions.IsContainedIn(Xbim.Ifc2x3.Kernel.IfcProduct)">
+            <summary>
+            Returns the spatial structural elements that this product is in
+            </summary>
+            <param name="prod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProductExtensions.GetBodyRepresentation(Xbim.Ifc2x3.Kernel.IfcProduct)">
+            <summary>
+              Returns the first Body(Solid) Representation, null if none exists
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProductExtensions.SetNewObjectLocalPlacement(Xbim.Ifc2x3.Kernel.IfcProduct,System.Double,System.Double,System.Double)">
+            <summary>
+              Sets new object placement as LocalPlacement with defined coordinates. If any placement exists it is overwritten;
+            </summary>
+            <param name = "placementX">X coordinate of placement</param>
+            <param name = "placementY">Y coordinate of placement</param>
+            <param name = "placementZ">Z coordinate of placement</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProductExtensions.SetObjectLocalPlacement_XZdirection(Xbim.Ifc2x3.Kernel.IfcProduct,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+              Sets X axis direction of the existing local placement. If it does not exist, exception raises.
+            </summary>
+            <param name = "xAxisDirectionX">X coordinate of the X asis direction</param>
+            <param name = "xAxisDirectionY">Y coordinate of the X asis direction</param>
+            <param name = "xAxisDirectionZ">Z coordinate of the X asis direction</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProductExtensions.GetFirstShapeRepresentation(Xbim.Ifc2x3.Kernel.IfcProduct)">
+            <summary>
+              Returns first set of IFC representation items or null;
+            </summary>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProductExtensions.GetShapeRepresentationItems(Xbim.Ifc2x3.Kernel.IfcProduct,Xbim.Ifc2x3.RepresentationResource.IfcRepresentationContext)">
+            <summary>
+              Returns set of IFC representation items from the specified context or null;
+            </summary>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProductExtensions.GetNewBrepShapeRepresentation(Xbim.Ifc2x3.Kernel.IfcProduct,Xbim.Ifc2x3.RepresentationResource.IfcRepresentationContext)">
+            <summary>
+              Creates new body representation it as "Body", "Brep".
+            </summary>
+            <param name = "context">Geometry context</param>
+            <returns>New empty set of representation items</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProductExtensions.GetNewSweptSolidShapeRepresentation(Xbim.Ifc2x3.Kernel.IfcProduct,Xbim.Ifc2x3.RepresentationResource.IfcRepresentationContext)">
+            <summary>
+              Creates new body representation it as "Body", "Brep".
+            </summary>
+            <param name = "context">Geometry context</param>
+            <returns>New empty set of representation items</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProjectExtensions.Initialize(Xbim.Ifc2x3.Kernel.IfcProject,Xbim.Ifc2x3.Extensions.ProjectUnits)">
+            <summary>
+              Sets up the default units as SI
+              Creates the GeometricRepresentationContext for a Model view, required by Ifc compliance
+            </summary>
+            <param name = "ifcProject"></param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProjectExtensions.GetBuildings(Xbim.Ifc2x3.Kernel.IfcProject)">
+            <summary>
+            Returns all buildings at the highest level of spatial structural decomposition (i.e. root buildings)
+            </summary>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProjectExtensions.AddSite(Xbim.Ifc2x3.Kernel.IfcProject,Xbim.Ifc2x3.ProductExtension.IfcSite)">
+            <summary>
+              Adds Site to the IsDecomposedBy Collection.
+            </summary>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.ProjectExtensions.AddBuilding(Xbim.Ifc2x3.Kernel.IfcProject,Xbim.Ifc2x3.ProductExtension.IfcBuilding)">
+            <summary>
+              Adds Building to the IsDecomposedBy Collection.
+            </summary>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.RepresentationExtension.IsBodyRepresentation(Xbim.Ifc2x3.RepresentationResource.IfcRepresentation)">
+            <summary>
+            returns true if the representation is a 3D Shape (solid or surface), if it is a curve or curve set returns false
+            </summary>
+            <param name="rep"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.RootExtensions.SetMaterial(Xbim.Ifc2x3.Kernel.IfcRoot,Xbim.XbimExtensions.SelectTypes.IfcMaterialSelect)">
+            <summary>
+            Returns the Material Select or creates
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.RootExtensions.GetMaterialLayerSetUsage(Xbim.Ifc2x3.Kernel.IfcRoot,Xbim.XbimExtensions.Interfaces.IModel)">
+            <summary>
+              Returns the MaterialLayerSetUsage for the Building element, null if none exists
+            </summary>
+            <param name = "element"></param>
+            <param name = "model"></param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.RootExtensions.SetMaterialLayerSetUsage(Xbim.Ifc2x3.Kernel.IfcRoot,Xbim.XbimExtensions.Interfaces.IModel,Xbim.Ifc2x3.MaterialResource.IfcMaterialLayerSet,Xbim.Ifc2x3.MaterialResource.IfcLayerSetDirectionEnum,Xbim.Ifc2x3.MaterialResource.IfcDirectionSenseEnum,Xbim.Ifc2x3.MeasureResource.IfcLengthMeasure)">
+            <summary>
+              Set Material set usage parameters and creates it if it doesn't exist.
+            </summary>
+            <param name = "model">Model of the element</param>
+            <param name = "forLayerSet">Material layer set for the usage</param>
+            <param name = "layerSetDirection">Direction of the material layer set in the usage</param>
+            <param name = "directionSense">Sense of the direction of the usage</param>
+            <param name = "offsetFromReferenceLine">Offset from the reference line of the element</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.RootExtensions.SetMaterialLayerSetUsage(Xbim.Ifc2x3.Kernel.IfcRoot,Xbim.Ifc2x3.MaterialResource.IfcMaterialLayerSet,Xbim.Ifc2x3.MaterialResource.IfcLayerSetDirectionEnum,Xbim.Ifc2x3.MaterialResource.IfcDirectionSenseEnum,Xbim.Ifc2x3.MeasureResource.IfcLengthMeasure)">
+            <summary>
+              Set Material set usage and creates it if it doesn't exist.
+            </summary>
+            <param name = "forLayerSet">Material layer set for the usage</param>
+            <param name = "layerSetDirection">Direction of the material layer set in the usage</param>
+            <param name = "directionSense">Sense of the direction of the usage</param>
+            <param name = "offsetFromReferenceLine">Offset from the reference line of the element</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SiteExtensions.GetFootprintArea(Xbim.Ifc2x3.ProductExtension.IfcSite)">
+            <summary>
+            Returns the projected footprint are of the site, this value is derived and makes use of property sets not in the ifc schema
+            </summary>
+            <param name="site"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SiteExtensions.GetBuildings(Xbim.Ifc2x3.ProductExtension.IfcSite)">
+            <summary>
+            Returns all buildings at the highest level of spatial structural decomposition (i.e. root buildings for this site)
+            </summary>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SIUnitExtensions.Power(Xbim.Ifc2x3.MeasureResource.IfcSIUnit)">
+            <summary>
+              returns the power of the SIUnit prefix, i.e. MILLI = 0.001, if undefined returns 1.0
+            </summary>
+            <param name = "si"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SlabExtensions.GrossFootprintArea(Xbim.Ifc2x3.SharedBldgElements.IfcSlab)">
+            <summary>
+            Returns the Gross Footprint Area, if the element base quantity GrossFloorArea is defined
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpaceExtensions.GenerateWalls(Xbim.Ifc2x3.ProductExtension.IfcSpace,Xbim.XbimExtensions.Interfaces.IModel)">
+            <summary>
+              If the space has a footprint represenation this will generate a set of walls conforming to that footprint, otherwise returns null
+            </summary>
+            <param name = "space"></param>
+            <param name = "model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpaceExtensions.GetGrossFloorArea(Xbim.Ifc2x3.ProductExtension.IfcSpace)">
+            <summary>
+            Returns the Gross Floor Area, if the element base quantity GrossFloorArea is defined
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpaceExtensions.GetNetFloorArea(Xbim.Ifc2x3.ProductExtension.IfcSpace)">
+            <summary>
+            Returns the Net Floor Area, if the element base quantity GrossFloorArea is defined
+            Will use GSA Space Areas if the Ifc common property NetFloorArea is not defined
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpaceExtensions.GetHeight(Xbim.Ifc2x3.ProductExtension.IfcSpace)">
+            <summary>
+            Returns the Height, if the element base quantity Height is defined
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpaceExtensions.GetGrossPerimeter(Xbim.Ifc2x3.ProductExtension.IfcSpace)">
+            <summary>
+            Returns the Perimeter, if the element base quantity GrossPerimeter is defined
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpaceExtensions.GetSpaces(Xbim.Ifc2x3.ProductExtension.IfcSpace)">
+            <summary>
+            Returns all spaces that are sub-spaces of this space
+            </summary>
+            <param name="space"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpaceExtensions.GetSpaceType(Xbim.Ifc2x3.ProductExtension.IfcSpace)">
+            <summary>
+            Returns the IfcSpaceType of this space, null if one is not defined
+            </summary>
+            <param name="space"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpatialStructureElementExtensions.GetContainedElements(Xbim.Ifc2x3.ProductExtension.IfcSpatialStructureElement,Xbim.XbimExtensions.Interfaces.IModel)">
+            <summary>
+              Returns all the  elements that decomposes this
+            </summary>
+            <param name = "se"></param>
+            <param name = "model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpatialStructureElementExtensions.GetContainedElements(Xbim.Ifc2x3.ProductExtension.IfcSpatialStructureElement)">
+            <summary>
+              Returns all the elements that decomposes this
+            </summary>
+            <param name = "se"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpatialStructureElementExtensions.GetContainingStructuralElement(Xbim.Ifc2x3.ProductExtension.IfcSpatialStructureElement)">
+            <summary>
+              Returns  the first spatial structural element that this decomposes
+            </summary>
+            <param name = "se"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpatialStructureElementExtensions.GetContainingStructuralElements(Xbim.Ifc2x3.ProductExtension.IfcSpatialStructureElement)">
+            <summary>
+              Returns  the spatial structural elements that this decomposes
+            </summary>
+            <param name = "se"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpatialStructureElementExtensions.AddElement(Xbim.Ifc2x3.ProductExtension.IfcSpatialStructureElement,Xbim.Ifc2x3.Kernel.IfcProduct)">
+            <summary>
+              Adds the  element to the set of  elements which are contained in this spatialstructure
+            </summary>
+            <param name = "se"></param>
+            <param name = "prod"></param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.SpatialStructureElementExtensions.AddToSpatialDecomposition(Xbim.Ifc2x3.ProductExtension.IfcSpatialStructureElement,Xbim.Ifc2x3.ProductExtension.IfcSpatialStructureElement)">
+            <summary>
+              Adds specified IfcSpatialStructureElement to the decomposition of this spatial structure element.
+            </summary>
+            <param name = "se"></param>
+            <param name = "child">Child spatial structure element.</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.StyledItemExtensions.GetPresentationStyleAssignment(Xbim.Ifc2x3.PresentationAppearanceResource.IfcStyledItem)">
+            <summary>
+              IFC only allows one presentation style assignment
+            </summary>
+            <param name = "si"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.TypeObjectExtensions.GetPropertySet(Xbim.Ifc2x3.Kernel.IfcTypeObject,System.String,System.Boolean)">
+            <summary>
+            Returns the propertyset of the specified name, null if it does not exist
+            </summary>
+            <param name="obj"></param>
+            <param name="pSetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.TypeObjectExtensions.GetAllPhysicalSimpleQuantities(Xbim.Ifc2x3.Kernel.IfcTypeObject)">
+            <summary>
+            Use this to get all physical simple quantities (like length, area, volume, count, etc.)
+            </summary>
+            <returns>All physical simple quantities (like length, area, volume, count, etc.)</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.TypeObjectExtensions.GetAllElementQuantities(Xbim.Ifc2x3.Kernel.IfcTypeObject)">
+            <summary>
+            Use this method to get all element quantities related to this object
+            </summary>
+            <returns>All related element quantities</returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.UnitAssignmentExtensions.LengthUnitPower(Xbim.Ifc2x3.MeasureResource.IfcUnitAssignment)">
+            <summary>
+              Returns the factor to scale units by to convert them to SI millimetres, if they are SI units, returns 1 otherwise
+            </summary>
+            <param name = "ua"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.UnitAssignmentExtensions.SetSILengthUnits(Xbim.Ifc2x3.MeasureResource.IfcUnitAssignment,Xbim.Ifc2x3.MeasureResource.IfcSIUnitName,System.Nullable{Xbim.Ifc2x3.MeasureResource.IfcSIPrefix})">
+            <summary>
+            Sets the Length Unit to be SIUnit and SIPrefix, returns false if the units are not SI
+            </summary>
+            <param name = "ua"></param>
+            <param name = "siUnitName"></param>
+            <param name = "siPrefix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.WallExtensions.SetTypicalMaterialLayerSetUsage(Xbim.Ifc2x3.SharedBldgElements.IfcWall,Xbim.Ifc2x3.MaterialResource.IfcMaterialLayerSet)">
+            <summary>
+              Set Material set usage with typical values and creates it if it doesn't exist.
+              LayerSetDirection = IfcLayerSetDirectionEnum.AXIS1
+              DirectionSense = IfcDirectionSenseEnum.POSITIVE
+              OffsetFromReferenceLine = 0
+            </summary>
+            <param name = "forLayerSet">Material layer set for the usage</param>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.WallExtensions.GetWallSideArea(Xbim.Ifc2x3.SharedBldgElements.IfcWall)">
+            <summary>
+            Gets the area of the wall in elevation
+            </summary>
+            <param name="wall"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.WallExtensions.GetIsExternal(Xbim.Ifc2x3.SharedBldgElements.IfcWall)">
+            <summary>
+            True if the wall is external
+            </summary>
+            <param name="wall"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.WindowExtensions.GetIsExternal(Xbim.Ifc2x3.SharedBldgElements.IfcWindow)">
+            <summary>
+            Returns if the door is external, default is false if not specified
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.WindowExtensions.GetReference(Xbim.Ifc2x3.SharedBldgElements.IfcWindow)">
+            <summary>
+            Returns the Reference ID for this specified type in this project (e.g. type 'A-1'), if known
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc2x3.Extensions.WindowExtensions.GetFireRating(Xbim.Ifc2x3.SharedBldgElements.IfcWindow)">
+            <summary>
+            Returns the fire rating if defined
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

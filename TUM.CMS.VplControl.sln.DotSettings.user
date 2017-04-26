@@ -3,4 +3,5 @@
   &lt;Assembly Path="C:\CMS\05_Projekte\TUM.CMS.VplControl\TUM.CMS.VplControl\bin\Debug\TUM.CMS.VplControl.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\CMS\05_Programmierung\TUM.CMS.VplControl\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.Toolkit.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\dev\TUM.CMS.VPLControl\packages\MathNet.Numerics.3.11.1\lib\net40\MathNet.Numerics.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\dev\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Client.Api.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

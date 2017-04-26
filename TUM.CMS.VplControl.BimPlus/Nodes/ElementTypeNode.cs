@@ -32,9 +32,9 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             };
             _typeComboBox.SelectionChanged += SelectionChanged;
 
-            if (_controller.IntBase.APICore != null)
+            if (_controller.IntBase.ApiCore != null)
             {
-                _typeComboBox.ItemsSource = _controller.IntBase.APICore.DtObjects.GetElementTypes();
+                _typeComboBox.ItemsSource = _controller.IntBase.ApiCore.DtObjects.GetElementTypes();
             }
             AddControlToNode(_typeComboBox);
 

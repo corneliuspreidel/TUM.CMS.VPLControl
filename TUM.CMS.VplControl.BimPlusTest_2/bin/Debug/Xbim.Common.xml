@@ -1,0 +1,2288 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xbim.Common</name>
+    </assembly>
+    <members>
+        <member name="M:Xbim.Common.Exceptions.ExceptionExtensions.ErrorStack(System.Exception,System.String)">
+            <summary>
+              Returns a list of indented strings for each error in the exception
+            </summary>
+        </member>
+        <member name="T:Xbim.Common.Exceptions.XbimException">
+            <summary>
+            Represents an error that occurred within the XBIM application
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimException"/> class.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="inner">The inner <see cref="T:System.Exception"/>.</param>
+        </member>
+        <member name="T:Xbim.Common.Exceptions.XbimGeometryException">
+            <summary>
+            Represents an error that occurrs while processing geometry for a model file.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimGeometryException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimGeometryException"/> class.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimGeometryException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimGeometryException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimGeometryException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimGeometryException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="inner">The inner <see cref="T:System.Exception"/>.</param>
+        </member>
+        <member name="T:Xbim.Common.Exceptions.XbimParserException">
+            <summary>
+            Represents an error that occurrs while parsing a model file.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimParserException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimParserException"/> class.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimParserException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimParserException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Xbim.Common.Exceptions.XbimParserException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Exceptions.XbimParserException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="inner">The inner <see cref="T:System.Exception"/>.</param>
+        </member>
+        <member name="T:Xbim.Common.Geometry.IGeometryManager">
+            <summary>
+            Interface to hold the geometry engine, a specific instance must be created, see Xbim.ModelGeometry.Converter
+            </summary>
+        </member>
+        <member name="T:XbimGeometry.Interfaces.IXbimCurve">
+            <summary>
+            A wire that is open
+            </summary>
+        </member>
+        <member name="T:XbimGeometry.Interfaces.IXbimGeometryObject">
+            <summary>
+            Abstract class for all Xbim Geometry objects
+            </summary>
+        </member>
+        <member name="M:XbimGeometry.Interfaces.IXbimGeometryObject.Transform(Xbim.Common.Geometry.XbimMatrix3D)">
+            <summary>
+            Returns a copy of the current object transformed by matrix3D, it is guranteed to return the same type as "this"
+            </summary>
+            <param name="matrix3D"></param>
+            <returns></returns>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimGeometryObject.IsSet">
+            <summary>
+            True if the geometry object is a collection
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimEdge.EdgeStart">
+            <summary>
+            Start point (vertex) of the edge
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimEdge.EdgeEnd">
+            <summary>
+            End point (vertex) of the edge
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimEdge.EdgeGeometry">
+            <summary>
+            The curve defining the form of the edge
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimEdge.Length">
+            <summary>
+            The length of edge, including any curvature
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimFace.Normal">
+            <summary>
+            The topological normal of the face, nb.  this may differ from the normal of the bound
+            </summary>
+        </member>
+        <member name="T:XbimGeometry.Interfaces.IXbimGeometryObjectSet">
+            <summary>
+            A mixed collection of geometry objects
+            </summary>
+        </member>
+        <member name="T:XbimGeometry.Interfaces.IXbimShell">
+            <summary>
+            A set of connected faces
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimShell.IsClosed">
+            <summary>
+            The shell is a closed manifold shape
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimMesh.IsSolid">
+            <summary>
+            The mesh is a closed manifold shape
+            </summary>
+        </member>
+        <member name="T:XbimGeometry.Interfaces.IXbimOrientedEdge">
+            <summary>
+            An oriented edge is an edge constructed from another edge and contains a BOOLEAN direction flag to indicate whether or not the orientation of the constructed edge agrees with the orientation of the original edge.
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimOrientedEdge.EdgeElement">
+            <summary>
+            Edge entity used to construct this oriented edge.
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimOrientedEdge.SameSense">
+            <summary>
+            If TRUE the topological orientation as used coincides with the orientation from start vertex to end vertex of the edge element. If FALSE otherwise.
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimOrientedEdge.EdgeStart">
+            <summary>
+            Start point (vertex) of the edge, after considering orientation
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimOrientedEdge.EdgeEnd">
+            <summary>
+            End point (vertex) of the edge, after considering orientation
+            </summary>
+        </member>
+        <member name="T:XbimGeometry.Interfaces.IXbimPoint">
+            <summary>
+            A 3 Dimensional Point
+            </summary>
+        </member>
+        <member name="T:XbimGeometry.Interfaces.IXbimSolid">
+            <summary>
+            A manifold closed shell
+            </summary>
+        </member>
+        <member name="M:XbimGeometry.Interfaces.IXbimSolidSet.Add(XbimGeometry.Interfaces.IXbimGeometryObject)">
+            <summary>
+            Will add any solids in the geomtry object to the set
+            </summary>
+            <param name="solid"></param>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimVertex.VertexGeometry">
+            <summary>
+            The geometric point, which defines the position in geometric space of the vertex.
+            </summary>
+        </member>
+        <member name="T:XbimGeometry.Interfaces.IXbimWire">
+            <summary>
+                A wire is a connected set of one or more edges
+            </summary>
+        </member>
+        <member name="M:XbimGeometry.Interfaces.IXbimWire.Trim(System.Double,System.Double,System.Double)">
+            <summary>
+            Returns a segment of the wire from start to end position
+            </summary>
+            <param name="start">The distanceto trim from the start of the wire</param>
+            <param name="end">The distance to trim to, from the start of the wire</param>
+            <param name="tolerance">The distance at which two points are considered to be the same</param>
+            <returns></returns>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.Edges">
+            <summary>
+            List of connected oriented edges
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.Vertices">
+            <summary>
+            Unique vertices in the shape, not in order
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.Points">
+            <summary>
+            Points in order of the wire
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.Normal">
+            <summary>
+             The normal of the loop, calculated using the Newell's normal method
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.IsPlanar">
+            <summary>
+            The vertices lay on a planar surface within the specified tolerance of the vertices
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.IsClosed">
+            <summary>
+            The wire is a closed loop
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.Start">
+            <summary>
+            First point of the wire
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.End">
+            <summary>
+            Last point of the wire
+            </summary>
+        </member>
+        <member name="P:XbimGeometry.Interfaces.IXbimWire.Length">
+            <summary>
+            Length of the wire
+            </summary>
+        </member>
+        <member name="T:Xbim.Common.Geometry.XbimBBoxClusterElement">
+            <summary>
+            This class is used to organise clusters of elements in case a scene needs to be split up.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initialises with doubles
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.FromString(System.String)">
+            <summary>
+            Converts string of 15 reals to a matrix
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.Multiply(Xbim.Common.Geometry.XbimMatrix3D,Xbim.Common.Geometry.XbimMatrix3D)">
+            <summary>
+            Performs a matrix multiplication
+            </summary>
+            <param name="mat">mat First operand</param>
+            <param name="mat2">mat2 Second operand</param>
+            <returns>dest if specified, mat otherwise</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.Equal(Xbim.Common.Geometry.XbimMatrix3D,Xbim.Common.Geometry.XbimMatrix3D)">
+            <summary>
+            Compares two matrices for equality within a certain margin of error
+            </summary>
+            <param name="a">a First matrix</param>
+            <param name="b">b Second matrix</param>
+            <returns>True if a is equivalent to b</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.Copy(Xbim.Common.Geometry.XbimMatrix3D)">
+            <summary>
+            Creates a new instance of a mat4
+            </summary>
+            <param name="mat">Single[16] containing values to initialize with</param>
+            <returns>New mat4New mat4</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.CreateScale(System.Double)">
+            <summary>
+            Creates a 3D scaling matrix.
+            </summary>
+            <param name="UniformScale">>The scaling factor along all axis.</param>
+            <returns>The new scaling matrix</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.CreateScale(System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a 3D scaling matrix.
+            </summary>
+            <param name="ScaleX">>The scaling factor along the x-axis.</param>
+            <param name="ScaleY">>The scaling factor along the y-axis.</param>
+            <param name="ScaleZ">>The scaling factor along the z-axis.</param>
+            <returns>The new scaling matrix</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.CreateTranslation(System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a 3D translation matrix.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.CreateTranslation(Xbim.Common.Geometry.XbimVector3D)">
+            <summary>
+            Creates a 3D translation matrix.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.Str">
+            <summary>
+            Returns a string representation of a mat4
+            </summary>
+            <param name="mat">mat mat4 to represent as a string</param>
+            <returns>String representation of mat</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.Decompose(Xbim.Common.Geometry.XbimVector3D@,Xbim.Common.Geometry.XbimQuaternion@,Xbim.Common.Geometry.XbimVector3D@)">
+            <summary>
+            Decomposes a matrix into a scale, rotation, and translation.
+            </summary>
+            <param name="scale">When the method completes, contains the scaling component of the decomposed matrix.</param>
+            <param name="rotation">When the method completes, contains the rtoation component of the decomposed matrix.</param>
+            <param name="translation">When the method completes, contains the translation component of the decomposed matrix.</param>
+            <remarks>
+            This method is designed to decompose an SRT transformation matrix only.
+            </remarks>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.RotateAroundXAxis(System.Double)">
+            <summary>
+            Apply a X-Axis rotation to the matrix
+            </summary>
+            <param name="radAngle">Angle in radians</param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.RotateAroundYAxis(System.Double)">
+            <summary>
+            Apply a Y-Axis rotation to the matrix
+            </summary>
+            <param name="radAngle">Angle in radians</param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimMatrix3D.RotateAroundZAxis(System.Double)">
+            <summary>
+            Apply a Z-Axis rotation to the matrix
+            </summary>
+            <param name="radAngle">Angle in radians</param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimPackedNormal.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Normalized normal vector. If the vector is not normalized packing will result in wrong results.
+            </summary>
+            <param name="x">X direction of the normalized normal vector</param>
+            <param name="y">Y direction of the normalized normal vector</param>
+            <param name="z">Z direction of the normalized normal vector</param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimPoint3D.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimPoint3D.Add(Xbim.Common.Geometry.XbimPoint3D,Xbim.Common.Geometry.XbimVector3D)">
+            <summary>
+            Adds a XbimPoint3D structure to a XbimVector3D and returns the result as a XbimPoint3D structure.
+            </summary>
+            <param name="p"></param>
+            <param name="v"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimQuaternion.RotationMatrix(Xbim.Common.Geometry.XbimMatrix3D@,Xbim.Common.Geometry.XbimQuaternion@)">
+            <summary>
+            Creates a quaternion given a rotation matrix.
+            </summary>
+            <param name="matrix">The rotation matrix.</param>
+            <param name="result">When the method completes, contains the newly created quaternion.</param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimQuaternion.Transform(Xbim.Common.Geometry.XbimVector3D@,Xbim.Common.Geometry.XbimQuaternion@,Xbim.Common.Geometry.XbimVector3D@)">
+            <summary>
+            Transforms a 3D vector by the given <see cref="!:SharpDX.Quaternion"/> rotation.
+            </summary>
+            <param name="vector">The vector to rotate.</param>
+            <param name="rotation">The <see cref="!:SharpDX.Quaternion"/> rotation to apply.</param>
+            <param name="result">When the method completes, contains the transformed <see cref="!:SharpDX.Vector4"/>.</param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.FromArray(System.Byte[])">
+            <summary>
+            Reinitialises the rectangle 3D from the byte array
+            </summary>
+            <param name="rect"></param>
+            <param name="array">6 doubles, definine, min and max values of the boudning box</param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.ToDoublesArray">
+            <summary>
+            Writes the Bounding Box as 6 doubles.
+            </summary>
+            <returns>An array of doubles (Position followed by Size).</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.ToFloatArray">
+            <summary>
+            Writes the Bounding Box as 6 floats.
+            </summary>
+            <returns>An array of floats (Position followed by Size).</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.FromString(System.String)">
+            <summary>
+            Imports values from a string
+            </summary>
+            <param name="Value">A space-separated string of 6 invariant-culture-formatted floats (x,y,z,sizeX,sizeY,sizeZ)</param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.Centroid">
+            <summary>
+            Calculates the centre of the 3D rect
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.TransformBy(Xbim.Common.Geometry.XbimRect3D,Xbim.Common.Geometry.XbimMatrix3D)">
+            <summary>
+            Transforms a bounding rect so that it is still axis aligned
+            </summary>
+            <param name="rect3d"></param>
+            <param name="m"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.Radius">
+            <summary>
+            Returns the radius of the sphere that contains this bounding box rectangle 3D
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.Length">
+            <summary>
+            Indicative size of the Box along all axis.
+            </summary>
+            <returns>Returns the length of the diagonal</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.Transform(Xbim.Common.Geometry.XbimMatrix3D)">
+            <summary>
+            Warning: This function assumes no rotation is used for the tranform.
+            </summary>
+            <param name="composed">The NON-ROTATING transform to apply</param>
+            <returns>the transformed bounding box.</returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.Round(System.Int32)">
+            <summary>
+            Rounds the values of the bounding box to the specified precision
+            </summary>
+            <param name="digits"></param>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.Round(Xbim.Common.Geometry.XbimRect3D,System.Int32)">
+            <summary>
+            Rounds the values of the bounding box to the specified precision and returns a copy
+            </summary>
+            <param name="r"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimRect3D.IsSimilar(Xbim.Common.Geometry.XbimRect3D,System.Double)">
+            <summary>
+            true if the rect fits inside thsi rectangle when it is either inflated or defalted by the tolerance
+            </summary>
+            <param name="xbimRect3D"></param>
+            <param name="tolerance"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.Common.Geometry.XbimRect3D.Min">
+            <summary>
+            Minimum vertex
+            </summary>
+        </member>
+        <member name="P:Xbim.Common.Geometry.XbimRect3D.Max">
+            <summary>
+            Maximum vertex
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimShapeTriangulation.TriangleCount(System.Byte[])">
+            <summary>
+            Returns the number of triangles in the XbimShapeTriangulation data
+            </summary>
+            <param name="triangulationData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimShapeTriangulation.VerticesCount(System.Byte[])">
+            <summary>
+            Returns the number of vertices in the XbimShapeTriangulation data
+            </summary>
+            <param name="triangulationData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimVector3D.IsOpposite(Xbim.Common.Geometry.XbimVector3D,System.Double)">
+            <summary>
+            Returns true if the angle is less than tolerance
+            </summary>
+            <param name="other">other vector</param>
+            <param name="angularTolerance">Tolerance in radians</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimVector3D.IsParallel(Xbim.Common.Geometry.XbimVector3D,System.Double)">
+            <summary>
+            Returns true if the vectors are parallel
+            </summary>
+            <param name="other">other vector</param>
+            <param name="angularTolerance">Tolerance in radians</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Geometry.XbimVector3D.Negate">
+            <summary>
+            Makes the vector point in the opposite direction
+            </summary>
+        </member>
+        <member name="T:Xbim.Common.Helpers.AttributeHelper">
+            <summary>
+            A helper class used to retrieve attributes from Assemblies and Types
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Helpers.AttributeHelper.GetAttributes``1(System.Reflection.ICustomAttributeProvider,System.Boolean)">
+            <summary>
+            Retrieve a list of attributes of type T from the member provided.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mInfo"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Helpers.AttributeHelper.GetAttribute``1(System.Reflection.ICustomAttributeProvider,System.Boolean)">
+            <summary>
+            Retrieve attribute T from the member provided.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mInfo"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Common.Helpers.AttributeHelper.GetDescriptionAttributeValue(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            Retrieve DescriptionAttributeValue from the member provided
+            </summary>
+            <param name="mInfo"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Xbim.Common.Logging.ILogger">
+            <summary>
+            Defines the interface of a generic logging system.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Debug(System.Object)">
+            <summary>
+            Logs the specified message with the <c>DEBUG</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Debug(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>DEBUG</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>DEBUG</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Info(System.Object)">
+            <summary>
+            Logs the specified message with the <c>INFO</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Info(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>INFO</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>INFO</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Warn(System.Object)">
+            <summary>
+            Logs the specified message with the <c>WARN</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Warn(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>WARN</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>WARN</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Error(System.Object)">
+            <summary>
+            Logs the specified message with the <c>ERROR</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Error(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>ERROR</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>ERROR</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Fatal(System.Object)">
+            <summary>
+            Logs the specified message with the <c>FATAL</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>FATAL</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>FATAL</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.ILogger.UnhandledException(System.Exception)">
+            <summary>
+            Logs the unhandled exception with Fatal level
+            </summary>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="P:Xbim.Common.Logging.ILogger.IsDebugEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Debug.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Debug enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.ILogger.IsInfoEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Info.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Info enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.ILogger.IsWarnEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Warn.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Warn enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.ILogger.IsErrorEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Error.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Error enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.ILogger.IsFatalEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Fatal.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Fatal enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Xbim.Common.Logging.LoggerFactory">
+            <summary>
+            A class which acts as a Factory for Loggers.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.LoggerFactory.ResolveLoggingProvider">
+            <summary>
+            Resolves the Logging Provider for the current application
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.LoggerFactory.ConfigureLogging">
+            <summary>
+            Configures the Logging System.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.LoggerFactory.GetLogger(System.Type)">
+            <summary>
+            Gets an <see cref="T:Xbim.Common.Logging.ILogger"/> to use for logging, based on the supplied <see cref="T:System.Type"/>.
+            </summary>
+            <param name="callingType">Type of the caller.</param>
+            <returns></returns>
+            <remarks>By supplying the Type it is possible to configure the logging system
+            to log messages for each type differently. This can allow the user to change the log level,
+            and the means of output for particular areas of the system.</remarks>
+        </member>
+        <member name="M:Xbim.Common.Logging.LoggerFactory.GetLogger">
+            <summary>
+            Gets a <see cref="T:Xbim.Common.Logging.ILogger"/> to use for logging, based on the calling methods's Declaring Type.
+            </summary>
+            <returns></returns>
+            <remarks>
+            By using the caller's Type it is possible to configure the logging system
+            to log messages from each type differently. This can allow the user to change the log level,
+            and the means of output for particular areas of the system.
+            </remarks>
+        </member>
+        <member name="M:Xbim.Common.Logging.LoggerFactory.CreateEventTrace">
+            <summary>
+            Creates an EventTrace object that captures events from the underlying LoggingProvider using an in memory provider.
+            </summary>
+            <remarks>Currently only supported by the Log4Net provider.
+            The EventTrace class should be Disposed of as soon as possible to avoid excessive memory usage</remarks>
+            <returns>An EventTrace object</returns>
+        </member>
+        <member name="T:Xbim.Common.Logging.EventTrace">
+            <summary>
+            Logging helper class that enables an application to access the logger data as an in-memory collection of Events.
+            </summary>
+        </member>
+        <member name="T:Xbim.Common.Logging.Providers.DefaultLogger">
+            <summary>
+            A Default logging system based on <see cref="T:System.Diagnostics.Trace"/>
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Debug(System.Object)">
+            <summary>
+            Logs the specified message with the <c>DEBUG</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Debug(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>DEBUG</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>DEBUG</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Info(System.Object)">
+            <summary>
+            Logs the specified message with the <c>INFO</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Info(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>INFO</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>INFO</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Warn(System.Object)">
+            <summary>
+            Logs the specified message with the <c>WARN</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Warn(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>WARN</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>WARN</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Error(System.Object)">
+            <summary>
+            Logs the specified message with the <c>ERROR</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Error(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>ERROR</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>ERROR</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Fatal(System.Object)">
+            <summary>
+            Logs the specified message with the <c>FATAL</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>FATAL</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>FATAL</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultLogger.UnhandledException(System.Exception)">
+            <summary>
+            Logs the unhandled exception with Fatal level
+            </summary>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.DefaultLogger.IsDebugEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Debug.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Debug enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.DefaultLogger.IsInfoEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Info.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Info enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.DefaultLogger.IsWarnEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Warn.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Warn enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.DefaultLogger.IsErrorEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Error.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Error enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.DefaultLogger.IsFatalEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Fatal.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Fatal enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Xbim.Common.Logging.Providers.DefaultProvider">
+            <summary>
+            Provides basic logging capabilities utilising <see cref="T:System.Diagnostics.Trace"/> through the <see cref="T:Xbim.Common.Logging.Providers.DefaultLogger"/> Logger.
+            </summary>
+            <remarks>A <see cref="T:System.Diagnostics.TraceListener"/> implementation will be required to 
+            monitor this log.</remarks>
+        </member>
+        <member name="T:Xbim.Common.Logging.Providers.ILoggingProvider">
+            <summary>
+            Defines the interface for a provider of logging services.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.ILoggingProvider.Configure">
+            <summary>
+            Configures the logging environment for first use.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.ILoggingProvider.GetLogger(System.Type)">
+            <summary>
+            Gets the <see cref="T:Xbim.Common.Logging.ILogger"/> applicable for this <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <remarks>Logging consumers provider a Type to this call so that the Logging Provider
+            can customise the logger dynamically for the Type. More advanced logging systems, such 
+            as log4Net can use this to provide different logging levels and outputs for different
+            parts of the application.</remarks>
+            <returns>An <see cref="T:Xbim.Common.Logging.ILogger"/> for this Type.</returns>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultProvider.Configure">
+            <summary>
+            Configures the logging environment for first use.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.DefaultProvider.GetLogger(System.Type)">
+            <summary>
+            Gets the <see cref="T:Xbim.Common.Logging.ILogger"/> applicable for this <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An <see cref="T:Xbim.Common.Logging.ILogger"/> for this Type.</returns>
+            <remarks>The default provider does not make use of the Type.</remarks>
+        </member>
+        <member name="T:Xbim.Common.Logging.Providers.Log4NetLogger">
+            <summary>
+            A simple wrapper class for the Log4Net logging framework.
+            </summary>
+            <remarks>Decouples consumers from the underlying Log4Net assemblies, 
+            while exposing its functionality.</remarks>
+        </member>
+        <member name="F:Xbim.Common.Logging.Providers.Log4NetLogger.ThisDeclaringType">
+            <summary>
+            Type used to tell the base log4Net Logger which is the boundary in the stack frame 
+            indicating the logger entry point.
+            </summary>
+            <remarks>Means we get accurate Class/Method info in the logs.</remarks>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.Common.Logging.Providers.Log4NetLogger"/> class.
+            </summary>
+            <param name="type">The calling type.</param>
+            <remarks>By building a logger for each type we can take advantage of log4Net's 
+            hierarchical configuration system.</remarks>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Debug(System.Object)">
+            <summary>
+            Logs the specified message with the <c>DEBUG</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Debug(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>DEBUG</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>DEBUG</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Info(System.Object)">
+            <summary>
+            Logs the specified message with the <c>INFO</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Info(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>INFO</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>INFO</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Warn(System.Object)">
+            <summary>
+            Logs the specified message with the <c>WARN</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Warn(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>WARN</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>WARN</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Error(System.Object)">
+            <summary>
+            Logs the specified message with the <c>ERROR</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Error(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>ERROR</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>ERROR</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Fatal(System.Object)">
+            <summary>
+            Logs the specified message with the <c>FATAL</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            Logs the specified message and exception with the <c>FATAL</c> level
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the <c>FATAL</c> level.
+            </summary>
+            <param name="format">A String containing zero or more format items</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetLogger.UnhandledException(System.Exception)">
+            <summary>
+            Logs the unhandled exception with Fatal level
+            </summary>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.Log4NetLogger.IsDebugEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Debug.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Debug enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.Log4NetLogger.IsInfoEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Info.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Info enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.Log4NetLogger.IsWarnEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Warn.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Warn enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.Log4NetLogger.IsErrorEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Error.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Error enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.Log4NetLogger.IsFatalEnabled">
+            <summary>
+            Gets a value indicating whether this log is enabled for Fatal.
+            </summary>
+            <value>
+            	<c>true</c> if this log is Fatal enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Xbim.Common.Logging.Providers.Log4NetProvider">
+            <summary>
+            Provides advanced logging capabilities using log4net through the <see cref="T:Xbim.Common.Logging.Providers.Log4NetLogger"/> Logger.
+            </summary>
+            <remarks>See http://logging.apache.org/log4net/release/manual/introduction.html for more on log4net logging.</remarks>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetProvider.Configure">
+            <summary>
+            Configures the log4Net environment for first use.
+            </summary>
+        </member>
+        <member name="M:Xbim.Common.Logging.Providers.Log4NetProvider.GetLogger(System.Type)">
+            <summary>
+            Gets the <see cref="T:Xbim.Common.Logging.ILogger"/> applicable for this <see cref="T:System.Type"/>.
+            </summary>
+            <param name="callingType">The type.</param>
+            <remarks>Logging consumers provider a Type to this call so that the Logging Provider
+            can customise the logger dynamically for the Type. More advanced logging systems, such 
+            as log4Net can use this to provide different logging levels and outputs for different
+            parts of the application.</remarks>
+            <returns>An <see cref="T:Xbim.Common.Logging.ILogger"/> for this Type.</returns>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.Log4NetProvider.LogPath">
+            <summary>
+            Gets the log path.
+            </summary>
+            <value>The log path.</value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.Log4NetProvider.LogFileName">
+            <summary>
+            Gets the name of the log file.
+            </summary>
+            <value>The name of the log file.</value>
+        </member>
+        <member name="P:Xbim.Common.Logging.Providers.Log4NetProvider.ApplicationName">
+            <summary>
+            Gets the name of the application.
+            </summary>
+            <value>The name of the application.</value>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Interfaces.IPersistIfc.WhereRule">
+            <summary>
+              Validates the object against the Ifc schema where rule, returns empty string if the object complies or an error string indicating the reason for compliance failure
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Interfaces.ISupportChangeNotification.NotifyPropertyChanged(System.String)">
+            <summary>
+              Raises the NotifyPropertyChanged event on this object
+            </summary>
+            <param name = "propertyName"></param>
+        </member>
+        <member name="T:Xbim.XbimExtensions.IfcAttributeState">
+            <summary>
+              The scope of the IFC attribute
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.IdentityComponent">
+            <summary>
+            Defines that this property can be used to create an identity for the object, but it is not on its own an identity for the object
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.IdentityProperty">
+            <summary>
+            Defines that this property is an identity property of the obejct, typically a guid or key
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.IIfcPersistExtensions">
+            <summary>
+            Extension methods for the <see cref="T:Xbim.XbimExtensions.Interfaces.IPersistIfc"/> interface.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.IIfcPersistExtensions.HandleUnexpectedAttribute(Xbim.XbimExtensions.Interfaces.IPersistIfc,System.Int32,Xbim.XbimExtensions.Interfaces.IPropertyValue)">
+            <summary>
+            Handles the case where a property was not expected for this entity.
+            </summary>
+            <param name="persistIfc">The item being parsed.</param>
+            <param name="propIndex">Index of the property.</param>
+            <param name="value">The value of the property.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.IIfcPersistExtensions.SetModelValue``1(Xbim.XbimExtensions.Interfaces.IPersistIfc,Xbim.XbimExtensions.Interfaces.IPersistIfcEntity,``0@,``0,Xbim.XbimExtensions.Transactions.ReversibleInstancePropertySetter{``0},System.String)">
+            <summary>
+              Set a property /field value, if a transaction is active it is transacted and undoable, if the owner supports INotifyPropertyChanged, the required events will be raised
+            </summary>
+            <typeparam name = "TProperty"></typeparam>
+            The property type to be set
+            <param name = "field"></param>
+            The field to be set
+            <param name = "newValue"></param>
+            The value to set the field to
+            <param name = "setter"></param>
+            The function to set and unset the field
+            <param name = "notifyPropertyName"></param>
+            A list of property names of the owner to raise notification on
+        </member>
+        <member name="F:Xbim.XbimExtensions.Interfaces.XbimStorageType.INVALID">
+            <summary>
+            Invalid Xbim storage type
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.Interfaces.XbimStorageType.IFCXML">
+            <summary>
+              IFC in XML format
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.Interfaces.XbimStorageType.IFC">
+            <summary>
+              Native IFC format
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.Interfaces.XbimStorageType.IFCZIP">
+            <summary>
+              compressed IFC format
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.Interfaces.XbimStorageType.XBIM">
+            <summary>
+              Compressed IfcXml
+            </summary>
+            <summary>
+              Xbim binary format
+            </summary>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Interfaces.IModel.Tag">
+            <summary>
+            Tag can be used to set up an arbitrary model identity management strategy 
+            in case of federated models or multiple model environments. 
+            </summary>
+        </member>
+        <member name="T:Xbim.Common.XbimExtensions.Interfaces.IXbimNoNotifyCollection">
+            <summary>
+            used to access an Xbim collection and prevent notify messages between sent when changes occure
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.Edit">
+            <summary>
+              Abstract base class for all reversible changes.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Edit.Switch``1(``0@,``0@)">
+            <summary>
+              Utility function to switch between two values handy when reversing some operations.
+            </summary>
+            <typeparam name = "T">Type of variable</typeparam>
+            <param name = "var1">Reference to first variable</param>
+            <param name = "var2">Reference to second variable</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Edit.Reverse">
+            <summary>
+              Reverses the operation (undoing or redoing depending on state in transaction)
+            </summary>
+            <returns>An Edit instance representing the operation that reverses the effect of the done reversal (usual the same instance).</returns>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.Edit.Name">
+            <summary>
+              Returns the name of this reversible operation (or null if no name is defined)
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.Extensions.ICollectionReversibleExtension">
+            <summary>
+              Contains reversible extension methods for type-safe ICollections
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ICollectionReversibleExtension.Add_Reversible``1(System.Collections.Generic.ICollection{``0},``0)">
+            <summary>
+              Adds an item reversible
+            </summary>
+            <typeparam name = "T">Type of item to add</typeparam>
+            <param name = "collection">Collection to add item to</param>
+            <param name = "itemToAdd">Item to add</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ICollectionReversibleExtension.Remove_Reversible``1(System.Collections.Generic.ICollection{``0},``0)">
+            <summary>
+              Removes an item reversibly.
+            </summary>
+            <typeparam name = "T">Type of item to add</typeparam>
+            <param name = "collection">Collection to remove from</param>
+            <param name = "itemToRemove">Item to remove</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ICollectionReversibleExtension.Clear_Reversible``1(System.Collections.Generic.ICollection{``0})">
+            <summary>
+              Clears an items reversibly.
+            </summary>
+            <typeparam name = "T">Type of ICollection</typeparam>
+            <param name = "collection">Collection to clear</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ICollectionReversibleExtension.AsReversible``1(System.Collections.Generic.ICollection{``0})">
+            <summary>
+              Creates a reversible version of a given collection.
+            </summary>
+            <typeparam name = "T">Type of collection</typeparam>
+            <param name = "collection">collection to wrap</param>
+            <returns></returns>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.IDictionaryReversibleExtension">
+            <summary>
+              Contains reversible extension methods for type-safe IDictionaries
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.IDictionaryReversibleExtension.Add_Reversible``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+              Adds an item reversible to a dictionary
+            </summary>
+            <typeparam name = "TKey">Type of the key</typeparam>
+            <typeparam name = "TValue">Type of the item</typeparam>
+            <param name = "dictionary"></param>
+            <param name = "key">The key of the item</param>
+            <param name = "itemToAdd">The item associated with the key</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.IDictionaryReversibleExtension.Remove_Reversible``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+              Removes an item with the specified key from the dictionary
+            </summary>
+            <typeparam name = "TKey"></typeparam>
+            <typeparam name = "TValue"></typeparam>
+            <param name = "dictionary"></param>
+            <param name = "key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.IDictionaryReversibleExtension.Clear_Reversible``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+              Clears a dictionary reversibly
+            </summary>
+            <typeparam name = "TKey"></typeparam>
+            <typeparam name = "TValue"></typeparam>
+            <param name = "dictionary"></param>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.Extensions.ListEditAction">
+            <summary>
+              Enumerates possible actions in an ListEdit and IListEdit.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.IListReversibleExtension.Item_SetReversible``1(System.Collections.Generic.IList{``0},System.Int32,``0)">
+            <summary>
+              Sets a list item reversibly.
+            </summary>
+            <typeparam name = "T">Type of list</typeparam>
+            <param name = "list">List to set item in</param>
+            <param name = "index">Index of item to set</param>
+            <param name = "newValue">New value to assign.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.IListReversibleExtension.Add_Reversible``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+              Adds an item to the end of a list (reversibly).
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "list"></param>
+            <param name = "item"></param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.IListReversibleExtension.Insert_Reversible``1(System.Collections.Generic.IList{``0},System.Int32,``0)">
+            <summary>
+              Inserts an item reversibly.
+            </summary>
+            <typeparam name = "T">Type of list</typeparam>
+            <param name = "list">List to insert in</param>
+            <param name = "index">Index to insert at</param>
+            <param name = "itemToInsert">Item to insert</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.IListReversibleExtension.Remove_Reversible``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+              Remove the first occurence of an item in a list (reversibly).
+            </summary>
+            <typeparam name = "T">Type of list</typeparam>
+            <param name = "list">List to remove from</param>
+            <param name = "item">Item to remove</param>
+            <returns>True if item found and removed.</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.IListReversibleExtension.RemoveAt_Reversible``1(System.Collections.Generic.IList{``0},System.Int32)">
+            <summary>
+              Removes an item reversibly.
+            </summary>
+            <typeparam name = "T">Type of list</typeparam>
+            <param name = "list">List to insert in</param>
+            <param name = "index">Index to insert at</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.IListReversibleExtension.AsReversible``1(System.Collections.Generic.IList{``0})">
+            <summary>
+              Creates a reversible version of a given non-reversible list.
+            </summary>
+            <typeparam name = "T">Type of list</typeparam>
+            <param name = "list">List to make reversible</param>
+            <returns>A reversible wrapper for the given list.</returns>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.Extensions.IListEdit`1">
+            <summary>
+              Represents a reversible change in one of an IList's item.
+            </summary>
+            <typeparam name = "T"></typeparam>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.Extensions.ListRangeEdit`1">
+            <summary>
+              Represents a reversible change in a range of items in a list.
+            </summary>
+            <typeparam name = "T">Type of list</typeparam>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.AddRange_Reversible``1(System.Collections.Generic.List{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+              Adds a set of items to the end of the list (reversibly).
+            </summary>
+            <param name = "collection">A set of items to add</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.InsertRange_Reversible``1(System.Collections.Generic.List{``0},System.Int32,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+              Inserts a set of items at a given position in a list (reversibly).
+            </summary>
+            <param name = "index"></param>
+            <param name = "collection"></param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.RemoveRange_Reversible``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)">
+            <summary>
+              Removes a range of items in a list (reversibly).
+            </summary>
+            <param name = "index">Index of first item to remove</param>
+            <param name = "count">Count of items to remove.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.Reverse_Reversible``1(System.Collections.Generic.List{``0})">
+            <summary>
+              Reverses the order of all items in the list (reversible).
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.Reverse_Reversible``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)">
+            <summary>
+              Reverses the order of a list subset (reversible).
+            </summary>
+            <param name = "index">Index of first item to reverse.</param>
+            <param name = "count">Number of items to reverse.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.Sort_Reversible``1(System.Collections.Generic.List{``0})">
+            <summary>
+              Sorts the list in default order (reversible).
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.Sort_Reversible``1(System.Collections.Generic.List{``0},System.Collections.Generic.IComparer{``0})">
+            <summary>
+              Sorts the list using a given comparer (reversible).
+            </summary>
+            <param name = "comparer">Comparer to use when sorting items.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.Sort_Reversible``1(System.Collections.Generic.List{``0},System.Comparison{``0})">
+            <summary>
+              Sorts the list using a given Comparison (reversible)
+            </summary>
+            <param name = "comparison">Comparision delegate to use.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.Sort_Reversible``1(System.Collections.Generic.List{``0},System.Int32,System.Int32,System.Collections.Generic.IComparer{``0})">
+            <summary>
+              Sorts a subset of the list (reversible).
+            </summary>
+            <param name = "index">Index of first item to sort</param>
+            <param name = "count">Count of items to sort</param>
+            <param name = "comparer">Comparer to use to sort.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Extensions.ListReversibleExtension.AsReversible``1(System.Collections.Generic.List{``0})">
+            <summary>
+              Makes a given list reversible by wrapping it into a ReversibleList instance.
+            </summary>
+            <typeparam name = "T"></typeparam>
+            <param name = "list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.Reversible`1">
+            <summary>
+              Wraps a field to make it reversible.
+            </summary>
+            <typeparam name = "T"></typeparam>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.ReversibleCollection`1">
+            <summary>
+              Represents a generic reversible collection.
+            </summary>
+            <typeparam name = "T">Type of items in the collection</typeparam>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleCollection`1.#ctor">
+            <summary>
+              Creates a new empty reversible collection
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleCollection`1.#ctor(System.Collections.Generic.ICollection{`0})">
+            <summary>
+              Creates a reversible collection that wraps a non-reversible collection.
+            </summary>
+            <param name = "collectionToWrap"></param>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.ListEditAction">
+            <summary>
+              Enumerates possible actions in an ListEdit and IListEdit.
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.ListRangeEdit`1">
+            <summary>
+              Represents a reversible change in a range of items in a list.
+            </summary>
+            <typeparam name = "T">Type of list</typeparam>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.ReversibleList`1">
+            <summary>
+              A reversible version of the generic List class.
+            </summary>
+            <typeparam name = "T">Type of items in the list</typeparam>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.#ctor">
+            <summary>
+              Creates a new ReversibleList instance.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.#ctor(System.Int32)">
+            <summary>
+              Creates a new ReversibleList instance with a given initial capacity
+            </summary>
+            <param name = "capacity">Number of items to allocate room for.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+              Creates a new ReversibleList instance with elements from a collection.
+            </summary>
+            <param name = "collection">Collection to copy items from.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.#ctor(System.Collections.Generic.List{`0})">
+            <summary>
+              Creates a new ReversibleList instance that wraps a given non-reversible list.
+            </summary>
+            <param name = "listToWrap"></param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.CreateReversibleWrapper(System.Collections.Generic.List{`0})">
+            <summary>
+              Creates a ReversibleList that wraps another (non-reversible) IList to make the original reversible.
+            </summary>
+            <param name = "listToWrap">List to wrap.</param>
+            <returns>A ReversibleList instance that wraps the given list</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.GetRange(System.Int32,System.Int32)">
+            <summary>
+              Gets a range of items
+            </summary>
+            <param name = "index">First item index of range</param>
+            <param name = "count">Number of items to include in range</param>
+            <returns>A non-reversible list with the items in the specified range</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+              Adds a set of items to the end of the list (reversibly).
+            </summary>
+            <param name = "collection">A set of items to add</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+              Inserts a set of items at a given position in a list (reversibly).
+            </summary>
+            <param name = "index"></param>
+            <param name = "collection"></param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.RemoveRange(System.Int32,System.Int32)">
+            <summary>
+              Removes a range of items in a list (reversibly).
+            </summary>
+            <param name = "index">Index of first item to remove</param>
+            <param name = "count">Count of items to remove.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Reverse">
+            <summary>
+              Reverses the order of all items in the list (reversible).
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Sort">
+            <summary>
+              Sorts the list in default order (reversible).
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Sort(System.Collections.Generic.IComparer{`0})">
+            <summary>
+              Sorts the list using a given comparer (reversible).
+            </summary>
+            <param name = "comparer">Comparer to use when sorting items.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Sort(System.Comparison{`0})">
+            <summary>
+              Sorts the list using a given Comparison (reversible)
+            </summary>
+            <param name = "comparison">Comparision delegate to use.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Sort(System.Int32,System.Int32,System.Collections.Generic.IComparer{`0})">
+            <summary>
+              Sorts a subset of the list (reversible).
+            </summary>
+            <param name = "index">Index of first item to sort</param>
+            <param name = "count">Count of items to sort</param>
+            <param name = "comparer">Comparer to use to sort.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Reverse(System.Int32,System.Int32)">
+            <summary>
+              Reverses the order of a list subset (reversible).
+            </summary>
+            <param name = "index">Index of first item to reverse.</param>
+            <param name = "count">Number of items to reverse.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Find(System.Predicate{`0})">
+            <summary>
+              Finds the first item that match a given Predicate.
+            </summary>
+            <param name = "match">A Predicate to use for matching</param>
+            <returns>The item found.</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.ForEach(System.Action{`0})">
+            <summary>
+              Performs an action on all items in list.
+            </summary>
+            <param name = "action">Action to perform</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.AsReadOnly">
+            <summary>
+              Returns a read-only version of this list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.ConvertAll``1(System.Converter{`0,``0})">
+            <summary>
+              Converts all elements to another type.
+            </summary>
+            <typeparam name = "TOutput">Type to convert to</typeparam>
+            <param name = "converter">Converter to use</param>
+            <returns>A non-reversible List of the given type</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.IndexOf(`0)">
+            <summary>
+              Gets the first index of a given item.
+            </summary>
+            <param name = "item">Item to search for.</param>
+            <returns>The index of the item (or -1 if not found)</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Insert(System.Int32,`0)">
+            <summary>
+              Insert an item at a given position (reversibly).
+            </summary>
+            <param name = "index">List index to insert at</param>
+            <param name = "item">Item to insert</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.RemoveAt(System.Int32)">
+            <summary>
+              Removes an item at a given position (reversibly).
+            </summary>
+            <param name = "index">Index of item to remove</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Add(`0)">
+            <summary>
+              Adds an item to end of list (reversibly).
+            </summary>
+            <param name = "item"></param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Clear">
+            <summary>
+              Clears a list (reversibly).
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Contains(`0)">
+            <summary>
+              Determines whether an element is in the list.
+            </summary>
+            <param name = "item">Item to look for</param>
+            <returns>True if item found, else False</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.CopyTo(`0[],System.Int32)">
+            <summary>
+              Copies the element of the list to an array.
+            </summary>
+            <param name = "array">Array to copy to</param>
+            <param name = "arrayIndex">Array index to start from.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.ReversibleList`1.Remove(`0)">
+            <summary>
+              Removes the first occurence of the given item (reversibly).
+            </summary>
+            <param name = "item">Item to remove</param>
+            <returns>True if item was found and removed.</returns>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.ReversibleList`1.Capacity">
+            <summary>
+              Gets or sets the current capacity of the list.
+            </summary>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.ReversibleList`1.Item(System.Int32)">
+            <summary>
+              Gets or sets item at a given index (reversibly).
+            </summary>
+            <param name = "index">Index of list item to get or set</param>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.ReversibleList`1.Count">
+            <summary>
+              Gets number of items in list.
+            </summary>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.ReversibleList`1.IsReadOnly">
+            <summary>
+              Determines whether the list is read-only.
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.ReversiblePropertySetter`2">
+            <summary>
+              Represents a static method that sets a given property of a given instance to a given value.
+            </summary>
+            <typeparam name = "TOwner">Type that owns the property to set.</typeparam>
+            <typeparam name = "TProperty">Type of property to set</typeparam>
+            <param name = "instance">Instance to set property for.</param>
+            <param name = "newValue">Value to set property to</param>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.ReversibleInstancePropertySetter`1">
+            <summary>
+              Represents a instance method that sets a given instance property to a given value.
+            </summary>
+            <typeparam name = "TProperty">Type of property to set</typeparam>
+            <param name = "newValue">Value to set property to.</param>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.Transaction">
+            <summary>
+              Represents a transaction enabling rollbacks, undoing and redoing of operations in an application.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.Begin">
+            <summary>
+              Begins a new transaction (nested in current)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.Begin(System.String)">
+            <summary>
+              Begins a new named transaction (nested in current)
+            </summary>
+            <param name = "transactionName">Name of transaction/operation</param>
+            <returns></returns>
+        </member>
+        <member name="F:Xbim.XbimExtensions.Transactions.Transaction.parent">
+            <summary>
+              The parent transaction that this transaction will be added to when commited.
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.Transactions.Transaction.edits">
+            <summary>
+              The list of edits added to the transaction
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.Transactions.Transaction.currentIndex">
+            <summary>
+              The index in edits list to add next edit to.
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.Transactions.Transaction._currentChild">
+            <summary>
+              The currently active child transaction.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.#ctor(Xbim.XbimExtensions.Transactions.Transaction,System.String)">
+            <summary>
+              Creates a new transaction instance without making it active.
+            </summary>
+            <param name = "parentTrans">Parent transaction (or null if it is a root transaction)</param>
+            <param name = "transName">Name of transaction</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.System#IDisposable#Dispose">
+            <summary>
+              Disposes this transaction. If it has not been commited it will be rollbacked.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.AddEdit(Xbim.XbimExtensions.Transactions.Edit)">
+            <summary>
+              Adds a reversible operation to this transaction
+            </summary>
+            <param name = "edit">An edit representing the reversible operation to be added.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.Rollback">
+            <summary>
+              Reverses all reversible operations performed during this transaction and ends this transaction (making any parent
+              transaction current again).
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.Commit">
+            <summary>
+              Mark this transaction as successfully completed. This transaction will be added as a reversible operation in the parent 
+              transaction (if any) which also will be the new current transaction.
+            </summary>
+            <remarks>
+              Empty transactions (i.e. with no edits) will be discarded directly and not added to parent transaction.
+            </remarks>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.Enter">
+            <summary>
+              Makes this transaction the current one (or its current child transaction).
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.Exit">
+            <summary>
+              Leaves this transaction making none transaction active if this transaction (or one of its children) is currently active.
+            </summary>
+            <remarks>
+              Call Enter() to switch back to the transaction.
+            </remarks>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.Reverse">
+            <summary>
+              Reverses all operation in this transaction (either undos or redos all operation depending on state).
+            </summary>
+            <returns>Edit that represents the reverse operation</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.OnReversed">
+            <summary>
+              Called when this transaction is wholy or partly reversed. Raised the Reversed event.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.OnFinalised">
+            <summary>
+              Called when this transaction is about to be committed .
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.OnValidated">
+            <summary>
+              Called when this transaction is committed to execution any transaction wide validation routines.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.AddPropertyChange``2(Xbim.XbimExtensions.Transactions.ReversiblePropertySetter{``0,``1},``0,``1,``1)">
+            <summary>
+              Adds a reversible property change to the current transaction (if any).
+            </summary>
+            <typeparam name = "TOwner">Type that owns the property</typeparam>
+            <typeparam name = "TProperty">Type of property</typeparam>
+            <param name = "setter">A method that sets the property</param>
+            <param name = "instance">The instance whose property is changed</param>
+            <param name = "oldValue">The present value of the property</param>
+            <param name = "newValue">The new value to be assigned to the property</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.AddPropertyChange``1(Xbim.XbimExtensions.Transactions.ReversibleInstancePropertySetter{``0},``0,``0)">
+            <summary>
+              Adds a reversible property change to the current transaction (if any).
+            </summary>
+            <param name = "setter">A instance method (delegate) that sets the property of to a given value</param>
+            <typeparam name = "TProperty">Type of property</typeparam>
+            <param name = "oldValue">The present value of the property</param>
+            <param name = "newValue">The new value to be assigned to the property</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.AddReversibleOperation``1(Xbim.XbimExtensions.Transactions.ReversibleOperation{``0},Xbim.XbimExtensions.Transactions.ReversibleOperation{``0})">
+            <summary>
+              Provide a pair of operations that when both are applied leave no change to the intended target
+            </summary>
+            <typeparam name = "TClass"></typeparam>
+            <param name = "op1"></param>
+            <param name = "op2"></param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.Transaction.AddTransactionFinaliseHandler(Xbim.XbimExtensions.Transactions.TransactionFinaliseNotification)">
+            <summary>
+              Call this handler to add any functions that are called before a transaction is called, typically to tidy up any outstanding operations.
+              Note these functions will be called both prior to Rollback and prior to Commit
+            </summary>
+            <param name = "handler"></param>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.Transaction.Current">
+            <summary>
+              Gets the current transaction
+            </summary>
+        </member>
+        <member name="E:Xbim.XbimExtensions.Transactions.Transaction.reversed">
+            <summary>
+              Fired when some or all operations in this transaction are reversed (undone, redone or rollbacked).
+            </summary>
+        </member>
+        <member name="E:Xbim.XbimExtensions.Transactions.Transaction.Finalised">
+            <summary>
+              Actions that are invoked when a transaction is closed/finalised
+            </summary>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.Transaction.Name">
+            <summary>
+              Gets the name of the transaction
+            </summary>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.Transaction.IsFinished">
+            <summary>
+              Gets a value indicating whether this transaction has been finished (committed or rollbacked).
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.Transactions.UndoRedoSession">
+            <summary>
+              Represents a session that keeps track of reversible operations making it possible to undo and redo them.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.#ctor">
+            <summary>
+              Creates a new undo redo session without making it active.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.#ctor(System.String)">
+            <summary>
+              Creates a new undo redo session without making it active.
+            </summary>
+            <param name = "sessionName">A name to assign to the session</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.Begin(System.String)">
+            <summary>
+              Makes this UndoRedoSession active and initiates a new transaction in it
+            </summary>
+            <param name = "operationName">Name of new Transaction.</param>
+            <returns>A new Transaction</returns>
+            <remarks>
+              When the returned transaction is commited or rollbacked,
+              this UndoSession will still the active Transaction.
+            </remarks>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.Begin">
+            <summary>
+              Makes this UndoRedoSession active and initiates a new transaction in it
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.AddEdit(Xbim.XbimExtensions.Transactions.Edit)">
+            <summary>
+              Add an edit operation to this transaction
+            </summary>
+            <param name = "edit">Edit to add</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.OnReversed">
+            <summary>
+              Called when this transaction is wholy or partly reversed. Raises the Reversed and the HistoryChanged events.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.Undo">
+            <summary>
+              Reverses the last (not previously undone) operation.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.Undo(System.Int32)">
+            <summary>
+              Undos a given number of operations
+            </summary>
+            <param name = "count">Number of operations to undo.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.Redo">
+            <summary>
+              Redos the last undone operation.
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.Redo(System.Int32)">
+            <summary>
+              Redos a given number of operations.
+            </summary>
+            <param name = "count">Number of operations to redo.</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.GetUndoText">
+            <summary>
+              Gets the name of the last performed operation
+            </summary>
+            <returns>Name of last operation performed (not undone), or null if no operation performed</returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.Transactions.UndoRedoSession.GetRedoText">
+            <summary>
+              Gets the name of the last undone operation
+            </summary>
+            <returns>Name of last operation undone), or null if no operation is undone</returns>
+        </member>
+        <member name="E:Xbim.XbimExtensions.Transactions.UndoRedoSession.HistoryChanged">
+            <summary>
+              Raised whenever the undo history changes.
+            </summary>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.UndoRedoSession.CanUndo">
+            <summary>
+              Returns true if there is anything to undo.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.UndoRedoSession.CanRedo">
+            <summary>
+              Returns true if there is anything that can be redone.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.UndoRedoSession.GetUndoTextList">
+            <summary>
+              Gets the names for all operations that can be undone starting with the most recently added.
+            </summary>
+            <returns>An array of strings</returns>
+        </member>
+        <member name="P:Xbim.XbimExtensions.Transactions.UndoRedoSession.GetRedoTextList">
+            <summary>
+              Gets the names for all operations that can be redone starting with the most recently undone.
+            </summary>
+            <returns>An array of strings</returns>
+        </member>
+        <member name="T:Xbim.XbimExtensions.ValidationFlags">
+            <summary>
+              Set the level of the Validation, multiple flags can be set
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.ValidationFlags.None">
+            <summary>
+              Executes no validation checks
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.ValidationFlags.All">
+            <summary>
+              Checks all validation levels
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.ValidationFlags.Properties">
+            <summary>
+              Checks that all property values meet their Ifc Schema Constraints
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.ValidationFlags.Inverses">
+            <summary>
+              Checks all inverse realationships meet their Ifc Schema Constraints
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimDBAccess.Read">
+            <summary>
+            Opens the database for read only transactions
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimDBAccess.ReadWrite">
+            <summary>
+            Opens the database for readonly 
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimDBAccess.Exclusive">
+            <summary>
+            Opens the database exclusively, prevents access from any other processes.
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.XbimShapeEqualityComparer">
+            <summary>
+            Conpares the shape data of two geometry objects to see if they are the same
+            </summary>
+        </member>
+        <member name="M:Xbim.XbimExtensions.XbimGeometryData.TransformBy(Xbim.Common.Geometry.XbimMatrix3D)">
+            <summary>
+            Transforms the shape data of the geometry by the matrix
+            NB This is a deprecated method and will be removed for the latest geometry support and is only used in first geometry implementation
+            </summary>
+            <param name="matrix"></param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.XbimGeometryData.#ctor(System.Int32,System.Int32,XbimGeometry.Interfaces.XbimGeometryType,System.Int16,System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+            The constructs an XbimGeoemtryData object, the geometry hash is calculated from the array of shape data
+            </summary>
+            <param name="geometrylabel"></param>
+            <param name="productLabel"></param>
+            <param name="geomType"></param>
+            <param name="ifcTypeId"></param>
+            <param name="shape"></param>
+            <param name="transform"></param>
+            <param name="styleLabel"></param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.XbimGeometryData.IsGeometryEqual(Xbim.XbimExtensions.XbimGeometryData)">
+            <summary>
+            Returns true if the two geometries have identical shape data
+            </summary>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.XbimGeometryData.GenerateGeometryHash(System.Byte[])">
+            <summary>
+            Generates a FNV hash for any array of bytes
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.XbimExtensions.XbimIndexedCollection`1.#ctor(System.Collections.Generic.List{System.Reflection.PropertyInfo})">
+            <summary>
+              Constructs a collection which is indexed by the the list of indices and has no primary index
+            </summary>
+            <param name = "indices"> List of properties to index</param>
+        </member>
+        <member name="M:Xbim.XbimExtensions.XbimIndexedCollection`1.GetValues(System.String,System.Object)">
+            <summary>
+              Returns the values which meet the required key, an excpetion is thrown if the index is invalid, HasIndex returns true if index is valid;
+            </summary>
+            <param name = "indexName"></param>
+            <param name = "hashKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Xbim.XbimExtensions.XbimListSet`1">
+            <summary>
+              A set that supports list behaviour
+            </summary>
+            <typeparam name = "T"></typeparam>
+        </member>
+        <member name="T:Xbim.XbimExtensions.XbimRepresentationContextType">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Xbim.XbimExtensions.XbimRepresentationIdentifierType">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.Curve2D">
+            <summary>
+              2 dimensional curves
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.GeometricSet">
+            <summary>
+              Points, curves, surfaces (2 or 3 dimensional)
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.GeometricCurveSet">
+            <summary>
+              Points, curves (2 or 3 dimensional)
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.SurfaceModel">
+            <summary>
+              Face based and shell based surface model
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.SolidModel">
+            <summary>
+              Swept solid, Boolean results and Brep bodies
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.SweptSolid">
+            <summary>
+              Swept area solids, by extrusion and revolution
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.Brep">
+            <summary>
+              Faceted Brep's with and without voids
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.CSG">
+            <summary>
+              Boolean results of operations between solid models, half spaces and Boolean results
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.Clipping">
+            <summary>
+              Boolean differences between swept area solids, half spaces and Boolean results
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.AdvancedSweptSolid">
+            <summary>
+              Swept area solids created by sweeping a profile along a directrix
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.BoundingBox">
+            <summary>
+              Simplistic 3D representation by a bounding box
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.SectionedSpine">
+            <summary>
+              cross section based representation of a spine curve and planar cross sections.
+              It can represent a surface or a solid and the interpolations of the between the cross sections is not defined
+            </summary>
+        </member>
+        <member name="F:Xbim.XbimExtensions.XbimRepresentationType.MappedRepresentation">
+            <summary>
+              representation based on mapped item(s), referring to a representation map. 
+              Note: it can be seen as an inserted block reference. 
+              The shape representation of the mapped item has a representation type declaring the type of its representation items.
+            </summary>
+        </member>
+        <member name="F:XbimGeometry.Interfaces.XbimGeometryType.BoundingBox">
+            <summary>
+            This type can be transformed to XbimRect3D via XbimRect3D.FromArray(geomdata.ShapeData)
+            </summary>
+        </member>
+        <member name="F:XbimGeometry.Interfaces.XbimGeometryType.Region">
+            <summary>
+            Regions (clusters of elements in a model) are stored for the project in one database row.
+            Use XbimRegionCollection.FromArray(ShapeData) for deserialising.
+            </summary>
+        </member>
+        <member name="F:XbimGeometry.Interfaces.XbimGeometryType.TransformOnly">
+            <summary>
+            For products with no geometry use TransformOnly to store the transform matrix associated with the placement.
+            </summary>
+        </member>
+        <member name="F:XbimGeometry.Interfaces.XbimGeometryType.TriangulatedMeshHash">
+            <summary>
+            128 bit hash of a geometry
+            </summary>
+        </member>
+        <member name="F:XbimGeometry.Interfaces.XbimGeometryType.Polyhedron">
+            <summary>
+            The xBIM variant of the PLY format, a set of nominally planar polygons, stored in ascii format
+            </summary>
+        </member>
+        <member name="F:XbimGeometry.Interfaces.XbimGeometryType.TriangulatedPolyhedron">
+            <summary>
+            A triangulated Polyhedron mesh
+            </summary> = 
+        </member>
+        <member name="F:XbimGeometry.Interfaces.XbimGeometryType.PolyhedronBinary">
+            <summary>
+            The xBIM variant of the PLY format, a set of nominally planar polygons but stored in binary format
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.ProfileDefLevelOfDetail">
+            <summary>
+            Indicates level of detail for IfcProfileDefinitions, if 0 no fillet radii are applied, no leg slopes area applied, if 1 all details are applied
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.SimplifyFaceCountThreshHold">
+            <summary>
+            If this number is greater than 0, any faceted meshes will be simplified if the number of faces exceeds the threshhold
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.ShortestEdgeLength">
+            <summary>
+            If the SimplifyFaceCountThreshHold is greater than 0, this is the minimum length of any edge in a face in millimetres, default is 10mm
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.PrecisionBoolean">
+            <summary>
+            Precision used for Boolean solid geometry operations, default 0.001mm
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.PrecisionBooleanMax">
+            <summary>
+            The maximum Precision used for Boolean solid geometry operations, default 10mm
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.DeflectionTolerance">
+            <summary>
+            The defection on a curve when triangulating the model
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.AngleToRadiansConversionFactor">
+            <summary>
+            Convert degrees to radians
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.LengthToMetresConversionFactor">
+            <summary>
+            Conversion to metres
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.VertexPointDiameter">
+            <summary>
+            Used to display a vertex this is the diameter that will be used to auto-generate a geometric representation of a topological vertex
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.MaxBRepSewFaceCount">
+            <summary>
+            The maximum number of faces to sew and check the result is a valid BREP, face sets with more than this number of faces will be processed as read from the model
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.Precision">
+            <summary>
+            The  normal tolerance under which two given points are still assumed to be identical
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.PrecisionMax">
+            <summary>
+            Returns the value for one metre in the units of the model
+            </summary>
+            /// <summary>
+            The  maximum tolerance under which two given points are still assumed to be identical
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.Rounding">
+            <summary>
+            The number of decimal places to round a number to in order to truncate distances, not to be confused with precision, this is mostly for hashing and reporting, precision determins if two points are the same. NB this must be less that the precision for booleans
+            </summary>
+        </member>
+        <member name="F:Xbim.Common.XbimModelFactors.OneMilliMetre">
+            <summary>
+            Returns the value for one millimetre in the units of the model
+            </summary>
+        </member>
+        <member name="P:Xbim.Common.XbimModelFactors.DeflectionAngle">
+            <summary>
+            The min angle used when meshing shapes, works with DeflectionTolerance to set the resolution for linearising edges, default = 0.5
+            </summary>
+        </member>
+    </members>
+</doc>

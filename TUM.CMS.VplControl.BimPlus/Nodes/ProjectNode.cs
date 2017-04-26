@@ -31,7 +31,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             {
                 _projectComboBox = new ComboBox
                 {
-                    ItemsSource = _controller.IntBase.APICore.Projects.GetShortProjects(),
+                    ItemsSource = _controller.IntBase.ApiCore.Projects.GetShortProjects(),
                     Width = 100,
                     SelectedItem = _selectedProject,
                     DisplayMemberPath = "Name",
@@ -52,7 +52,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
         private void EventHandlerCoreOnTeamChanged(object sender, BimPlusEventArgs bimPlusEventArgs)
         {
-            _projectComboBox.ItemsSource = _controller.IntBase.APICore.Projects.GetShortProjects();
+            _projectComboBox.ItemsSource = _controller.IntBase.ApiCore.Projects.GetShortProjects();
         }
 
         public override void Calculate()

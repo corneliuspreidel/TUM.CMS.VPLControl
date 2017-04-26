@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Media;
-using System.Windows.Media.Media3D;
 using BimPlus.Sdk.Data.DbCore;
 using Microsoft.Practices.Unity;
 using Newtonsoft.Json.Linq;
@@ -39,7 +36,8 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             _controller = DataController.Instance;
 
             // Init the QL4BIM framework
-            ql4Spatial.InitializeSettings();
+            // Commented by CP on 24.04
+            //ql4Spatial.InitializeSettings();
 
             // Input
             AddInputPortToNode("InputElements_1", typeof(List<DtObject>));
@@ -90,7 +88,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                 settings.Direction.PositiveOffset = 100;
                 // The mapping of the operators is because of the transformation of the model
 
-                if (_typeComboBox.SelectedItem == "Overlap")
+                if (_typeComboBox != null && _typeComboBox.SelectedItem == "Overlap")
                 {
                     // Init the Operator 
                     var op = container.Resolve<IOverlapOperator>();
@@ -104,7 +102,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                         }
                     }
                 }
-                else if (_typeComboBox.SelectedItem == "Touch")
+                else if (_typeComboBox != null && _typeComboBox.SelectedItem == "Touch")
                 {
                     var op = container.Resolve<ITouchOperator>();
                     foreach (var item1 in list_1)
@@ -117,7 +115,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                         }
                     }
                 }
-                else if (_typeComboBox.SelectedItem == "Contain")
+                else if (_typeComboBox != null && _typeComboBox.SelectedItem == "Contain")
                 {
                     // Init the Operator 
                     var op = container.Resolve<IContainOperator>();
@@ -131,7 +129,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                         }
                     }
                 }
-                else if (_typeComboBox.SelectedItem == "AboveOf")
+                else if (_typeComboBox != null && _typeComboBox.SelectedItem == "AboveOf")
                 {
                     // Init the Operator 
                     var op = container.Resolve<IDirectionalOperators>();
@@ -154,7 +152,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                         }
                     }
                 }
-                else if (_typeComboBox.SelectedItem == "BelowOf")
+                else if (_typeComboBox != null && _typeComboBox.SelectedItem == "BelowOf")
                 {
                     // Init the Operator 
                     var op = container.Resolve<IDirectionalOperators>();
@@ -176,7 +174,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                         }
                     }
                 }
-                else if (_typeComboBox.SelectedItem == "SouthOf")
+                else if (_typeComboBox != null && _typeComboBox.SelectedItem == "SouthOf")
                 {
                     // Init the Operator 
                     var op = container.Resolve<IDirectionalOperators>();
@@ -192,7 +190,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                         }
                     }
                 }
-                else if (_typeComboBox.SelectedItem == "NorthOf")
+                else if (_typeComboBox != null && _typeComboBox.SelectedItem == "NorthOf")
                 {
                     // Init the Operator 
                     var op = container.Resolve<IDirectionalOperators>();
@@ -208,7 +206,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                         }
                     }
                 }
-                else if (_typeComboBox.SelectedItem == "EastOf")
+                else if (_typeComboBox != null && _typeComboBox.SelectedItem == "EastOf")
                 {
                     // Init the Operator 
                     var op = container.Resolve<IDirectionalOperators>();
@@ -224,7 +222,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                         }
                     }
                 }
-                else if (_typeComboBox.SelectedItem == "WestOf")
+                else if (_typeComboBox != null && _typeComboBox.SelectedItem == "WestOf")
                 {
                     // Init the Operator 
                     var op = container.Resolve<IDirectionalOperators>();

@@ -67,6 +67,13 @@ namespace TUM.CMS.VplControl.Watch3D.Nodes
             // EventHandler
             Control.Export3DViewMenuItem.Click += Export3DViewMenuItemOnClick;
             Control.ExportModelMenuItem.Click += ExportModelMenuItemOnClick;
+
+            MouseWheel += OnMouseWheel;
+        }
+
+        private void OnMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            e.Handled = true; 
         }
 
         // Viewport

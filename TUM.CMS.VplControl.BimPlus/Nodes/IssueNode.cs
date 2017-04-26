@@ -36,7 +36,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             // Is this correct? There can be different members in different projects ...
             // _controller.IntBase.APICore.GetTea
-            _issueControl.ResponsibleUserComboBox.ItemsSource = _controller.IntBase.APICore.Projects.GetMembers(_controller.IntBase.CurrentProject.Id);
+            _issueControl.ResponsibleUserComboBox.ItemsSource = _controller.IntBase.ApiCore.Projects.GetMembers(_controller.IntBase.CurrentProject.Id);
             _issueControl.ResponsibleUserComboBox.DisplayMemberPath = "User";
 
             AddControlToNode(_issueControl);
@@ -69,7 +69,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             if (project != null)
             {
                 issue.ProjectId = project.Id;
-                _controller.IntBase.APICore.Issues.PutIssue(issue);
+                _controller.IntBase.ApiCore.Issues.PutIssue(issue);
             }
                
             DtoShortIssue createdIssue = null;

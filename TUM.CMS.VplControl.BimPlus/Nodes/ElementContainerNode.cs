@@ -98,11 +98,10 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                 if (project != null)
                 {
                     projectId = project.Id;
-                    var topo = _controller.IntBase.APICore.Projects.GetTopology(project.Id);
+                    var topo = _controller.IntBase.ApiCore.Projects.GetTopology(project.Id);
                     if (topo == null)
                         return;
-                    var model = _controller.IntBase.APICore.DtObjects.GetObjectGeometryAsThreeJs(topo.Id);
-                    // var model = _controller.IntBase.APICore.DtObjects.GetObjectGeometry(topo.Id);
+                    var model = _controller.IntBase.ApiCore.DtObjects.GetObjectGeometryAsThreeJs(topo.Id);
 
                     if (model.Objects == null)
                         return;
@@ -139,7 +138,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                 var dtoDivision = InputPorts[0].Data as DtoDivision;
                 if (dtoDivision?.TopologyDivisionId != null)
                 {
-                    var model = _controller.IntBase.APICore.DtObjects.GetObjectGeometryAsThreeJs((Guid)dtoDivision.TopologyDivisionId);
+                    var model = _controller.IntBase.ApiCore.DtObjects.GetObjectGeometryAsThreeJs((Guid)dtoDivision.TopologyDivisionId);
                     projectId = dtoDivision.ProjectId;
 
                     foreach (var elem in model.Objects)
@@ -201,7 +200,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                 foreach (var elem in elements)
                 {
                     if(elem.Id != Guid.Empty)
-                        _controller.IntBase.APICore.DtObjects.GetObjectGeometryAsThreeJs(elem.Id);
+                        _controller.IntBase.ApiCore.DtObjects.GetObjectGeometryAsThreeJs(elem.Id);
 
                     if (elem.Id == Guid.Empty)
                         elem.Id = Guid.NewGuid();

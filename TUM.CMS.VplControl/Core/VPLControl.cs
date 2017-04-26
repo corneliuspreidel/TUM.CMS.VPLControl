@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Xml;
 using Microsoft.Win32;
@@ -22,7 +23,7 @@ namespace TUM.CMS.VplControl.Core
     public class VplControl : Canvas
     {
         // Zoom Utilities
-        private readonly ScaleTransform scaleTransform;
+        public readonly ScaleTransform scaleTransform;
         private readonly TransformGroup transformGroup;
         private readonly TranslateTransform translateTransform;
         private GraphFlowDirections graphFlowDirection;
@@ -52,11 +53,11 @@ namespace TUM.CMS.VplControl.Core
             Style = FindResource("VplControlStyle") as Style;
             GraphFlowDirection = GraphFlowDirections.Vertical;
 
-
             MouseDown += HandleMouseDown;
             MouseMove += HandleMouseMove;
             MouseUp += HandleMouseUp;
             MouseWheel += HandleMouseWheel;
+            // MouseWheel += HandleMouseWheel;
             KeyDown += VplControl_KeyDown;
             KeyUp += VplControl_KeyDown;
 
@@ -412,7 +413,6 @@ namespace TUM.CMS.VplControl.Core
         private void HandleMouseWheel(object sender, MouseWheelEventArgs e)
         {
             // Zooming
-
             var mouseRelativetoCanvas = e.GetPosition(this);
 
             if (e.Delta > 0)
@@ -424,6 +424,12 @@ namespace TUM.CMS.VplControl.Core
 
         public void DoZoomIn(Point mouseRelativetoCanvas, double scaleStep = 0.1)
         {
+            // Animation for the Zoom 
+            // Duration duration = new Duration(new TimeSpan(0, 0, 0, 1, 0));
+            // DoubleAnimation anim = new DoubleAnimation(30, duration);
+            // BeginAnimation(ScaleTransform.ScaleXProperty, anim);
+            // BeginAnimation(ScaleTransform.ScaleYProperty, anim);
+
             if (ZoomIn < 10)
             {
                 ZoomIn = ZoomIn + (int) (scaleStep*10);
@@ -800,7 +806,7 @@ namespace TUM.CMS.VplControl.Core
             }
         }
 
-        internal void SerializeNetwork(string filePath)
+        public void SerializeNetwork(string filePath)
         {
             var settings = new XmlWriterSettings
             {

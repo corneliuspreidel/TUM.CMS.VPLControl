@@ -68,6 +68,9 @@
     <Reference Include="BimPlus.LightCaseClient">
       <HintPath>..\..\BIF\src\bin\Debug\BimPlus.LightCaseClient.dll</HintPath>
     </Reference>
+    <Reference Include="BimPlus.Sdk.Api">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Sdk.Api.dll</HintPath>
+    </Reference>
     <Reference Include="BimPlus.Sdk.Data, Version=2014.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\BIF\src\bin\Debug\BimPlus.Sdk.Data.dll</HintPath>
@@ -82,6 +85,10 @@
     <Reference Include="Cyotek.Drawing.BitmapFont, Version=1.0.2.0, Culture=neutral, PublicKeyToken=58daa28b0b2de221, processorArchitecture=MSIL">
       <HintPath>..\packages\Cyotek.Drawing.BitmapFont.1.0.2.0\lib\net20\Cyotek.Drawing.BitmapFont.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="EO.WebBrowser, Version=16.0.28.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.WebControls\bin\x64\Debug\EO.WebBrowser.dll</HintPath>
     </Reference>
     <Reference Include="HelixToolkit.Wpf, Version=2015.1.558.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -203,7 +210,10 @@
     </Compile>
     <Compile Include="Nodes\BimPlusWatch3DxNode.cs" />
     <Compile Include="Nodes\BimPlusWatchNode.cs" />
+    <Compile Include="Nodes\OperationalSpaceNode.cs" />
     <Compile Include="Nodes\GeometryOperationNode.cs" />
+    <Compile Include="Ports\Output\BimPlusViewerPort.cs" />
+    <Compile Include="Ports\Input\BimPlusProjectPort.cs" />
     <Compile Include="Utilities\DataController.cs" />
     <Compile Include="Nodes\ElementContainerNode.cs" />
     <Compile Include="Nodes\ElementFilterNode.cs" />
@@ -253,6 +263,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TUM.CMS.ExtendedVplControl\TUM.CMS.ExtendedVplControl.csproj">
+      <Project>{E85C5813-1373-4BB3-8B6F-D275E9CAB487}</Project>
+      <Name>TUM.CMS.ExtendedVplControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TUM.CMS.VPL.Scripting\TUM.CMS.VPL.Scripting.csproj">
       <Project>{A8B4A5F8-87BB-489D-A107-F58E818AB82D}</Project>
       <Name>TUM.CMS.VPL.Scripting</Name>
@@ -299,6 +313,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="InputNodes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

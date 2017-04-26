@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E85C5813-1373-4BB3-8B6F-D275E9CAB487}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TUM.CMS.ExtendedVplControl</RootNamespace>
+    <AssemblyName>TUM.CMS.ExtendedVplControl</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BimPlus.Client">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="BimPlus.Client.Api">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Client.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="BimPlus.LightCaseClient">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.LightCaseClient.dll</HintPath>
+    </Reference>
+    <Reference Include="BimPlus.Sdk.Api">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Sdk.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="BimPlus.Sdk.Data">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Sdk.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="BimPlus.Sdk.Integration">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.Sdk.Integration\bin\x64\Debug\BimPlus.Sdk.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="BimPlus.Sdk.Utilities">
+      <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Sdk.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="HelixToolkit.Wpf">
+      <HintPath>..\ExternalLibraries\HelixToolkit.Wpf\HelixToolkit.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="RadialMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RadialMenu.WPF.1.2.2\lib\net45\RadialMenu.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ExtendedSubVplControl.cs" />
+    <Compile Include="Controls\ExtendedVplControl.xaml.cs">
+      <DependentUpon>ExtendedVplControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PortArea.xaml.cs">
+      <DependentUpon>PortArea.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PortSelection.xaml.cs">
+      <DependentUpon>PortSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\DefaultNode.cs" />
+    <Compile Include="Nodes\ComposedNode.cs" />
+    <Compile Include="Ports\ExtendedPort.cs" />
+    <Compile Include="Ports\Input\FilePathPort.cs" />
+    <Compile Include="Ports\Input\StringPort.cs" />
+    <Compile Include="Ports\Input\ObjectPort.cs" />
+    <Compile Include="Ports\Input\DoublePort.cs" />
+    <Compile Include="Ports\Input\IntegerPort.cs" />
+    <Compile Include="Ports\Output\DoublePort.cs" />
+    <Compile Include="Ports\Output\IntegerPort.cs" />
+    <Compile Include="Ports\Output\ObjectPort.cs" />
+    <Compile Include="Ports\Output\StringPort.cs" />
+    <Compile Include="Ports\Output\Watch3DPort.cs" />
+    <Compile Include="Utilities\WatchControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\ExtendedVplControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PortArea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PortSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TUM.CMS.VplControl.Watch3D\TUM.CMS.VplControl.Watch3D.csproj">
+      <Project>{39C73FB5-D284-409D-835A-803090E867C9}</Project>
+      <Name>TUM.CMS.VplControl.Watch3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUM.CMS.VplControl\TUM.CMS.VplControl.csproj">
+      <Project>{593E9BFD-BE78-4487-9E22-76AE7DF0B84A}</Project>
+      <Name>TUM.CMS.VplControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

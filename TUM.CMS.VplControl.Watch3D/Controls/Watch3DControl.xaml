@@ -15,7 +15,7 @@
             <Separator />
             <MenuItem Header="SelectionMode" Name="SelectionModeMenuItem" IsCheckable="True" IsChecked="True" />
         </Menu>
-        <helixToolkit:HelixViewport3D Grid.Row="1" ZoomExtentsWhenLoaded="True" x:Name="ViewPort3D"
+        <helixToolkit:HelixViewport3D Grid.Row="1" ZoomExtentsWhenLoaded="True" x:Name="ViewPort3D" x:FieldModifier="public"
                                       ShowTriangleCountInfo="True" ShowFieldOfView="True" ShowCoordinateSystem="True">
             <helixToolkit:SunLight />
             <ModelVisual3D Content="{Binding Model}" />

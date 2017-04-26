@@ -110,7 +110,6 @@ namespace TUM.CMS.VplControl.Annotations
             Name = name;
         }
 
-        [NotNull]
         public string Name { get; private set; }
     }
 
@@ -260,12 +259,12 @@ namespace TUM.CMS.VplControl.Annotations
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public sealed class ContractAnnotationAttribute : Attribute
     {
-        public ContractAnnotationAttribute([NotNull] string contract)
+        public ContractAnnotationAttribute(string contract)
             : this(contract, false)
         {
         }
 
-        public ContractAnnotationAttribute([NotNull] string contract, bool forceFullStates)
+        public ContractAnnotationAttribute(string contract, bool forceFullStates)
         {
             Contract = contract;
             ForceFullStates = forceFullStates;

@@ -6,12 +6,11 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using TUM.CMS.VplControl.Nodes;
 using TUM.CMS.VplControl.Utilities;
 
 namespace TUM.CMS.VplControl.Core
 {
-    internal class SelectionNode : Node
+    public class SelectionNode : Node
     {
         private readonly ListBox listBox = new ListBox();
         private readonly SearchTextBox searchTextBox;
@@ -72,7 +71,6 @@ namespace TUM.CMS.VplControl.Core
             Border.MouseLeave += SelectionNode_MouseLeave;
             MouseEnter += SelectionNode_MouseEnter;
         }
-
 
         private void listBox_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

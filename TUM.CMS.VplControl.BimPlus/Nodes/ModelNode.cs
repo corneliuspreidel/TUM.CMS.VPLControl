@@ -54,7 +54,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             var project = InputPorts[0].Data as DtoShortProject;
             if (project == null) return;
             if (_modelComboBox == null) return;
-            _modelComboBox.ItemsSource = _controller.IntBase.APICore.Divisions.GetProjectDivisions(project.Id);
+            _modelComboBox.ItemsSource = _controller.IntBase.ApiCore.Divisions.GetProjectDivisions(project.Id);
             _modelComboBox.DisplayMemberPath = "Name";
 
             // Output Part

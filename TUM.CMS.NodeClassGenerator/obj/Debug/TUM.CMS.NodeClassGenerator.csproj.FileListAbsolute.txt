@@ -1,0 +1,5 @@
+C:\dev\TUM.CMS.VPLControl\TUM.CMS.NodeClassGenerator\bin\Debug\TUM.CMS.NodeClassGenerator.exe.config
+C:\dev\TUM.CMS.VPLControl\TUM.CMS.NodeClassGenerator\bin\Debug\TUM.CMS.NodeClassGenerator.exe
+C:\dev\TUM.CMS.VPLControl\TUM.CMS.NodeClassGenerator\bin\Debug\TUM.CMS.NodeClassGenerator.pdb
+C:\dev\TUM.CMS.VPLControl\TUM.CMS.NodeClassGenerator\obj\Debug\TUM.CMS.NodeClassGenerator.exe
+C:\dev\TUM.CMS.VPLControl\TUM.CMS.NodeClassGenerator\obj\Debug\TUM.CMS.NodeClassGenerator.pdb

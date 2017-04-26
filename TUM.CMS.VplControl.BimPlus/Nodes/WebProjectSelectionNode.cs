@@ -51,7 +51,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
         private void ProjectSelectionViewModelOnProjectChangedEventHandler(object sender, EventArgs eventArgs)
         {
-            foreach (var proj in _controller.IntBase.APICore.Projects.GetShortProjects().Where(proj => proj.Id == (eventArgs as BimPlusEventArgs).Id))
+            foreach (var proj in _controller.IntBase.ApiCore.Projects.GetShortProjects().Where(proj => proj.Id == (eventArgs as BimPlusEventArgs).Id))
             {
                 OutputPorts[0].Data = proj;
             }

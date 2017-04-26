@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,10 +10,10 @@ using TUM.CMS.VplControl.Utilities;
 
 namespace TUM.CMS.VplControl.Core
 {
-    public class Port : Control
+    public class Port : Control, ICloneable
     {
         private object data;
-        private VplControl HostCanvas;
+        public VplControl HostCanvas { get; set; }
 
         public Port(string name, Node parent, PortTypes portType, Type type)
         {
@@ -110,73 +109,83 @@ namespace TUM.CMS.VplControl.Core
 
         private void Port_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            switch (HostCanvas.SplineMode)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                case SplineModes.Nothing:
-                    HostCanvas.TempStartPort = this;
-                    HostCanvas.SplineMode = SplineModes.Second;
-                    break;
-                case SplineModes.Second:
-                    if (
-                        (
+                switch (HostCanvas.SplineMode)
+                {
+                    case SplineModes.Nothing:
+                        HostCanvas.TempStartPort = this;
+                        HostCanvas.SplineMode = SplineModes.Second;
+                        break;
+                    case SplineModes.Second:
+                        if (
                             (
-                                HostCanvas.TempStartPort.DataType.IsCastableTo(DataType) &&
-                                HostCanvas.TypeSensitive && PortType == PortTypes.Output
+                                (
+                                    HostCanvas.TempStartPort.DataType.IsCastableTo(DataType) &&
+                                    HostCanvas.TypeSensitive && PortType == PortTypes.Output
+                                    ||
+                                    DataType.IsCastableTo(HostCanvas.TempStartPort.DataType) &&
+                                    HostCanvas.TypeSensitive && PortType == PortTypes.Input
+                                    ) // data types matching
                                 ||
-                                DataType.IsCastableTo(HostCanvas.TempStartPort.DataType) &&
-                                HostCanvas.TypeSensitive && PortType == PortTypes.Input
-                                ) // data types matching
-                            ||
-                            (!HostCanvas.TypeSensitive) // data types must not match
-                            )
-                        && PortType != HostCanvas.TempStartPort.PortType
+                                (!HostCanvas.TypeSensitive) // data types must not match
+                                )
+                            && PortType != HostCanvas.TempStartPort.PortType
                             // is not same port type --> input to output or output to input
-                        && !Equals(ParentNode, HostCanvas.TempStartPort.ParentNode)) // is not same node
-                    {
-                        Connector connector;
-
-                        if (PortType == PortTypes.Output)
+                            && !Equals(ParentNode, HostCanvas.TempStartPort.ParentNode)) // is not same node
                         {
-                            if (HostCanvas.TempStartPort.ConnectedConnectors.Count > 0)
-                            {
-                                if (!HostCanvas.TempStartPort.MultipleConnectionsAllowed)
-                                {
-                                    foreach (var tempConnector in HostCanvas.TempStartPort.ConnectedConnectors)
-                                        tempConnector.RemoveFromCanvas();
+                            Connector connector;
 
-                                    HostCanvas.TempStartPort.ConnectedConnectors.Clear();
+                            if (PortType == PortTypes.Output)
+                            {
+                                if (HostCanvas.TempStartPort.ConnectedConnectors.Count > 0)
+                                {
+                                    if (!HostCanvas.TempStartPort.MultipleConnectionsAllowed)
+                                    {
+                                        foreach (var tempConnector in HostCanvas.TempStartPort.ConnectedConnectors)
+                                            tempConnector.RemoveFromCanvas();
+
+                                        HostCanvas.TempStartPort.ConnectedConnectors.Clear();
+                                    }
                                 }
+
+                                connector = new Connector(HostCanvas, this, HostCanvas.TempStartPort);
+                            }
+                            else
+                            {
+                                if (ConnectedConnectors.Count > 0)
+                                {
+                                    if (!MultipleConnectionsAllowed)
+                                    {
+                                        foreach (var tempConnector in ConnectedConnectors)
+                                            tempConnector.RemoveFromCanvas();
+
+                                        ConnectedConnectors.Clear();
+                                    }
+
+                                }
+
+                                connector = new Connector(HostCanvas, HostCanvas.TempStartPort, this);
                             }
 
-                            connector = new Connector(HostCanvas, this, HostCanvas.TempStartPort);
-                        }
-                        else
-                        {
-                            if (ConnectedConnectors.Count > 0)
-                            {
-                                if (!MultipleConnectionsAllowed)
-                                {
-                                    foreach (var tempConnector in ConnectedConnectors)
-                                        tempConnector.RemoveFromCanvas();      
-
-                                    ConnectedConnectors.Clear();
-                                }
-        
-                            }
-
-                            connector = new Connector(HostCanvas, HostCanvas.TempStartPort, this);
+                            HostCanvas.ConnectorCollection.Add(connector);
                         }
 
-                        HostCanvas.ConnectorCollection.Add(connector);
-                    }
 
-
-                    HostCanvas.SplineMode = SplineModes.Nothing;
-                    HostCanvas.ClearTempLine();
-                    break;
+                        HostCanvas.SplineMode = SplineModes.Nothing;
+                        HostCanvas.ClearTempLine();
+                        break;
+                }
             }
-
-            e.Handled = true;
+            else if (e.RightButton == MouseButtonState.Pressed)
+            {
+                foreach (var connector in ConnectedConnectors)
+                {
+                    connector.RemoveFromCanvas();
+                }
+                ConnectedConnectors.Clear();
+            }
+            // e.Handled = true;
         }
 
         public void StartPort_DataChanged(object sender, EventArgs e)
@@ -223,6 +232,11 @@ namespace TUM.CMS.VplControl.Core
             }
 
             OnDataChanged();
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 

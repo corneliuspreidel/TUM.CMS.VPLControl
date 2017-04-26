@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Controls;
 using BimPlus.Sdk.Data.DbCore;
+using BimPlus.Sdk.Data.TenantDto;
 using TUM.CMS.VplControl.BimPlus.BaseNodes;
 using TUM.CMS.VplControl.BimPlus.Controls;
 using TUM.CMS.VplControl.BimPlus.Utilities;
@@ -17,9 +19,10 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
         private readonly PropertyNodeControl _control;
 
         private List<DtObject> _filteredElements;
-
         private List<string> _attributeGroups;
         private List<string> _attributes;
+
+        private List<DtObject> objectList; 
 
         public PropertyNode(Core.VplControl hostCanvas): base(hostCanvas)
         { 
@@ -56,15 +59,14 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             if (_control.ElementTypeListBox.SelectedItem != null)
             {
                 var selectedElementTypes = (_control.ElementTypeListBox.SelectedItems);
-                // var selectedElementTypes = (_control.ElementTypeListBox.SelectedItems as List<string>).Select(elementType => elementType.Name).ToList();
-
-                foreach (var elem in InputPorts[0].Data as List<DtObject>)
+                foreach (var elem in objectList)
                 {
                     if (elem != null && selectedElementTypes.Contains(elem.Type))
                     {
                         _filteredElements.Add(elem);
                     }
                 }
+
                 OutputPorts[0].Data = _filteredElements;
 
                 // Set as the Filtered Elements
@@ -153,13 +155,41 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             // Check values ... 
             if (InputPorts[0].Data == null) return;
-            if (InputPorts[0].Data.GetType() != typeof(List<DtObject>)) return;
+            if (InputPorts[0].Data.GetType() != typeof(ModelInfo)) return;
+
+            var modelInfo = (ModelInfo) InputPorts[0].Data;
+            objectList = new List<DtObject>();
+
+            if (modelInfo != null && modelInfo.ModelType == ModelType.BimPlusModel)
+            {
+                // Get the corresponding model
+                var model = _controller.BimPlusModels[Guid.Parse(modelInfo.ModelId)];
+                if (model == null) return;
+
+                // _controller.IntBase.APICore.DtObjects.GetDtObjectsWithPropertiesById()
+
+                objectList = model.Objects.Where(item => modelInfo.ElementIds.Contains(item.Id)).ToList();
+
+                var propertyObjectList = _controller.IntBase.ApiCore.DtObjects.GetDtObjectsWithPropertiesById(modelInfo.ElementIds);
+
+
+                // foreach (var item in objectList)
+                // {
+                //     var res = _controller.IntBase.APICore.DtObjects.GetDtObjectsWithPropertiesById(item.Id);
+                //     resultList.Add(res);
+                // }
+                // 
+                // objectList = resultList;
+
+            }
+            // modelInfo.GetCurrentElements()
+            // modelInfo.ElementIds
 
             // Init the ComboBox 
             _control.ElementTypeListBox.Items.Clear();
 
             // Loop through all the elements
-            foreach (var elem in InputPorts[0].Data as List<DtObject>)
+            foreach (var elem in objectList)
             {
                 if (_control.ElementTypeListBox.Items.Contains(elem.Type) == false)
                     _control.ElementTypeListBox.Items.Add(elem.Type);

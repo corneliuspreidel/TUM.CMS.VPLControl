@@ -9,12 +9,10 @@ using BimPlus.Client;
 using BimPlus.Client.Integration;
 using BimPlus.Client.Integration.Login;
 using BimPlus.Client.WebControls.WPF;
-using BimPlus.Sdk.Data.TenantDto;
 using BimPlus.Sdk.Data.UserAdministration;
 using TUM.CMS.VplControl.BimPlus.Nodes;
 using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
-using TUM.CMS.VplControl.IFC.Nodes;
 using TUM.CMS.VplControl.Relations.Nodes;
 using TUM.CMS.VplControl.Utilities;
 using TUM.CMS.VplControl.Watch3D.Nodes;
@@ -56,10 +54,9 @@ namespace TUM.CMS.VplControl.BimPlusTest
             Login();
 
             // Teams .. 
-
             if (_dataController != null)
             {
-                TeamComboBox.ItemsSource = _dataController.IntBase.GetTeams();
+                TeamComboBox.ItemsSource = _dataController.IntBase.ApiCore.GetTeams();
                 TeamComboBox.DisplayMemberPath = "DisplayName";
                 TeamComboBox.SelectedItem = _dataController.IntBase.CurrentTeam;
             }
@@ -73,9 +70,9 @@ namespace TUM.CMS.VplControl.BimPlusTest
                 ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof(Watch3DNode)), "TUM.CMS.VplControl.Watch3D.Nodes")
                     .ToList());
 
-            VplControl.ExternalNodeTypes.AddRange(
-                ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof (IfcNode)), "TUM.CMS.VplControl.IFC.Nodes")
-                    .ToList());
+            // VplControl.ExternalNodeTypes.AddRange(
+            //     ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof (IfcNode)), "TUM.CMS.VplControl.IFC.Nodes")
+            //         .ToList());
 
             VplControl.ExternalNodeTypes.AddRange(
                 ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof(ProjectNode)), "TUM.CMS.VplControl.BimPlus.Nodes")
@@ -184,7 +181,7 @@ namespace TUM.CMS.VplControl.BimPlusTest
             }
 
             // Choose the first default Team
-            _dataController.IntBase.CurrentTeam = _dataController.IntBase.GetTeams().FirstOrDefault();
+            _dataController.IntBase.CurrentTeam = _dataController.IntBase.ApiCore.GetTeams().FirstOrDefault();
 
             // Update UI
             if (Application.Current != null)
@@ -219,7 +216,7 @@ namespace TUM.CMS.VplControl.BimPlusTest
 
             if (args == null) return;
 
-            foreach (var item in DataController.Instance.IntBase.APICore.Projects.GetShortProjects())
+            foreach (var item in DataController.Instance.IntBase.ApiCore.Projects.GetShortProjects())
             {
                 if (item.Id != args.Id) continue;
                 // Set it local

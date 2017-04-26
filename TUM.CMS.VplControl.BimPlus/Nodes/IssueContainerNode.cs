@@ -32,7 +32,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             var project = InputPorts[0].Data as Project;
             if (project == null) return;
 
-            foreach (var item in _controller.IntBase.APICore.Issues.GetShortIssues(project.Id))
+            foreach (var item in _controller.IntBase.ApiCore.Issues.GetShortIssues(project.Id))
             {
                 _issues.Add(item);
             }

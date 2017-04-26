@@ -129,6 +129,8 @@ namespace TUM.CMS.VplControl.Core
             Loaded += Node_Loaded;
             KeyUp += Node_KeyUp;
             KeyDown += Node_KeyDown;
+            MouseDown += OnMouseDown;
+            MouseWheel += OnMouseWheel;
 
             // ----------------------------------------------------------------------------------------------------------------------
             // Comments
@@ -170,6 +172,17 @@ namespace TUM.CMS.VplControl.Core
 
             SetZIndex(TopComment, myid);
             SetZIndex(BottomComment, myid);
+        }
+
+        private void OnMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (IsMouseOver)
+                e.Handled = true;
+        }
+
+        private void OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = false;
         }
 
         void QuestButton_Click(object sender, RoutedEventArgs e)
