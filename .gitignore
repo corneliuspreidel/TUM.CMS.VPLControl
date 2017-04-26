@@ -17,8 +17,8 @@
 /TUM.CMS.VplControl.BimPlusTest/bin
 /TUM.CMS.VplControl.BimPlusTest/obj
 /packages
-/obj
-/bin
+#bin/
+#obj/
 *.suo
 *.cache
 *.resources

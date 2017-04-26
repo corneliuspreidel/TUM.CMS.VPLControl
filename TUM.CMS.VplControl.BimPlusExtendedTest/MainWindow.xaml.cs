@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
@@ -11,7 +9,6 @@ using System.Windows.Input;
 using System.Windows.Media.Animation;
 using BimPlus.Client.WebControls.WPF;
 using TUM.CMS.ExtendedVplControl.Nodes;
-using TUM.CMS.VplControl.BimPlus;
 using TUM.CMS.VplControl.BimPlus.Nodes;
 using TUM.CMS.VplControl.BimPlus.Ports.Input;
 using TUM.CMS.VplControl.BimPlus.Ports.Output;
@@ -19,10 +16,10 @@ using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Relations.Nodes;
 using TUM.CMS.VplControl.Utilities;
+using TUM.CMS.VplControl.VCCL.Nodes;
 using TUM.CMS.VplControl.Watch3D.Nodes;
 using TUM.CMS.VplControl.Watch3Dx.Nodes;
 using TUM.CMS.VPL.Scripting.Nodes;
-using Xceed.Wpf.Toolkit.PropertyGrid;
 
 namespace TUM.CMS.VplControl.BimPlusExtendedTest
 {
@@ -75,10 +72,6 @@ namespace TUM.CMS.VplControl.BimPlusExtendedTest
                 ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof(Watch3DNode)), "TUM.CMS.VplControl.Watch3D.Nodes")
                     .ToList());
 
-            // VplControl.MainVplControl.ExternalNodeTypes.AddRange(
-            //     ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof (IfcNode)), "TUM.CMS.VplControl.IFC.Nodes")
-            //         .ToList());
-
             VplControl.MainVplControl.ExternalNodeTypes.AddRange(
                 ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof(ProjectNode)), "TUM.CMS.VplControl.BimPlus.Nodes")
                     .ToList());
@@ -93,6 +86,10 @@ namespace TUM.CMS.VplControl.BimPlusExtendedTest
 
             VplControl.MainVplControl.ExternalNodeTypes.AddRange(
                 ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof(JoinNode)), "TUM.CMS.VplControl.Relations.Nodes")
+                    .ToList());
+
+            VplControl.MainVplControl.ExternalNodeTypes.AddRange(
+                ClassUtility.GetTypesInNamespace(Assembly.GetAssembly(typeof (IfcNode)), "TUM.CMS.VplControl.VCCL.Nodes")
                     .ToList());
 
             VplControl.MainVplControl.NodeTypeMode = NodeTypeModes.All;

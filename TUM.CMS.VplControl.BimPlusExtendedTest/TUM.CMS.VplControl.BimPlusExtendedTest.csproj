@@ -60,6 +60,10 @@
       <Project>{E85C5813-1373-4BB3-8B6F-D275E9CAB487}</Project>
       <Name>TUM.CMS.ExtendedVplControl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TUM.CMS.VplControl.VCCL\TUM.CMS.VplControl.VCCL.csproj">
+      <Project>{223BA18E-A52E-4065-BB6D-697E486EC78B}</Project>
+      <Name>TUM.CMS.VplControl.VCCL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TUM.CMS.VplControl\TUM.CMS.VplControl.csproj">
       <Project>{593e9bfd-be78-4487-9e22-76ae7df0b84a}</Project>
       <Name>TUM.CMS.VplControl</Name>

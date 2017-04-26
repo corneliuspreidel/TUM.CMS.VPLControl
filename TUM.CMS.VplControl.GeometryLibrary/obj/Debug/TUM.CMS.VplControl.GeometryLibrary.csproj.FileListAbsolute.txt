@@ -1,7 +1,0 @@
-C:\dev\TUM.CMS.VPLControl\TUM.CMS.VplControl.GeometryLibrary\obj\Debug\TUM.CMS.VplControl.GeometryLibrary.csprojResolveAssemblyReference.cache
-C:\dev\TUM.CMS.VPLControl\TUM.CMS.VplControl.GeometryLibrary\bin\Debug\TUM.CMS.VplControl.GeometryLibrary.dll
-C:\dev\TUM.CMS.VPLControl\TUM.CMS.VplControl.GeometryLibrary\bin\Debug\TUM.CMS.VplControl.GeometryLibrary.pdb
-C:\dev\TUM.CMS.VPLControl\TUM.CMS.VplControl.GeometryLibrary\bin\Debug\MathNet.Numerics.dll
-C:\dev\TUM.CMS.VPLControl\TUM.CMS.VplControl.GeometryLibrary\bin\Debug\MathNet.Numerics.xml
-C:\dev\TUM.CMS.VPLControl\TUM.CMS.VplControl.GeometryLibrary\obj\Debug\TUM.CMS.VplControl.GeometryLibrary.dll
-C:\dev\TUM.CMS.VPLControl\TUM.CMS.VplControl.GeometryLibrary\obj\Debug\TUM.CMS.VplControl.GeometryLibrary.pdb
