@@ -90,13 +90,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.WebControls\bin\x64\Debug\EO.WebBrowser.dll</HintPath>
     </Reference>
-    <Reference Include="HelixToolkit.Wpf, Version=2015.1.558.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ExternalLibraries\HelixToolkit.Wpf\HelixToolkit.Wpf.dll</HintPath>
+    <Reference Include="HelixToolkit, Version=2015.1.715.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
+      <HintPath>..\packages\HelixToolkit.2015.1.715\lib\portable-net4+sl4+wp71+win8\HelixToolkit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="HelixToolkit.Wpf.SharpDX, Version=2014.2.1.1, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ExternalLibraries\HelixToolKit.Wpf.SharpDx\HelixToolkit.Wpf.SharpDX.dll</HintPath>
+    <Reference Include="HelixToolkit.Wpf, Version=2015.1.715.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
+      <HintPath>..\packages\HelixToolkit.Wpf.2015.1.715\lib\net45\HelixToolkit.Wpf.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=3.11.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.3.11.1\lib\net40\MathNet.Numerics.dll</HintPath>
@@ -114,11 +114,9 @@
       <HintPath>..\..\BIF\src\bin\Debug\PPAttribPictureType3.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QL4BIMspatial">
-      <HintPath>..\..\QL4BIM\Ql4BIMSeeBridge\bin\Debug\QL4BIMspatial.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX">
-      <HintPath>..\ExternalLibraries\HelixToolKit.Wpf.SharpDx\SharpDX.dll</HintPath>
+    <Reference Include="QL4BIMspatial, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExternalLibraries\QL4BIM\QL4BIMspatial.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -161,34 +159,32 @@
     <Reference Include="PresentationFramework">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xceed.Wpf.Toolkit, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseNodes\UtilityNode.cs" />
-    <Compile Include="BaseNodes\DataObjectNode.cs" />
     <Compile Include="ContractNames.cs" />
     <Compile Include="Controls\GeometryViewerControl.xaml.cs">
       <DependentUpon>GeometryViewerControl.xaml</DependentUpon>
@@ -227,7 +223,6 @@
     <Compile Include="Nodes\PropertyNode.cs" />
     <Compile Include="Nodes\StructureFilterNode.cs" />
     <Compile Include="Nodes\WebProjectSelectionNode.cs" />
-    <Compile Include="BaseNodes\OperatorObjectNode.cs" />
     <Compile Include="Nodes\ProjectNode.cs" />
     <Compile Include="Nodes\WebBrowserNode.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -274,6 +269,10 @@
     <ProjectReference Include="..\TUM.CMS.VplControl.Relations\TUM.CMS.VplControl.Relations.csproj">
       <Project>{7998936E-8D8F-42D7-A7CB-5CBFDE36CEC2}</Project>
       <Name>TUM.CMS.VplControl.Relations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUM.CMS.VplControl.VCCL\TUM.CMS.VplControl.VCCL.csproj">
+      <Project>{9357B748-1070-41EC-BC76-2F6A69C53268}</Project>
+      <Name>TUM.CMS.VplControl.VCCL</Name>
     </ProjectReference>
     <ProjectReference Include="..\TUM.CMS.VplControl.Watch3Dx\TUM.CMS.VplControl.Watch3Dx.csproj">
       <Project>{BEBDB071-0B4A-459E-81CE-49A12391D1D5}</Project>

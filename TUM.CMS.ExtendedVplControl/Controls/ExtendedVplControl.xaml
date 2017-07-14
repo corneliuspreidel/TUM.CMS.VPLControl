@@ -7,7 +7,6 @@
              xmlns:controls="clr-namespace:TUM.CMS.ExtendedVplControl.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -17,6 +16,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
+       
         <!-- Input -->
         <controls:PortArea x:Name="InputPortArea" x:FieldModifier="public" Grid.Column="0" Canvas.ZIndex="500" PortAreaType="InputArea"/>
         <!-- Main VPLControl -->

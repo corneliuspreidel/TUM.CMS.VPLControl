@@ -1,1 +1,0 @@
-D:\dev\TUM.CMS.VPLControl\TUM.CMS.VplControl.BimPlusExtendedTest\bin\Debug\TUM.CMS.VplControl.BimPlusExtendedTest.exe.config

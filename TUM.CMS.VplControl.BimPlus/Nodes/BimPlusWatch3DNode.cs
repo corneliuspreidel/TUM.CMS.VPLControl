@@ -10,7 +10,6 @@ using System.Windows.Media.Media3D;
 using BimPlus.Sdk.Data.DbCore;
 using BimPlus.Sdk.Data.Geometry;
 using HelixToolkit.Wpf;
-using HelixToolkit.Wpf.SharpDX.Core;
 using TUM.CMS.VplControl.BimPlus.Utilities;
 using TUM.CMS.VplControl.Relations.Data;
 using TUM.CMS.VplControl.Watch3D.Nodes;

@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="TUM.CMS.VplControl.IFC.Controls.IfcElementFilterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TUM.CMS.VplControl.IFC.Controls"
+             xmlns:core="clr-namespace:TUM.CMS.VplControl.Core;assembly=TUM.CMS.VplControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <core:SearchTextBox Name="_searchTextBox"/>
+        <ListBox Name="_filterListBox" Grid.Row="1"  SelectionMode="Multiple" MaxHeight="200" MinWidth="100"/>
+            
+    </Grid>
+</UserControl>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows;
 using System.Xml;
 using TUM.CMS.ExtendedVplControl.Ports;
+using TUM.CMS.VplControl.ContentMenu;
 using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Utilities;
 

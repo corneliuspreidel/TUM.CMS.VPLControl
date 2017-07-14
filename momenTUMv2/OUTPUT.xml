@@ -1,0 +1,503 @@
+<simulator version="0.9.0" simulationName="bim2simGraph" simEnd="1.0" timeStepDuration="0.5">
+  <layouts>
+    <scenario id="0" name="IFC_Test" maxX="43.740000005364415" maxY="36.71000003814697" minX="-13.424809583503816" minY="-9.424094200134277">
+      <graph id="0" name="0">
+        <vertex name="65" id="65">
+          <center x="11.025775612815496" y="-0.8797799427400597"/>
+        </vertex>
+        <vertex name="1" id="1">
+          <center x="-3.095434606075287" y="-3.1153241991996765"/>
+        </vertex>
+        <vertex name="2" id="2">
+          <center x="2.408940374851227" y="-3.1153241991996765"/>
+        </vertex>
+        <vertex name="3" id="3">
+          <center x="8.138315200805664" y="-3.1153241991996765"/>
+        </vertex>
+        <vertex name="4" id="4">
+          <center x="6.625815272331238" y="-7.971569776535034"/>
+        </vertex>
+        <vertex name="5" id="5">
+          <center x="0.8964404463768005" y="-7.971569776535034"/>
+        </vertex>
+        <vertex name="6" id="6">
+          <center x="-3.095434606075287" y="-3.1153241991996765"/>
+        </vertex>
+        <vertex name="7" id="7">
+          <center x="2.408940374851227" y="-3.1153241991996765"/>
+        </vertex>
+        <vertex name="8" id="8">
+          <center x="8.138315200805664" y="-3.1153241991996765"/>
+        </vertex>
+        <vertex name="9" id="9">
+          <center x="6.625815272331238" y="-7.971569776535034"/>
+        </vertex>
+        <vertex name="10" id="10">
+          <center x="0.8964404463768005" y="-7.971569776535034"/>
+        </vertex>
+        <vertex name="11" id="11">
+          <center x="2.6339402198791504" y="-5.754070043563843"/>
+        </vertex>
+        <vertex name="12" id="12">
+          <center x="-9.324809551239014" y="2.6259140968322754"/>
+        </vertex>
+        <vertex name="13" id="13">
+          <center x="-3.095434606075287" y="-7.971569776535034"/>
+        </vertex>
+        <vertex name="14" id="14">
+          <center x="-3.0954346058556377" y="-6.821570076166588"/>
+        </vertex>
+        <vertex name="15" id="15">
+          <center x="-11.119809577245428" y="-9.324093823890678"/>
+        </vertex>
+        <vertex name="16" id="16">
+          <center x="-5.324809583503892" y="-5.754070080934952"/>
+        </vertex>
+        <vertex name="17" id="17">
+          <center x="-3.1198095772454084" y="-9.241570080934963"/>
+        </vertex>
+        <vertex name="18" id="18">
+          <center x="-3.166059558171912" y="-4.686570076166585"/>
+        </vertex>
+        <vertex name="19" id="19">
+          <center x="2.458940441828088" y="-4.686570076166603"/>
+        </vertex>
+        <vertex name="20" id="20">
+          <center x="8.092690441828086" y="-4.686570076166622"/>
+        </vertex>
+        <vertex name="21" id="21">
+          <center x="1.033940394144362" y="-6.821570076166602"/>
+        </vertex>
+        <vertex name="22" id="22">
+          <center x="6.658940394144363" y="-6.821570076166621"/>
+        </vertex>
+        <vertex name="24" id="24">
+          <center x="-12.868668831628948" y="-9.775775612815496"/>
+        </vertex>
+        <vertex name="26" id="26">
+          <center x="-13.775775612815496" y="15.02022005725994"/>
+        </vertex>
+        <vertex name="28" id="28">
+          <center x="-11.768668831628949" y="-9.775775612815496"/>
+        </vertex>
+        <vertex name="29" id="29">
+          <center x="-11.768668831628949" y="-8.868668831628948"/>
+        </vertex>
+        <vertex name="30" id="30">
+          <center x="-10.464664501704384" y="-9.775775612815496"/>
+        </vertex>
+        <vertex name="32" id="32">
+          <center x="-10.464664501704384" y="-8.868668831628948"/>
+        </vertex>
+        <vertex name="36" id="36">
+          <center x="-5.7757756128154965" y="15.02022005725994"/>
+        </vertex>
+        <vertex name="37" id="37">
+          <center x="-5.7757756128154965" y="-7.1091089461488295"/>
+        </vertex>
+        <vertex name="38" id="38">
+          <center x="-5.7757756128154965" y="-4.3908910538511705"/>
+        </vertex>
+        <vertex name="42" id="42">
+          <center x="-3.768668831628948" y="-9.775775612815496"/>
+        </vertex>
+        <vertex name="43" id="43">
+          <center x="-3.768668831628948" y="-8.702002164962282"/>
+        </vertex>
+        <vertex name="44" id="44">
+          <center x="-2.4646645017043847" y="-9.775775612815496"/>
+        </vertex>
+        <vertex name="47" id="47">
+          <center x="-2.4646645017043847" y="-8.702002164962282"/>
+        </vertex>
+        <vertex name="50" id="50">
+          <center x="10.135335498295616" y="-0.8797799427400597"/>
+        </vertex>
+        <vertex name="60" id="60">
+          <center x="-13.675775612815496" y="-9.775775612815496"/>
+        </vertex>
+        <vertex name="61" id="61">
+          <center x="-13.222222222222221" y="15.02022005725994"/>
+        </vertex>
+        <vertex name="62" id="62">
+          <center x="-5.322222222222223" y="-9.775775612815496"/>
+        </vertex>
+        <vertex name="63" id="63">
+          <center x="-4.968668831628948" y="15.02022005725994"/>
+        </vertex>
+        <edge idLeft="65" idRight="50"/>
+        <edge idLeft="65" idRight="63"/>
+        <edge idLeft="3" idRight="20"/>
+        <edge idLeft="4" idRight="22"/>
+        <edge idLeft="8" idRight="20"/>
+        <edge idLeft="9" idRight="22"/>
+        <edge idLeft="12" idRight="37"/>
+        <edge idLeft="12" idRight="38"/>
+        <edge idLeft="12" idRight="32"/>
+        <edge idLeft="12" idRight="15"/>
+        <edge idLeft="13" idRight="43"/>
+        <edge idLeft="13" idRight="44"/>
+        <edge idLeft="13" idRight="47"/>
+        <edge idLeft="13" idRight="42"/>
+        <edge idLeft="13" idRight="17"/>
+        <edge idLeft="15" idRight="32"/>
+        <edge idLeft="15" idRight="30"/>
+        <edge idLeft="15" idRight="29"/>
+        <edge idLeft="15" idRight="37"/>
+        <edge idLeft="15" idRight="12"/>
+        <edge idLeft="15" idRight="28"/>
+        <edge idLeft="17" idRight="47"/>
+        <edge idLeft="17" idRight="13"/>
+        <edge idLeft="17" idRight="43"/>
+        <edge idLeft="17" idRight="42"/>
+        <edge idLeft="17" idRight="44"/>
+        <edge idLeft="20" idRight="22"/>
+        <edge idLeft="20" idRight="3"/>
+        <edge idLeft="20" idRight="8"/>
+        <edge idLeft="22" idRight="20"/>
+        <edge idLeft="22" idRight="4"/>
+        <edge idLeft="22" idRight="9"/>
+        <edge idLeft="24" idRight="42"/>
+        <edge idLeft="24" idRight="28"/>
+        <edge idLeft="24" idRight="44"/>
+        <edge idLeft="24" idRight="30"/>
+        <edge idLeft="24" idRight="62"/>
+        <edge idLeft="24" idRight="60"/>
+        <edge idLeft="26" idRight="61"/>
+        <edge idLeft="26" idRight="63"/>
+        <edge idLeft="26" idRight="36"/>
+        <edge idLeft="26" idRight="60"/>
+        <edge idLeft="28" idRight="29"/>
+        <edge idLeft="28" idRight="60"/>
+        <edge idLeft="28" idRight="32"/>
+        <edge idLeft="28" idRight="30"/>
+        <edge idLeft="28" idRight="24"/>
+        <edge idLeft="28" idRight="15"/>
+        <edge idLeft="29" idRight="38"/>
+        <edge idLeft="29" idRight="28"/>
+        <edge idLeft="29" idRight="30"/>
+        <edge idLeft="29" idRight="37"/>
+        <edge idLeft="29" idRight="32"/>
+        <edge idLeft="29" idRight="15"/>
+        <edge idLeft="30" idRight="15"/>
+        <edge idLeft="30" idRight="44"/>
+        <edge idLeft="30" idRight="29"/>
+        <edge idLeft="30" idRight="28"/>
+        <edge idLeft="30" idRight="32"/>
+        <edge idLeft="30" idRight="42"/>
+        <edge idLeft="30" idRight="62"/>
+        <edge idLeft="30" idRight="24"/>
+        <edge idLeft="30" idRight="60"/>
+        <edge idLeft="32" idRight="30"/>
+        <edge idLeft="32" idRight="28"/>
+        <edge idLeft="32" idRight="15"/>
+        <edge idLeft="32" idRight="38"/>
+        <edge idLeft="32" idRight="12"/>
+        <edge idLeft="32" idRight="37"/>
+        <edge idLeft="32" idRight="29"/>
+        <edge idLeft="36" idRight="63"/>
+        <edge idLeft="36" idRight="61"/>
+        <edge idLeft="36" idRight="26"/>
+        <edge idLeft="37" idRight="32"/>
+        <edge idLeft="37" idRight="15"/>
+        <edge idLeft="37" idRight="38"/>
+        <edge idLeft="37" idRight="29"/>
+        <edge idLeft="37" idRight="12"/>
+        <edge idLeft="38" idRight="32"/>
+        <edge idLeft="38" idRight="29"/>
+        <edge idLeft="38" idRight="37"/>
+        <edge idLeft="38" idRight="12"/>
+        <edge idLeft="42" idRight="17"/>
+        <edge idLeft="42" idRight="43"/>
+        <edge idLeft="42" idRight="24"/>
+        <edge idLeft="42" idRight="44"/>
+        <edge idLeft="42" idRight="60"/>
+        <edge idLeft="42" idRight="13"/>
+        <edge idLeft="42" idRight="62"/>
+        <edge idLeft="42" idRight="47"/>
+        <edge idLeft="42" idRight="30"/>
+        <edge idLeft="43" idRight="42"/>
+        <edge idLeft="43" idRight="17"/>
+        <edge idLeft="43" idRight="44"/>
+        <edge idLeft="43" idRight="13"/>
+        <edge idLeft="44" idRight="62"/>
+        <edge idLeft="44" idRight="43"/>
+        <edge idLeft="44" idRight="24"/>
+        <edge idLeft="44" idRight="47"/>
+        <edge idLeft="44" idRight="42"/>
+        <edge idLeft="44" idRight="13"/>
+        <edge idLeft="44" idRight="30"/>
+        <edge idLeft="44" idRight="60"/>
+        <edge idLeft="44" idRight="17"/>
+        <edge idLeft="47" idRight="17"/>
+        <edge idLeft="47" idRight="13"/>
+        <edge idLeft="47" idRight="44"/>
+        <edge idLeft="47" idRight="42"/>
+        <edge idLeft="50" idRight="65"/>
+        <edge idLeft="50" idRight="63"/>
+        <edge idLeft="60" idRight="28"/>
+        <edge idLeft="60" idRight="44"/>
+        <edge idLeft="60" idRight="26"/>
+        <edge idLeft="60" idRight="30"/>
+        <edge idLeft="60" idRight="24"/>
+        <edge idLeft="60" idRight="62"/>
+        <edge idLeft="60" idRight="42"/>
+        <edge idLeft="61" idRight="36"/>
+        <edge idLeft="61" idRight="26"/>
+        <edge idLeft="61" idRight="63"/>
+        <edge idLeft="62" idRight="60"/>
+        <edge idLeft="62" idRight="30"/>
+        <edge idLeft="62" idRight="44"/>
+        <edge idLeft="62" idRight="42"/>
+        <edge idLeft="62" idRight="24"/>
+        <edge idLeft="63" idRight="65"/>
+        <edge idLeft="63" idRight="36"/>
+        <edge idLeft="63" idRight="50"/>
+        <edge idLeft="63" idRight="26"/>
+        <edge idLeft="63" idRight="61"/>
+      </graph>
+      <area id="0" name="1" type="Intermediate">
+        <point x="-5.224809646606445" y="-1.6065782308578491"/>
+        <point x="-5.224809646606445" y="-4.624070167541504"/>
+        <point x="-0.9660595655441284" y="-4.624070167541504"/>
+        <point x="-0.9660595655441284" y="-1.6065782308578491"/>
+      </area>
+      <area id="1" name="2" type="Intermediate">
+        <point x="-0.8410595655441284" y="-1.6065782308578491"/>
+        <point x="-0.8410595655441284" y="-4.624070167541504"/>
+        <point x="5.658940315246582" y="-4.624070167541504"/>
+        <point x="5.658940315246582" y="-1.6065782308578491"/>
+      </area>
+      <area id="2" name="3" type="Intermediate">
+        <point x="5.783940315246582" y="-1.6065782308578491"/>
+        <point x="5.783940315246582" y="-4.624070167541504"/>
+        <point x="10.492690086364746" y="-4.624070167541504"/>
+        <point x="10.492690086364746" y="-1.6065782308578491"/>
+      </area>
+      <area id="3" name="4" type="Intermediate">
+        <point x="2.7589404582977295" y="-6.884069919586182"/>
+        <point x="2.7589404582977295" y="-9.059069633483887"/>
+        <point x="10.492690086364746" y="-9.059069633483887"/>
+        <point x="10.492690086364746" y="-6.884069919586182"/>
+      </area>
+      <area id="4" name="5" type="Intermediate">
+        <point x="-0.8410595655441284" y="-6.884069919586182"/>
+        <point x="-0.8410595655441284" y="-9.059069633483887"/>
+        <point x="2.6339404582977295" y="-9.059069633483887"/>
+        <point x="2.6339404582977295" y="-6.884069919586182"/>
+      </area>
+      <area id="5" name="1" type="Intermediate">
+        <point x="-5.224809646606445" y="-1.6065782308578491"/>
+        <point x="-5.224809646606445" y="-4.624070167541504"/>
+        <point x="-0.9660595655441284" y="-4.624070167541504"/>
+        <point x="-0.9660595655441284" y="-1.6065782308578491"/>
+      </area>
+      <area id="6" name="2" type="Intermediate">
+        <point x="-0.8410595655441284" y="-1.6065782308578491"/>
+        <point x="-0.8410595655441284" y="-4.624070167541504"/>
+        <point x="5.658940315246582" y="-4.624070167541504"/>
+        <point x="5.658940315246582" y="-1.6065782308578491"/>
+      </area>
+      <area id="7" name="3" type="Intermediate">
+        <point x="5.783940315246582" y="-1.6065782308578491"/>
+        <point x="5.783940315246582" y="-4.624070167541504"/>
+        <point x="10.492690086364746" y="-4.624070167541504"/>
+        <point x="10.492690086364746" y="-1.6065782308578491"/>
+      </area>
+      <area id="8" name="4" type="Intermediate">
+        <point x="2.7589404582977295" y="-6.884069919586182"/>
+        <point x="2.7589404582977295" y="-9.059069633483887"/>
+        <point x="10.492690086364746" y="-9.059069633483887"/>
+        <point x="10.492690086364746" y="-6.884069919586182"/>
+      </area>
+      <area id="9" name="5" type="Intermediate">
+        <point x="-0.8410595655441284" y="-6.884069919586182"/>
+        <point x="-0.8410595655441284" y="-9.059069633483887"/>
+        <point x="2.6339404582977295" y="-9.059069633483887"/>
+        <point x="2.6339404582977295" y="-6.884069919586182"/>
+      </area>
+      <area id="10" name="10" type="Intermediate">
+        <point x="-5.224809646606445" y="-4.749070167541504"/>
+        <point x="-5.224809646606445" y="-6.759069919586182"/>
+        <point x="10.492690086364746" y="-6.759069919586182"/>
+        <point x="10.492690086364746" y="-4.749070167541504"/>
+      </area>
+      <area id="11" name="13" type="Intermediate">
+        <point x="-13.224809646606445" y="14.475921630859375"/>
+        <point x="-13.224809646606445" y="-9.224093437194824"/>
+        <point x="-5.424809455871582" y="-9.224093437194824"/>
+        <point x="-5.424809455871582" y="14.475921630859375"/>
+      </area>
+      <area id="12" name="14" type="Intermediate">
+        <point x="-5.224809646606445" y="-6.884069919586182"/>
+        <point x="-5.224809646606445" y="-9.059069633483887"/>
+        <point x="-0.9660595655441284" y="-9.059069633483887"/>
+        <point x="-0.9660595655441284" y="-6.884069919586182"/>
+      </area>
+      <area id="13" type="Intermediate">
+        <point x="-3.6954346296974956" y="-6.759070076166588"/>
+        <point x="-3.6954346296974956" y="-6.884070076166588"/>
+        <point x="-2.4954345820137798" y="-6.884070076166588"/>
+        <point x="-2.4954345820137798" y="-6.759070076166588"/>
+      </area>
+      <area id="14" type="Intermediate">
+        <point x="-12.124809572477057" y="-9.224093822400562"/>
+        <point x="-12.124809572477057" y="-9.424093825380794"/>
+        <point x="-10.1148095820138" y="-9.424093825380794"/>
+        <point x="-10.1148095820138" y="-9.224093822400562"/>
+      </area>
+      <area id="15" type="Intermediate">
+        <point x="-5.424809584994009" y="-4.749070085703323"/>
+        <point x="-5.424809584994009" y="-6.75907007616658"/>
+        <point x="-5.224809582013776" y="-6.75907007616658"/>
+        <point x="-5.224809582013776" y="-4.749070085703323"/>
+      </area>
+      <area id="16" type="Intermediate">
+        <point x="-4.124809572477037" y="-9.059070076166591"/>
+        <point x="-4.124809572477037" y="-9.424070085703335"/>
+        <point x="-2.11480958201378" y="-9.424070085703335"/>
+        <point x="-2.11480958201378" y="-9.059070076166591"/>
+      </area>
+      <area id="17" type="Intermediate">
+        <point x="-3.76605958201377" y="-4.624070076166585"/>
+        <point x="-3.76605958201377" y="-4.749070076166585"/>
+        <point x="-2.566059534330054" y="-4.749070076166585"/>
+        <point x="-2.566059534330054" y="-4.624070076166585"/>
+      </area>
+      <area id="18" type="Intermediate">
+        <point x="1.85894041798623" y="-4.624070076166603"/>
+        <point x="1.85894041798623" y="-4.749070076166603"/>
+        <point x="3.058940465669946" y="-4.749070076166603"/>
+        <point x="3.058940465669946" y="-4.624070076166603"/>
+      </area>
+      <area id="19" type="Intermediate">
+        <point x="7.492690417986229" y="-4.624070076166622"/>
+        <point x="7.492690417986229" y="-4.749070076166622"/>
+        <point x="8.692690465669944" y="-4.749070076166622"/>
+        <point x="8.692690465669944" y="-4.624070076166622"/>
+      </area>
+      <area id="20" type="Intermediate">
+        <point x="0.433940370302504" y="-6.759070076166602"/>
+        <point x="0.433940370302504" y="-6.884070076166602"/>
+        <point x="1.6339404179862198" y="-6.884070076166602"/>
+        <point x="1.6339404179862198" y="-6.759070076166602"/>
+      </area>
+      <area id="21" type="Intermediate">
+        <point x="6.058940370302505" y="-6.759070076166621"/>
+        <point x="6.058940370302505" y="-6.884070076166621"/>
+        <point x="7.258940417986221" y="-6.884070076166621"/>
+        <point x="7.258940417986221" y="-6.759070076166621"/>
+      </area>
+      <obstacle id="0" name="Basiswand:TUMCMS_WS1516_BasicWall_STB 20cm:443330" type="Solid">
+        <point x="-13.422222222222222" y="14.666666666666666"/>
+        <point x="-13.422222222222222" y="-9.422222222222222"/>
+        <point x="-13.222222222222221" y="-9.422222222222222"/>
+        <point x="-13.222222222222221" y="14.666666666666666"/>
+      </obstacle>
+      <obstacle id="1" name="Basiswand:TUMCMS_WS1516_BasicWall_STB 20cm:443505" type="Solid">
+        <point x="-13.222222222222221" y="-9.222222222222221"/>
+        <point x="-13.222222222222221" y="-9.422222222222222"/>
+        <point x="-12.122222222222222" y="-9.422222222222222"/>
+        <point x="-12.122222222222222" y="-9.222222222222221"/>
+      </obstacle>
+      <obstacle id="2" name="Basiswand:TUMCMS_WS1516_BasicWall_STB 20cm:443505" type="Solid">
+        <point x="-10.11111111111111" y="-9.222222222222221"/>
+        <point x="-10.11111111111111" y="-9.422222222222222"/>
+        <point x="-5.4222222222222225" y="-9.422222222222222"/>
+        <point x="-5.4222222222222225" y="-9.222222222222221"/>
+      </obstacle>
+      <obstacle id="3" name="Basiswand:TUMCMS_WS1516_BasicWall_STB 20cm:443566" type="Solid">
+        <point x="-5.4222222222222225" y="14.666666666666666"/>
+        <point x="-5.4222222222222225" y="-9.422222222222222"/>
+        <point x="-5.222222222222222" y="-9.422222222222222"/>
+        <point x="-5.222222222222222" y="14.666666666666666"/>
+      </obstacle>
+      <obstacle id="4" name="Basiswand:TUMCMS_WS1516_BasicWall_STB 20cm:443566" type="Solid">
+        <point x="-5.4222222222222225" y="-4.7444444444444445"/>
+        <point x="-5.4222222222222225" y="-6.7555555555555555"/>
+        <point x="-5.222222222222222" y="-6.7555555555555555"/>
+        <point x="-5.222222222222222" y="-4.7444444444444445"/>
+      </obstacle>
+      <obstacle id="5" name="Basiswand:TUMCMS_WS1516_BasicWall_STB 20cm:443619" type="Solid">
+        <point x="-13.222222222222221" y="14.666666666666666"/>
+        <point x="-13.222222222222221" y="14.466666666666667"/>
+        <point x="-5.4222222222222225" y="14.466666666666667"/>
+        <point x="-5.4222222222222225" y="14.666666666666666"/>
+      </obstacle>
+      <obstacle id="6" name="Basiswand:TUMCMS_WS1516_BasicWall_MW36-5:443717" type="Solid">
+        <point x="-5.222222222222222" y="-9.055555555555555"/>
+        <point x="-5.222222222222222" y="-9.422222222222222"/>
+        <point x="-4.122222222222222" y="-9.422222222222222"/>
+        <point x="-4.122222222222222" y="-9.055555555555555"/>
+      </obstacle>
+      <obstacle id="7" name="Basiswand:TUMCMS_WS1516_BasicWall_MW36-5:443717" type="Solid">
+        <point x="-2.111111111111111" y="-9.055555555555555"/>
+        <point x="-2.111111111111111" y="-9.422222222222222"/>
+        <point x="10.855555555555556" y="-9.422222222222222"/>
+        <point x="10.855555555555556" y="-9.055555555555555"/>
+      </obstacle>
+      <obstacle id="8" name="Basiswand:TUMCMS_WS1516_BasicWall_MW36-5:443757" type="Solid">
+        <point x="10.488888888888889" y="-1.2333333333333334"/>
+        <point x="10.488888888888889" y="-9.055555555555555"/>
+        <point x="10.855555555555556" y="-9.055555555555555"/>
+        <point x="10.855555555555556" y="-1.2333333333333334"/>
+      </obstacle>
+      <obstacle id="9" name="Basiswand:TUMCMS_WS1516_BasicWall_MW36-5:443813" type="Solid">
+        <point x="-5.222222222222222" y="-1.2333333333333334"/>
+        <point x="-5.222222222222222" y="-1.6"/>
+        <point x="10.488888888888889" y="-1.6"/>
+        <point x="10.488888888888889" y="-1.2333333333333334"/>
+      </obstacle>
+      <obstacle id="10" name="Basiswand:GK 12.5:456882" type="Solid">
+        <point x="-5.222222222222222" y="-4.622222222222222"/>
+        <point x="-5.222222222222222" y="-4.7444444444444445"/>
+        <point x="-3.7555555555555555" y="-4.7444444444444445"/>
+        <point x="7.488888888888889" y="-4.7444444444444445"/>
+        <point x="7.488888888888889" y="-4.622222222222222"/>
+      </obstacle>
+      <obstacle id="11" name="Basiswand:GK 12.5:456882" type="Solid">
+        <point x="8.688888888888888" y="-4.622222222222222"/>
+        <point x="8.688888888888888" y="-4.7444444444444445"/>
+        <point x="10.488888888888889" y="-4.7444444444444445"/>
+        <point x="10.488888888888889" y="-4.622222222222222"/>
+      </obstacle>
+      <obstacle id="12" name="Basiswand:GK 12.5:457101" type="Solid">
+        <point x="-5.222222222222222" y="-6.7555555555555555"/>
+        <point x="-5.222222222222222" y="-6.877777777777778"/>
+        <point x="-3.688888888888889" y="-6.877777777777778"/>
+        <point x="6.055555555555555" y="-6.877777777777778"/>
+        <point x="6.055555555555555" y="-6.7555555555555555"/>
+      </obstacle>
+      <obstacle id="13" name="Basiswand:GK 12.5:457101" type="Solid">
+        <point x="7.2555555555555555" y="-6.7555555555555555"/>
+        <point x="7.2555555555555555" y="-6.877777777777778"/>
+        <point x="10.488888888888889" y="-6.877777777777778"/>
+        <point x="10.488888888888889" y="-6.7555555555555555"/>
+      </obstacle>
+      <obstacle id="14" name="Basiswand:GK 12.5:457326" type="Solid">
+        <point x="2.6333333333333333" y="-6.877777777777778"/>
+        <point x="2.6333333333333333" y="-9.055555555555555"/>
+        <point x="2.7555555555555555" y="-9.055555555555555"/>
+        <point x="2.7555555555555555" y="-6.877777777777778"/>
+      </obstacle>
+      <obstacle id="15" name="Basiswand:GK 12.5:457511" type="Solid">
+        <point x="-0.9555555555555556" y="-6.877777777777778"/>
+        <point x="-0.9555555555555556" y="-9.055555555555555"/>
+        <point x="-0.8333333333333334" y="-9.055555555555555"/>
+        <point x="-0.8333333333333334" y="-6.877777777777778"/>
+      </obstacle>
+      <obstacle id="16" name="Basiswand:GK 12.5:457931" type="Solid">
+        <point x="-0.9555555555555556" y="-1.6"/>
+        <point x="-0.9555555555555556" y="-4.622222222222222"/>
+        <point x="-0.8333333333333334" y="-4.622222222222222"/>
+        <point x="-0.8333333333333334" y="-1.6"/>
+      </obstacle>
+      <obstacle id="17" name="Basiswand:GK 12.5:458078" type="Solid">
+        <point x="5.655555555555556" y="-1.6"/>
+        <point x="5.655555555555556" y="-4.622222222222222"/>
+        <point x="5.777777777777778" y="-4.622222222222222"/>
+        <point x="5.777777777777778" y="-1.6"/>
+      </obstacle>
+    </scenario>
+  </layouts>
+</simulator>

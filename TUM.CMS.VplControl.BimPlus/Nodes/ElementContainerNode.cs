@@ -141,6 +141,9 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
                     var model = _controller.IntBase.ApiCore.DtObjects.GetObjectGeometryAsThreeJs((Guid)dtoDivision.TopologyDivisionId);
                     projectId = dtoDivision.ProjectId;
 
+                    if (model == null)
+                        return; 
+
                     foreach (var elem in model.Objects)
                     {
                         var geom = new DbGeometry();

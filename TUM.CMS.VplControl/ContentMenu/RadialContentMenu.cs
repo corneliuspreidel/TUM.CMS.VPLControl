@@ -7,7 +7,6 @@ using System.Windows.Controls;
 using Microsoft.Win32.SafeHandles;
 using RadialMenu.Controls;
 using TUM.CMS.VplControl.Core;
-using TUM.CMS.VplControl.Nodes;
 using TUM.CMS.VplControl.Utilities;
 
 namespace TUM.CMS.VplControl.ContentMenu
@@ -99,7 +98,7 @@ namespace TUM.CMS.VplControl.ContentMenu
             }
         }
 
-        private void radialMenuitem_Click(object sender, RoutedEventArgs e)
+        private  void radialMenuitem_Click(object sender, RoutedEventArgs e)
         {
             var item = sender as RadialMenuItem;
 

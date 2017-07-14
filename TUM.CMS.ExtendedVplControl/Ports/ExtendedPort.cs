@@ -53,7 +53,7 @@ namespace TUM.CMS.ExtendedVplControl.Ports
             {
                 Child = PopupGrid,
                 PlacementTarget = this,
-                PopupAnimation = PopupAnimation.Slide,
+                PopupAnimation = PopupAnimation.Fade,
                 AllowsTransparency = true,
                 ClipToBounds = true,
             };
@@ -96,6 +96,37 @@ namespace TUM.CMS.ExtendedVplControl.Ports
                     }
 
                     port.UpdateLayout();
+                    // portArea.PortControl.Children.Remove(port);
+                    portArea.RecalculateLocationForAllPorts();
+                }
+                catch (Exception)
+                {
+
+                }
+
+                e.Handled = true;
+            }
+            // Remove the clicked port
+            else if (e.ClickCount == 2 && e.RightButton == MouseButtonState.Pressed)
+            {
+                var port = sender as ExtendedPort;
+                if (port == null)
+                    return;
+
+                // Get the ExtendedVplControl as Host UserControl 
+                DependencyObject ucParent = Parent;
+
+                while (!(ucParent is PortArea))
+                {
+                    ucParent = LogicalTreeHelper.GetParent(ucParent);
+                }
+                var portArea = ucParent as PortArea;
+                if (portArea == null)
+                    return;
+
+                try
+                {
+                    port.UpdateLayout();
                     portArea.PortControl.Children.Remove(port);
                     portArea.RecalculateLocationForAllPorts();
                 }
@@ -104,7 +135,7 @@ namespace TUM.CMS.ExtendedVplControl.Ports
 
                 }
 
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
 

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows.Media.Media3D;
-using HelixToolkit.Wpf.SharpDX;
-using SharpDX;
+﻿using HelixToolkit.Wpf.SharpDX;
 using TUM.CMS.VplControl.Core;
 using TUM.CMS.VplControl.Watch3Dx.Controls;
 using TUM.CMS.VplControl.Watch3Dx.Utilities;

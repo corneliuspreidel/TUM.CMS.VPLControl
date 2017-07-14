@@ -29,8 +29,6 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
-using TUM.CMS.ExtendedVplControl.Controls;
-using TUM.CMS.VplControl.Core;
 
 
 namespace TUM.CMS.ExtendedVplControl.Controls {

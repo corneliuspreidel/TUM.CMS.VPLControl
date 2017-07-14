@@ -4,4 +4,8 @@
   &lt;Assembly Path="C:\CMS\05_Programmierung\TUM.CMS.VplControl\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.Toolkit.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\dev\TUM.CMS.VPLControl\packages\MathNet.Numerics.3.11.1\lib\net40\MathNet.Numerics.dll" /&gt;&#xD;
   &lt;Assembly Path="D:\dev\BimPlus\api\src\BimPlus.ClientIntegration\BimPlus.Client.Api\bin\x64\Debug\BimPlus.Client.Api.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\dev\TUM.CMS.VPLControl\packages\MIConvexHull.1.1.17.0411\lib\netstandard1.0\MIConvexHull.NET Standard.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\dev\BIF\src\bin\Debug\BimPlus.Sdk.Data.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\dev\TUM.CMS.VPLControl\ExternalLibraries\QL4BIM\QL4BIMspatial.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\dev\TUM.CMS.VPLControl\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.Toolkit.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

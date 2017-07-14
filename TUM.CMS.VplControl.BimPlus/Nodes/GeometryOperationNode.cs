@@ -37,8 +37,9 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
             // Init the QL4BIM framework
             // Commented by CP on 24.04
-            //ql4Spatial.InitializeSettings();
-
+            
+            var settings = ql4Spatial.GetSettings();
+            
             // Input
             AddInputPortToNode("InputElements_1", typeof(List<DtObject>));
             // Input
@@ -63,7 +64,6 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             _button = new Button {Content = "Execute"};
             _button.Click += ButtonOnClick;
             AddControlToNode(_button);
-
         }
 
         private void ButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
@@ -84,6 +84,7 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
 
                 // Init the Settings for the operators
                 var settings = container.Resolve<ISettings>();
+
                 settings.Direction.RaysPerSquareMeter = 100;
                 settings.Direction.PositiveOffset = 100;
                 // The mapping of the operators is because of the transformation of the model
@@ -265,8 +266,6 @@ namespace TUM.CMS.VplControl.BimPlus.Nodes
             {
                 var jObject = item.AttributeGroups["geometry"]["threejs"] as JObject;
                 if (jObject == null) continue;
-
-                // var vertices = jObject.SelectToken("vertices").ToList().Select(value => value.Value<double>()).ToArray();
 
                 // Transformation 
                 var vertices = jObject.SelectToken("vertices").ToList().Select(value => value.Value<double>()).ToArray();

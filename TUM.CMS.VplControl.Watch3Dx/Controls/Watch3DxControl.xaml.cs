@@ -1,16 +1,6 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Windows.Media.Media3D;
+﻿using System.Windows.Media.Media3D;
 using HelixToolkit.Wpf.SharpDX;
-using HelixToolkit.Wpf.SharpDX.Core;
 using SharpDX;
-using SharpDX.Toolkit.Graphics;
-using TUM.CMS.VplControl.Annotations;
-using TUM.CMS.VplControl.Watch3Dx.Utilities;
-using Camera = HelixToolkit.Wpf.SharpDX.Camera;
-using GeometryModel3D = HelixToolkit.Wpf.SharpDX.GeometryModel3D;
 using PerspectiveCamera = HelixToolkit.Wpf.SharpDX.PerspectiveCamera;
 
 namespace TUM.CMS.VplControl.Watch3Dx.Controls

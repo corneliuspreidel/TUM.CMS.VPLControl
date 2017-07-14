@@ -4,6 +4,6 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="Settings" Height="900" Width="400" Topmost="True">
     <Grid>
-        <xctk:PropertyGrid Name="VplPropertyGrid" />
+        <xctk:PropertyGrid Name="VplPropertyGrid" x:FieldModifier="public" />
     </Grid>
 </Window>

@@ -1,0 +1,1 @@
+java -jar "D:\dev\TUM.CMS.VPLControl\momenTUMv2\momenTUMv2.jar"  --config "D:\dev\TUM.CMS.VPLControl\momenTUMv2\bim2simGraph.xml"
